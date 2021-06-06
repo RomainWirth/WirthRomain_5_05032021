@@ -1,7 +1,12 @@
+header {
+    background-color: #F3E9F1;
+}
+
 .main-container {
     width: 1440px;
-    margin: auto 0;
-    &__logo {
-        width: 20%;
-    }
+    margin: auto;
+}
+
+.top {
+    display: flex;
 }

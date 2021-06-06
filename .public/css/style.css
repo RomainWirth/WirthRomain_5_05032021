@@ -1,9 +1,14 @@
+header {
+  background-color: #F3E9F1;
+}
+
 .main-container {
   width: 1440px;
-  margin: auto 0;
+  margin: auto;
 }
-.main-container__logo {
-  width: 20%;
+
+.top {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */
