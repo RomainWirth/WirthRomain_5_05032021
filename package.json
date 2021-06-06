@@ -1,0 +1,19 @@
+{
+  "name": "wirthromain_5_05032021",
+  "version": "1.0.0",
+  "description": "Projet P5 Openclassrooms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomainWirth/WirthRomain_5_05032021.git"
+  },
+  "author": "Romain WIRTH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomainWirth/WirthRomain_5_05032021/issues"
+  },
+  "homepage": "https://github.com/RomainWirth/WirthRomain_5_05032021#readme"
+}
