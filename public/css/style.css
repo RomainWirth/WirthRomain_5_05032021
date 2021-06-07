@@ -1,0 +1,75 @@
+.main-container {
+  width: 1440px;
+  margin: auto;
+}
+
+/* *************** COLOUR *************** */
+/* ************************************** */
+/* *************** HEADER *************** */
+/* ************************************** */
+header {
+  background-color: #F3E9F1;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.top__logos {
+  display: flex;
+  align-items: center;
+}
+
+.white {
+  background-color: #FFF;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* *************** BUTTONS ************** */
+.button-1 {
+  height: 50px;
+  width: 20%;
+  border-radius: 25px;
+  background-color: #8F5BFE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ************************************** */
+/* **************** MAIN **************** */
+/* ************************************** */
+/* ************************************** */
+/* *************** FOOTER *************** */
+/* ************************************** */
+footer {
+  background-color: #F3E9F1;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.footer-wrapper__about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.footer-wrapper__social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-wrapper__social ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=style.css.map */
