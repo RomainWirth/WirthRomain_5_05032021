@@ -4,6 +4,7 @@
 }
 
 /* *************** COLOUR *************** */
+/* ************ TYPOGRAPHIE ************* */
 /* ************************************** */
 /* *************** HEADER *************** */
 /* ************************************** */
@@ -25,18 +26,14 @@ header {
   background-color: #FFF;
 }
 
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
 /* *************** BUTTONS ************** */
 .button-1 {
   height: 50px;
   width: 20%;
-  border-radius: 25px;
-  background-color: #8F5BFE;
+  border-radius: 25px 25px 0 0;
+  border-left: 2px solid #8F5BFE;
+  border-top: 2px solid #8F5BFE;
+  border-right: 2px solid #8F5BFE;
   display: flex;
   justify-content: center;
   align-items: center;
