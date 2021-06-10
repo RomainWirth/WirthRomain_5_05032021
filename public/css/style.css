@@ -1,35 +1,55 @@
 .main-container {
-  width: 1440px;
+  max-width: 1440px;
   margin: auto;
 }
 
 /* *************** COLOUR *************** */
-/* ************ TYPOGRAPHIE ************* */
-/* ************************************** */
-/* *************** HEADER *************** */
-/* ************************************** */
-header {
+.pink {
   background-color: #F3E9F1;
-}
-
-.top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.top__logos {
-  display: flex;
-  align-items: center;
 }
 
 .white {
   background-color: #FFF;
 }
 
+/* ************ TYPOGRAPHIE ************* */
+a {
+  text-decoration-line: none;
+  color: #000;
+}
+
+/* ************************************** */
+/* *************** HEADER *************** */
+/* ************************************** */
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.top__logos {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.top__logos--box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.top__logos--box i {
+  font-size: 1.5em;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+
 /* *************** BUTTONS ************** */
 .button-1 {
   height: 50px;
-  width: 20%;
   border-radius: 25px 25px 0 0;
   border-left: 2px solid #8F5BFE;
   border-top: 2px solid #8F5BFE;
@@ -39,16 +59,67 @@ header {
   align-items: center;
 }
 
+.button-buy {
+  border: 2px solid #D07E42;
+  width: 60px;
+  border-radius: 5px;
+  font-style: #D07E42;
+  text-align: center;
+}
+
 /* ************************************** */
 /* **************** MAIN **************** */
 /* ************************************** */
+main {
+  height: 800px;
+}
+
+.items-family {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.items-family h2 {
+  align-self: flex-start;
+}
+.items-family__item {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.items-family__item--box {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #cecece;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-image-dimension {
+  height: 174px;
+  width: 30%;
+}
+.item-image-dimension img {
+  width: 100%;
+}
+
+.item-description {
+  width: 50%;
+}
+
+.item-price {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* ************************************** */
 /* *************** FOOTER *************** */
 /* ************************************** */
-footer {
-  background-color: #F3E9F1;
-}
-
 .footer-wrapper {
   display: flex;
   flex-direction: column;
@@ -63,10 +134,10 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-.footer-wrapper__social ul {
+.footer-wrapper__social--links {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */
