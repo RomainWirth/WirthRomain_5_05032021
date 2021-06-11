@@ -74,6 +74,16 @@ a {
   text-align: center;
 }
 
+.payment-button {
+  border: 4px solid #d07e42;
+  width: auto;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-style: #d07e42;
+  text-align: center;
+}
+
 /* ************************************** */
 /* **************** MAIN **************** */
 /* ************************************** */
@@ -233,6 +243,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  white-space: nowrap;
 }
 
 .payment-form {
