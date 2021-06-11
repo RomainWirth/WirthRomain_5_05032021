@@ -252,6 +252,13 @@ a {
   border-radius: 15px;
   box-shadow: 0 0 15px #cecece;
 }
+.payment-form__registration--container {
+  padding: 0 4%;
+}
+.payment-form__registration--container .bank-info {
+  padding: 0 4%;
+}
+
 /* ************************************** */
 /* *************** FOOTER *************** */
 /* ************************************** */

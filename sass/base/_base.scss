@@ -266,8 +266,11 @@ a {text-decoration-line: none; color: $colour-text;}
         border: 2px solid $colour-text;
         border-radius: 15px;
         box-shadow: 0 0 15px $colour-shadow;
-        &--identity {
-
+        &--container {
+            padding: 0 4%;
+            & .bank-info {
+                padding: 0 4%;
+            }
         }
     }
 }
