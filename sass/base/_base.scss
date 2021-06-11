@@ -1,4 +1,4 @@
-.main-container {
+.page-container {
     max-width: 1440px;
     margin: auto;
 }
@@ -86,34 +86,34 @@ a {text-decoration-line: none; color: $colour-text;}
 /* **************** MAIN **************** */
 /* ************************************** */
 
-.catalog {
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    & h1 {
-        align-self: flex-start;
-    }
+}
+
+/* *** page catalogue *** */
+
+.catalog {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
     &__content {
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        height: 250px;
+        max-width: 325px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px $colour-shadow;
         margin-bottom: 20px;
-        &--box {
-            height: 250px;
-            max-width: 325px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px $colour-shadow;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 }
 
-/* *** conteneur *** */
+/* *** page catalogue : conteneur *** */
 
 .item {
     height: 250px;
@@ -147,13 +147,52 @@ a {text-decoration-line: none; color: $colour-text;}
     }
 }
 
+/* *** page fiche produit *** */
+
+.product-sheet {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    &__reference {
+        display: flex;
+        align-items: baseline;
+        &--title {
+            padding: 0 10%;
+        }
+        &--ref {
+            padding: 0 5%;
+        }
+    }
+    &__description {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        &--image {
+            height: 300px;
+            min-width: 50%;
+            max-width: 50%;
+            overflow: hidden;
+        }
+        &--image img {
+            width: 100%;
+        }
+        &--content {
+            width: 50%;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__buy-now {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
 
 /* ************************************** */
 /* *************** FOOTER *************** */
 /* ************************************** */
-
-
-
 
 .footer-wrapper {
     display: flex;

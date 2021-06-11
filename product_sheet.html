@@ -35,9 +35,9 @@
         </div>
         <nav class="page-container">
             <div class="navbar">
-                <a href="#">
+                <a href="index.html">
                     <div class="nav-button white">
-                        Navigation 1
+                        Catalogue
                     </div>
                 </a>
                 <a href="#">
@@ -51,38 +51,39 @@
 
     <main class="page-container">
         <section class="main-container">
-            <h1>Catalogue</h1>
-            <div class="catalog">
-                <div class="catalog__content">
-                    <div class="item">
-                        <div class="item__image-dimension">
-                            <a href="product_sheet.html">
-                                <img src="./public/images/ComingSoon.png" alt="image de l'objet"/>
-                            </a>
-                        </div>
-                        <div class="item__description">
-                            <div class="item__description--title">
-                                <a href="product_sheet.html">
-                                    <h2>item</h2>
-                                </a>
-                            </div>
-                            <div class="item__description--ref">
-                                <p id="ref">REF #1234</p>
-                            </div>
-                            <div class="item__description--price">
-                                <a href="product_sheet.html">
-                                    <p>15 &#8364;</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item__buy-now">
-                            <a href="panier.html">
-                                <p class="button-buy">BUY NOW</p>
-                            </a>
-                        </div>
+            <h1>Fiche Produit</h1>
+            <div class="product-sheet">
+                <div class="product-sheet__reference">
+                    <div class="product-sheet__reference--title">
+                        <h2>ITEM</h2>
+                    </div>
+                    <div class="product-sheet__reference--ref">
+                        <p id="ref">REF #1234</p>
                     </div>
                 </div>
-
+                <div class="product-sheet__description">
+                    <div class="product-sheet__description--image">
+                        <img src="public/images/ComingSoon.png" alt="image du produit">
+                    </div>
+                    <div class="product-sheet__description--content">
+                        <h3>ITEM</h3>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br> 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br> 
+                            It has survived not only five centuries, but also the leap into electronic typesetting,<br> 
+                            remaining essentially unchanged.<br> 
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,<br> 
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-sheet__buy-now">
+                    <a href="panier.html">
+                        <p class="button-buy">BUY NOW</p>
+                    </a>
+                    <p class="product-sheet__buy-now--price">15 &#8364;</p>                   
+                </div>
             </div>
         </section>
     </main>
@@ -127,4 +128,4 @@
         </div>
     </footer>
 </body>
-</html>
+
