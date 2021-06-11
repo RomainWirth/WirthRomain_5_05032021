@@ -5,11 +5,11 @@
 
 /* *************** COLOUR *************** */
 .pink {
-  background-color: #F3E9F1;
+  background-color: #f3e9f1;
 }
 
 .white {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 /* ************ TYPOGRAPHIE ************* */
@@ -48,72 +48,87 @@ a {
 }
 
 /* *************** BUTTONS ************** */
-.button-1 {
+.nav-button {
   height: 50px;
   border-radius: 25px 25px 0 0;
-  border-left: 2px solid #8F5BFE;
-  border-top: 2px solid #8F5BFE;
-  border-right: 2px solid #8F5BFE;
+  border-left: 2px solid #8f5bfe;
+  border-top: 2px solid #8f5bfe;
+  border-right: 2px solid #8f5bfe;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .button-buy {
-  border: 2px solid #D07E42;
+  border: 4px solid #d07e42;
   width: 60px;
   border-radius: 5px;
-  font-style: #D07E42;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-style: #d07e42;
   text-align: center;
 }
 
 /* ************************************** */
 /* **************** MAIN **************** */
 /* ************************************** */
-main {
-  height: 800px;
-}
-
-.items-family {
+.catalog {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.items-family h2 {
+.catalog h1 {
   align-self: flex-start;
 }
-.items-family__item {
+.catalog__content {
   width: 90%;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.catalog__content--box {
+  height: 250px;
+  max-width: 325px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #cecece;
+  margin-bottom: 20px;
+  display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+/* *** conteneur *** */
+.item {
+  height: 250px;
+  max-width: 325px;
+  position: relative;
+  z-index: 0;
+}
+.item__image-dimension {
+  height: 175px;
+  min-width: 100%;
+  max-width: 100%;
+}
+.item__image-dimension img {
+  width: 100%;
+}
+.item__description {
+  height: 75px;
+  background-color: #fff;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.items-family__item--box {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 15px #cecece;
-  width: 100%;
+.item__buy-now {
+  position: absolute;
+  right: 5%;
+  top: 5px;
+  z-index: 1;
   display: flex;
-  flex-direction: row;
-}
-
-.item-image-dimension {
-  height: 174px;
-  width: 30%;
-}
-.item-image-dimension img {
-  width: 100%;
-}
-
-.item-description {
-  width: 50%;
-}
-
-.item-price {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
