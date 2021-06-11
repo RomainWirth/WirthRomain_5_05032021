@@ -3,6 +3,11 @@
   margin: auto;
 }
 
+html, body, h1, form, fieldset, legend, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
 /* *************** COLOUR *************** */
 .pink {
   background-color: #f3e9f1;
@@ -174,6 +179,79 @@ a {
 }
 
 /* *** page panier ***/
+.selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #cecece;
+}
+.selection h2 {
+  width: 96%;
+  padding: 0 2%;
+}
+.selection__item {
+  width: 96%;
+  padding: 2%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.selection__item--image-mini {
+  min-width: 100px;
+  max-width: 100px;
+  height: 80px;
+  overflow: hidden;
+}
+.selection__item--image-mini img {
+  width: 100%;
+}
+.selection__total-price {
+  height: 50px;
+  width: 96%;
+  padding: 0 2%;
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+}
+.payment h2 {
+  width: 96%;
+  padding: 0 2%;
+}
+.payment__choice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+}
+.payment-form h2 {
+  width: 96%;
+  padding: 0 2%;
+}
+.payment-form__registration {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #cecece;
+}
 /* ************************************** */
 /* *************** FOOTER *************** */
 /* ************************************** */
@@ -195,6 +273,11 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.footer-wrapper__social--links p {
+  font-size: 24px;
+  text-align: center;
+  padding: 0 2%;
 }
 
 /*# sourceMappingURL=style.css.map */

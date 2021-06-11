@@ -3,6 +3,11 @@
     margin: auto;
 }
 
+html, body, h1, form, fieldset, legend, ol, li {
+    margin: 0;
+    padding: 0;
+  }
+
 /* *************** COLOUR *************** */
 
 $colour-base: #fff;
@@ -192,8 +197,80 @@ a {text-decoration-line: none; color: $colour-text;}
 
 /* *** page panier ***/
 
+.selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    border: 2px solid $colour-text;
+    border-radius: 15px;
+    box-shadow: 0 0 15px $colour-shadow;
+    & h2 {
+        width: 96%;
+        padding: 0 2%;
+    }
+    &__item {
+        width: 96%;
+        padding: 2%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        &--image-mini {
+            min-width: 100px;
+            max-width: 100px;
+            height: 80px;
+            overflow: hidden;
+        }
+        &--image-mini img {
+            width: 100%;
+        }
+    }
+    &__total-price {
+        height: 50px;
+        width: 96%;
+        padding: 0 2%;
+        border-top: 1px solid $colour-text;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+.payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    & h2 {
+        width: 96%;
+        padding: 0 2%;
+    }
+    &__choice {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    & h2 {
+        width: 96%;
+        padding: 0 2%;
+    }
+    &__registration {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid $colour-text;
+        border-radius: 15px;
+        box-shadow: 0 0 15px $colour-shadow;
+        &--identity {
 
-
+        }
+    }
+}
 
 
 /* ************************************** */
@@ -216,6 +293,11 @@ a {text-decoration-line: none; color: $colour-text;}
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            & p {
+                font-size: 24px;
+                text-align: center;
+                padding: 0 2%;
+            }
         }
     }
 }
