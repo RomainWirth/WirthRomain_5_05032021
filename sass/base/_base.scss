@@ -1,13 +1,15 @@
 .page-container {
     max-width: 1440px;
     margin: 0 auto 20px;
+    font-family: "Hind", sans-serif;
 }
 
 html, body, h1, form, fieldset, legend, ol, li {
     margin: 0;
     padding: 0;
-  }
+}
 
+/* ************* VARIABLES ************** */
 /* *************** COLOUR *************** */
 
 $colour-base: #fff;
@@ -18,6 +20,8 @@ $colour-secondary-lighter: #fa9852;
 $colour-tertiary: #f3e9f1;
 $colour-shadow: #cecece;
 
+a {text-decoration-line: none; color: $colour-text;}
+
 .pink {
     background-color: $colour-tertiary;
 }
@@ -26,12 +30,16 @@ $colour-shadow: #cecece;
     background-color: $colour-base;
 }
 
-/* ************ TYPOGRAPHIE ************* */
+/* *************** WIDTHS *************** */
 
+$width-small: 768px;
+$width-medium: 1024px;
 
+/* *************** MIXINS *************** */
 
-a {text-decoration-line: none; color: $colour-text;}
-
+@mixin media-queries-max($width) {
+    @media (max-width: $width) { @content; }
+}
 
 /* ************************************** */
 /* *************** HEADER *************** */

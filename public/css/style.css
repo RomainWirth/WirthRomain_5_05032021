@@ -1,6 +1,7 @@
 .page-container {
   max-width: 1440px;
   margin: 0 auto 20px;
+  font-family: "Hind", sans-serif;
 }
 
 html, body, h1, form, fieldset, legend, ol, li {
@@ -8,7 +9,13 @@ html, body, h1, form, fieldset, legend, ol, li {
   padding: 0;
 }
 
+/* ************* VARIABLES ************** */
 /* *************** COLOUR *************** */
+a {
+  text-decoration-line: none;
+  color: #000;
+}
+
 .pink {
   background-color: #f3e9f1;
 }
@@ -17,12 +24,8 @@ html, body, h1, form, fieldset, legend, ol, li {
   background-color: #fff;
 }
 
-/* ************ TYPOGRAPHIE ************* */
-a {
-  text-decoration-line: none;
-  color: #000;
-}
-
+/* *************** WIDTHS *************** */
+/* *************** MIXINS *************** */
 /* ************************************** */
 /* *************** HEADER *************** */
 /* ************************************** */
@@ -296,6 +299,14 @@ a {
   font-size: 24px;
   text-align: center;
   padding: 0 2%;
+}
+
+/* ************ TYPOGRAPHIE ************* */
+@font-face {
+  font-family: "Hind";
+  src: url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*# sourceMappingURL=style.css.map */
