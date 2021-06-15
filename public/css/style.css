@@ -189,6 +189,7 @@ html, body, h1, form, fieldset, legend, ol, li {
   align-items: center;
 }
 .item__description--title {
+  width: 80%;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -201,6 +202,10 @@ html, body, h1, form, fieldset, legend, ol, li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ref {
+  padding-left: 1%;
 }
 
 /* *** page fiche produit *** */
