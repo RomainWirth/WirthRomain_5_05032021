@@ -78,6 +78,17 @@ html, body, h1, form, fieldset, legend, ol, li {
   text-align: center;
   padding: 0 2%;
 }
+@media (max-width: 768px) {
+  .footer-wrapper__social--links p {
+    width: 100%;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  .footer-wrapper__social--links {
+    flex-direction: column;
+  }
+}
 
 /* ************************************** */
 /* *************** HEADER *************** */
@@ -88,12 +99,13 @@ html, body, h1, form, fieldset, legend, ol, li {
   justify-content: space-between;
 }
 .top__logos {
-  width: 20%;
+  width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
 }
 .top__logos--box {
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +113,21 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 .top__logos--box i {
   font-size: 1.5em;
+}
+@media (max-width: 768px) {
+  .top {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+  }
+}
+@media (max-width: 425px) {
+  .top {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 
 .navbar {
@@ -203,14 +230,33 @@ html, body, h1, form, fieldset, legend, ol, li {
   max-width: 50%;
   overflow: hidden;
 }
+@media (max-width: 425px) {
+  .product-sheet__description--image {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
 .product-sheet__description--image img {
   width: 100%;
+  margin: auto;
 }
 .product-sheet__description--content {
   width: 50%;
   padding: 0 5%;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 425px) {
+  .product-sheet__description--content {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .product-sheet__description {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 .product-sheet__buy-now {
   display: flex;
@@ -306,6 +352,7 @@ html, body, h1, form, fieldset, legend, ol, li {
   width: 220px;
   border-radius: 25px;
   border: 2px solid #8f5bfe;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
