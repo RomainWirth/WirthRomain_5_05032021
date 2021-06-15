@@ -7,6 +7,8 @@
 @import './layout/_containers.scss';
 @import './layout/_header.scss';
 
-@import './pages/_page.scss';
+@import './pages/page-catalog';
+@import './pages/_page-product-sheet';
+@import './pages/_page-panier';
 
 @import './components/_buttons.scss';

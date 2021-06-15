@@ -1,14 +1,4 @@
-.page-container {
-  max-width: 1440px;
-  margin: 0 auto 20px;
-  font-family: "Hind", sans-serif;
-}
-
-html, body, h1, form, fieldset, legend, ol, li {
-  margin: 0;
-  padding: 0;
-}
-
+/* *************** MIXINS *************** */
 /* ************* VARIABLES ************** */
 /* *************** COLOUR *************** */
 a {
@@ -25,7 +15,70 @@ a {
 }
 
 /* *************** WIDTHS *************** */
-/* *************** MIXINS *************** */
+.page-container {
+  max-width: 1440px;
+  margin: 0 auto 20px;
+  font-family: "Hind", sans-serif;
+}
+
+html, body, h1, form, fieldset, legend, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* ************************************** */
+/* **************** MAIN **************** */
+/* ************************************** */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-container h1 {
+  margin-bottom: 20px;
+}
+
+/* ************ TYPOGRAPHIE ************* */
+@font-face {
+  font-family: "Hind";
+  src: url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* ************************************** */
+/* *************** FOOTER *************** */
+/* ************************************** */
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.footer-wrapper__about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+@media (max-width: 768px) {
+  .footer-wrapper__about {
+    flex-direction: column;
+    padding-left: 2%;
+  }
+}
+.footer-wrapper__social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-wrapper__social--links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-wrapper__social--links p {
+  font-size: 24px;
+  text-align: center;
+  padding: 0 2%;
+}
+
 /* ************************************** */
 /* *************** HEADER *************** */
 /* ************************************** */
@@ -53,50 +106,15 @@ a {
 .navbar {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 20px;
 }
-
-/* *************** BUTTONS ************** */
-.nav-button {
-  height: 50px;
-  border-radius: 25px 25px 0 0;
-  border-left: 2px solid #8f5bfe;
-  border-top: 2px solid #8f5bfe;
-  border-right: 2px solid #8f5bfe;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-buy {
-  border: 4px solid #d07e42;
-  width: 60px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 1.2em;
-  font-style: #d07e42;
-  text-align: center;
-}
-
-.payment-button {
-  border: 4px solid #d07e42;
-  width: auto;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 1.2em;
-  font-style: #d07e42;
-  text-align: center;
-}
-
-/* ************************************** */
-/* **************** MAIN **************** */
-/* ************************************** */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.main-container h1 {
-  margin-bottom: 20px;
+@media (max-width: 425px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 
 /* *** page catalogue *** */
@@ -104,25 +122,26 @@ a {
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
 .catalog__content {
-  height: 250px;
-  max-width: 325px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #cecece;
   margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 /* *** page catalogue : conteneur *** */
 .item {
   height: 250px;
   max-width: 325px;
+  border-radius: 25px;
+  box-shadow: 0 0 15px #cecece;
+  margin: 2% 20px;
+  overflow: hidden;
   position: relative;
   z-index: 0;
 }
@@ -141,6 +160,11 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.item__description--title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 .item__buy-now {
   position: absolute;
@@ -276,40 +300,35 @@ a {
   padding: 0 4%;
 }
 
-/* ************************************** */
-/* *************** FOOTER *************** */
-/* ************************************** */
-.footer-wrapper {
+/* *************** BUTTONS ************** */
+.nav-button {
+  height: 50px;
+  width: 220px;
+  border-radius: 25px;
+  border: 2px solid #8f5bfe;
   display: flex;
-  flex-direction: column;
-}
-.footer-wrapper__about {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.footer-wrapper__social {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
-.footer-wrapper__social--links {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.footer-wrapper__social--links p {
-  font-size: 24px;
+
+.button-buy {
+  border: 4px solid #d07e42;
+  width: 60px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-style: #d07e42;
   text-align: center;
-  padding: 0 2%;
 }
 
-/* ************ TYPOGRAPHIE ************* */
-@font-face {
-  font-family: "Hind";
-  src: url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+.payment-button {
+  border: 4px solid #d07e42;
+  width: auto;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-style: #d07e42;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

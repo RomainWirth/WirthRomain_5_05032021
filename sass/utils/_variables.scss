@@ -1,0 +1,28 @@
+/* ************* VARIABLES ************** */
+/* *************** COLOUR *************** */
+
+$colour-base: #fff;
+$colour-text: #000;
+$colour-primary: #8f5bfe;
+$colour-secondary: #d07e42;
+$colour-secondary-lighter: #fa9852;
+$colour-tertiary: #f3e9f1;
+$colour-shadow: #cecece;
+
+a {text-decoration-line: none; color: $colour-text;}
+
+.pink {
+    background-color: $colour-tertiary;
+}
+
+.white {
+    background-color: $colour-base;
+}
+
+/* *************** WIDTHS *************** */
+
+$width-smartphone: 425px;
+$width-small: 768px;
+$width-medium: 1024px;
+
+$margins-paddings: 20px;

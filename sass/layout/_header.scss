@@ -1,0 +1,36 @@
+/* ************************************** */
+/* *************** HEADER *************** */
+/* ************************************** */
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__logos {
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &--box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & i {
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: $margins-paddings;
+    @include media-queries-max($width-smartphone) {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

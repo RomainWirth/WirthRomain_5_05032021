@@ -1,0 +1,6 @@
+
+/* *************** MIXINS *************** */
+
+@mixin media-queries-max($width) {
+    @media (max-width: $width) { @content; }
+}
