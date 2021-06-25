@@ -1,13 +1,13 @@
 fetch("http://localhost:3000/api/teddies")
-    .then (function (res) {
-        if (res.ok) {
-            return res.json();
+    .then (function (response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            console.log('Mauvaise réponse du réseau');
         }
     })
-    .then (function (/*value*/) {
-        console.log (/*value*/);
-    })
-    .catch (function (err) {
-        // une erreur est survenue
+    .then (json => console.log(json))
+    .catch (function (error) {
+        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });
 
