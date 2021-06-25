@@ -30,7 +30,7 @@
     position: relative;
     z-index: 0;
     &__image-dimension {
-        height: 175px;
+        height: 150px;
         min-width: 100%;
         max-width: 100%;
         & img {
@@ -38,17 +38,21 @@
         }
     }
     &__description {
-        height: 75px;
+        height: 100px;
         background-color: $colour-base;
         padding: 2%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         &--title {
+            height: 70px;
             width: 80%;
             display: flex;
-            flex-direction: row;
-            align-items: baseline;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &--title p {
+            font-size: 1em;
         }
     }
     &__buy-now {

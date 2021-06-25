@@ -54,22 +54,22 @@
             <h1>Catalogue</h1>
             <div class="catalog">
                 <div class="catalog__content">
-                    <div class="item">
+                    <div class="item" id="item_1">
                         <div class="item__image-dimension">
                             <a href="product_sheet.html">
-                                <img src="./public/images/teddy_1.jpg" alt="image de l'objet"/>
+                                <img id="itemImage"></img>
                             </a>
                         </div>
                         <div class="item__description">
                             <div class="item__description--title">
                                 <a href="product_sheet.html">
-                                    <h2>item</h2>
+                                    <h2 id="itemName"></h2>
                                 </a>
-                                <p class="ref">REF #1234</p>
+                                <p class="ref" id="itemId"></p>
                             </div>
                             <div class="item__description--price">
                                 <a href="product_sheet.html">
-                                    <p>15 &#8364;</p>
+                                    <span id="itemPrice"> &#8364;</span>
                                 </a>
                             </div>
                         </div>
@@ -224,7 +224,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="index.js"></script>
 </body>
 </html>
