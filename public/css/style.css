@@ -175,7 +175,7 @@ html, body, h1, form, fieldset, legend, ol, li {
   z-index: 0;
 }
 .item__image-dimension {
-  height: 150px;
+  height: 175px;
   min-width: 100%;
   max-width: 100%;
 }
@@ -183,21 +183,27 @@ html, body, h1, form, fieldset, legend, ol, li {
   width: 100%;
 }
 .item__description {
-  height: 100px;
+  height: 75px;
   background-color: #fff;
   padding: 2%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 .item__description--title {
-  height: 70px;
-  width: 80%;
+  height: 75px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
-.item__description--title p {
+.item__description--title h2 {
+  margin: 0;
+  padding-top: 2px;
+}
+.item__description--reference p {
   font-size: 1em;
 }
 .item__buy-now {

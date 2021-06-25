@@ -10,7 +10,7 @@ console.log(affichageImage, affichageName, affichageId, affichagePrice);
 
 // fin définition des éléments HTML ***************************************************
 
-// début capture élément API Teddies **************************************************
+// début capture élément API Teddies page catalogue **************************************************
 const promise01 = fetch("http://localhost:3000/api/teddies")
 
 promise01
@@ -41,4 +41,4 @@ promise01
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });
 
-// fin capture élément API Teddies ****************************************************
+// fin capture élément API Teddies page catalogue ****************************************************
