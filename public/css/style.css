@@ -346,16 +346,36 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 .payment-form__registration {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   border: 2px solid #000;
   border-radius: 15px;
   box-shadow: 0 0 15px #cecece;
+  padding: 20px 0;
 }
 .payment-form__registration--container {
   padding: 0 4%;
 }
 .payment-form__registration--container .bank-info {
   padding: 0 4%;
+}
+.payment-form__registration--container input {
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 7px;
+}
+@media (max-width: 425px) {
+  .payment-form__registration--container input {
+    width: 90%;
+  }
+}
+@media (max-width: 425px) {
+  .payment-form__registration {
+    flex-direction: column;
+  }
 }
 
 /* *************** BUTTONS ************** */

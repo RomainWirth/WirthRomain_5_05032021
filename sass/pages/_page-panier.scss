@@ -68,15 +68,31 @@
     }
     &__registration {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         border: 2px solid $colour-text;
         border-radius: 15px;
         box-shadow: 0 0 15px $colour-shadow;
+        padding: $margins-paddings 0;
         &--container {
             padding: 0 4%;
             & .bank-info {
                 padding: 0 4%;
             }
+            & input {
+            display: block;
+            width: 100%;
+            padding-left: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin: 7px;
+            @include media-queries-max($width-smartphone) {
+                width: 90%;
+            }
+            }
+        }
+        @include media-queries-max($width-smartphone) {
+            flex-direction: column;
         }
     }
 }
