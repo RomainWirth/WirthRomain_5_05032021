@@ -227,52 +227,38 @@ html, body, h1, form, fieldset, legend, ol, li {
 .product-sheet {
   width: 90%;
   display: flex;
-  flex-direction: column;
-}
-.product-sheet__reference {
-  display: flex;
-  align-items: baseline;
-}
-.product-sheet__reference--title {
-  padding: 0 10%;
-}
-.product-sheet__reference--ref {
-  padding: 0 5%;
-}
-.product-sheet__description {
-  width: 100%;
-  display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
-.product-sheet__description--image {
-  height: 300px;
+.product-sheet__image {
+  height: 400px;
+  margin: 20px 0;
   min-width: 50%;
   max-width: 50%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-sheet__image--image img {
+  width: 100%;
+  margin: auto;
 }
 @media (max-width: 425px) {
-  .product-sheet__description--image {
+  .product-sheet__image {
     min-width: 100%;
     max-width: 100%;
   }
 }
-.product-sheet__description--image img {
-  width: 100%;
-  margin: auto;
-}
-.product-sheet__description--content {
+.product-sheet__description {
   width: 50%;
   padding: 0 5%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 @media (max-width: 425px) {
-  .product-sheet__description--content {
-    width: 100%;
-  }
-}
-@media (max-width: 425px) {
-  .product-sheet__description {
+  .product-sheet {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;

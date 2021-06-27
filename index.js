@@ -16,27 +16,28 @@ const promise01 = fetch("http://localhost:3000/api/teddies")
 promise01
     .then (response => {
         if (response.ok) {
-            const teddiesData = response.json();
-            console.log(teddiesData); // test affichage du tableau des teddies
-            teddiesData.then((item) => {
-                console.log(item[0]); // test sélection item 1
-
-                const itemImage = item[0].imageUrl;
-                const itemName = item[0].name;
-                const itemId = item[0]._id;
-                const itemPrice = item[0].price;
-
-                console.log(itemImage, itemName, itemId, itemPrice); // test sélection des donnéees
-
-                affichageImage.innerHTML = itemImage;
-                affichageName.innerHTML = itemName;
-                affichageId.innerHTML = itemId;
-                affichagePrice.innerHTML = itemPrice;
-            })
+            return response.json();
         } else {
             console.log('Mauvaise réponse du réseau');
         }
     })
+    .then (const teddiesData = response.json();
+    console.log(teddiesData); // test affichage du tableau des teddies
+    teddiesData.then((item) => {
+        console.log(item[0]); // test sélection item 1
+
+        const itemImage = item[0].imageUrl;
+        const itemName = item[0].name;
+        const itemId = item[0]._id;
+        const itemPrice = item[0].price;
+
+        console.log(itemImage, itemName, itemId, itemPrice); // test sélection des donnéees
+
+        affichageImage.innerHTML = itemImage;
+        affichageName.innerHTML = itemName;
+        affichageId.innerHTML = itemId;
+        affichagePrice.innerHTML = itemPrice;
+    })) //
     .catch (error => {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });
