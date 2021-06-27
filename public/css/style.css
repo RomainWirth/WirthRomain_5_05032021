@@ -246,6 +246,7 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 @media (max-width: 425px) {
   .product-sheet__image {
+    height: 300px;
     min-width: 100%;
     max-width: 100%;
   }
@@ -256,6 +257,11 @@ html, body, h1, form, fieldset, legend, ol, li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media (max-width: 425px) {
+  .product-sheet__description {
+    width: 100%;
+  }
 }
 @media (max-width: 425px) {
   .product-sheet {

@@ -17,9 +17,9 @@
         &--image img {
             width: 100%;
             margin: auto;
-
         }
         @include media-queries-max($width-smartphone) {
+            height: 300px;
             min-width: 100%;
             max-width: 100%;    
         }
@@ -30,7 +30,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        @include media-queries-max($width-smartphone) {
+            width: 100%;
         }
+    }
     @include media-queries-max($width-smartphone) {
         flex-direction: column;
         justify-content: space-around;
