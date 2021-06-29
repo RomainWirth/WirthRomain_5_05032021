@@ -14,7 +14,7 @@
 
 <body>
     <header class="pink">
-        <div class="page-container">
+        <div class="page_container">
             <div class="top">
                 <a href="index.html"><img src="./public/images/logo-orinoco.png" alt="Orinoco, meilleur site de vente en ligne" /></a>
                 <div class="top__logos">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <nav class="page-container">
+        <nav class="page_container">
             <div class="navbar">
                 <a href="index.html">
                     <div class="nav-button white">
@@ -49,18 +49,18 @@
         </nav>
     </header>
 
-    <main class="page-container">
-        <section class="main-container">
+    <main class="page_container">
+        <section class="main_container">
             <h1>Fiche Produit</h1>
-            <div class="product-sheet">
-                <div class="product-sheet__image">
-                    <img src="public/images/ComingSoon.png" alt="image du produit">
+            <div class="product_sheet">
+                <div class="product_sheet__image">
+                    <img src="public/images/teddy_1.jpg" class="product_sheet__image--img" alt="image du produit">
                 </div>
-                <div class="product-sheet__description">
-                    <h2>ITEM</h2>
-                    <p>15 &#8364;</p>    
-                    <p class="ref">REF #1234</p>
-                    <p>
+                <div class="product_sheet__description">
+                    <h2 class="product_sheet__description--name">ITEM</h2>
+                    <p class="product_sheet__description--price">Prix : 15 &#8364;</p>    
+                    <p class="product_sheet__description--id ref">REF #1234</p>
+                    <p class="product_sheet__description--description">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> 
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br> 
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br> 
@@ -69,9 +69,12 @@
                         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,<br> 
                         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
+                    <p class="product_sheet__description--colors">
+
+                    </p>
                 </div>
             </div>
-            <div class="product-sheet__buy-now">
+            <div class="product_sheet__buy-now">
                 <a href="panier.html">
                     <p class="button-buy">BUY NOW</p>
                 </a>
@@ -80,24 +83,24 @@
     </main>
 
     <footer class="pink">
-        <div class="page-container">
-            <div class="footer-wrapper">
-                <div class="footer-wrapper__about">
-                    <div class="footer-wrapper__about--lists">
+        <div class="page_container">
+            <div class="footer_wrapper">
+                <div class="footer_wrapper__about">
+                    <div class="footer_wrapper__about--lists">
                         <h3>&#192; Propos</h3>
                         <p><a href="#">Conditions Générales de ventes</a></p>
                         <p><a href="#">Données personnelles</a></p>
                         <p><a href="#">Mentions Légales</a></p>
                         <p><a href="#">Orinoco - qui sommes-nous ?</a></p>
                     </div>
-                    <div class="footer-wrapper__about--lists">
+                    <div class="footer_wrapper__about--lists">
                         <h3>Aide et Services</h3>
                         <p><a href="#">Service Après Vente</a></p>
                         <p><a href="#">Contactez-nous</a></p>
                         <p><a href="#">Vendez vos produits</a></p>
                         </ul>
                     </div>
-                    <div class="footer-wrapper__about--lists">
+                    <div class="footer_wrapper__about--lists">
                         <h3>Siège social</h3>
                         <p>
                             adresse postale<br>
@@ -106,9 +109,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="footer-wrapper__social">
+                <div class="footer_wrapper__social">
                     <h3>Suivez-nous</h3>
-                    <div class="footer-wrapper__social--links">
+                    <div class="footer_wrapper__social--links">
                         <p><a href="#"><i class="fab fa-facebook-square"></i>&#32;Facebook</a></p>
                         <p><a href="#"><i class="fab fa-linkedin"></i>&#32;Linkedin</a></p>
                         <p><a href="#"><i class="fab fa-twitter-square"></i>&#32;Twitter</a></p>
@@ -118,5 +121,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="product_sheet.js"></script>
 </body>
 

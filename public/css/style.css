@@ -15,7 +15,7 @@ a {
 }
 
 /* *************** WIDTHS *************** */
-.page-container {
+.page_container {
   max-width: 1440px;
   margin: 0 auto 20px;
   font-family: "Hind", sans-serif;
@@ -29,12 +29,12 @@ html, body, h1, form, fieldset, legend, ol, li {
 /* ************************************** */
 /* **************** MAIN **************** */
 /* ************************************** */
-.main-container {
+.main_container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.main-container h1 {
+.main_container h1 {
   margin-bottom: 20px;
 }
 
@@ -48,44 +48,44 @@ html, body, h1, form, fieldset, legend, ol, li {
 /* ************************************** */
 /* *************** FOOTER *************** */
 /* ************************************** */
-.footer-wrapper {
+.footer_wrapper {
   display: flex;
   flex-direction: column;
 }
-.footer-wrapper__about {
+.footer_wrapper__about {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 @media (max-width: 768px) {
-  .footer-wrapper__about {
+  .footer_wrapper__about {
     flex-direction: column;
     padding-left: 2%;
   }
 }
-.footer-wrapper__social {
+.footer_wrapper__social {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.footer-wrapper__social--links {
+.footer_wrapper__social--links {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.footer-wrapper__social--links p {
+.footer_wrapper__social--links p {
   font-size: 24px;
   text-align: center;
   padding: 0 2%;
 }
 @media (max-width: 768px) {
-  .footer-wrapper__social--links p {
+  .footer_wrapper__social--links p {
     width: 100%;
     text-align: left;
   }
 }
 @media (max-width: 768px) {
-  .footer-wrapper__social--links {
+  .footer_wrapper__social--links {
     flex-direction: column;
   }
 }
@@ -224,13 +224,13 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 
 /* *** page fiche produit *** */
-.product-sheet {
+.product_sheet {
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.product-sheet__image {
+.product_sheet__image {
   height: 400px;
   margin: 20px 0;
   min-width: 50%;
@@ -240,18 +240,18 @@ html, body, h1, form, fieldset, legend, ol, li {
   justify-content: center;
   align-items: center;
 }
-.product-sheet__image--image img {
+.product_sheet__image--image img {
   width: 100%;
   margin: auto;
 }
 @media (max-width: 425px) {
-  .product-sheet__image {
+  .product_sheet__image {
     height: 300px;
     min-width: 100%;
     max-width: 100%;
   }
 }
-.product-sheet__description {
+.product_sheet__description {
   width: 50%;
   padding: 0 5%;
   display: flex;
@@ -259,18 +259,18 @@ html, body, h1, form, fieldset, legend, ol, li {
   justify-content: center;
 }
 @media (max-width: 425px) {
-  .product-sheet__description {
+  .product_sheet__description {
     width: 100%;
   }
 }
 @media (max-width: 425px) {
-  .product-sheet {
+  .product_sheet {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
 }
-.product-sheet__buy-now {
+.product_sheet__buy-now {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -334,17 +334,17 @@ html, body, h1, form, fieldset, legend, ol, li {
   white-space: nowrap;
 }
 
-.payment-form {
+.payment_form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
 }
-.payment-form h2 {
+.payment_form h2 {
   width: 96%;
   padding: 0 2%;
 }
-.payment-form__registration {
+.payment_form__registration {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -353,13 +353,13 @@ html, body, h1, form, fieldset, legend, ol, li {
   box-shadow: 0 0 15px #cecece;
   padding: 20px 0;
 }
-.payment-form__registration--container {
+.payment_form__registration--container {
   padding: 0 4%;
 }
-.payment-form__registration--container .bank-info {
+.payment_form__registration--container .bank-info {
   padding: 0 4%;
 }
-.payment-form__registration--container input {
+.payment_form__registration--container input {
   display: block;
   width: 100%;
   padding-left: 10px;
@@ -368,12 +368,12 @@ html, body, h1, form, fieldset, legend, ol, li {
   margin: 7px;
 }
 @media (max-width: 425px) {
-  .payment-form__registration--container input {
+  .payment_form__registration--container input {
     width: 90%;
   }
 }
 @media (max-width: 425px) {
-  .payment-form__registration {
+  .payment_form__registration {
     flex-direction: column;
   }
 }
