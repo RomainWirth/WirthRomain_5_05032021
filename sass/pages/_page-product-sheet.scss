@@ -24,7 +24,7 @@
             max-width: 100%;    
         }
     }
-    &__description {
+    &__details {
         width: 50%;
         padding: 0 5%;
         display: flex;
@@ -33,14 +33,14 @@
         @include media-queries-max($width-smartphone) {
             width: 100%;
         }
+        &--buy-now {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
     }
     @include media-queries-max($width-smartphone) {
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
-    &__buy-now {
-        display: flex;
         justify-content: space-around;
         align-items: center;
     }

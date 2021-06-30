@@ -251,7 +251,7 @@ html, body, h1, form, fieldset, legend, ol, li {
     max-width: 100%;
   }
 }
-.product_sheet__description {
+.product_sheet__details {
   width: 50%;
   padding: 0 5%;
   display: flex;
@@ -259,9 +259,14 @@ html, body, h1, form, fieldset, legend, ol, li {
   justify-content: center;
 }
 @media (max-width: 425px) {
-  .product_sheet__description {
+  .product_sheet__details {
     width: 100%;
   }
+}
+.product_sheet__details--buy-now {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 @media (max-width: 425px) {
   .product_sheet {
@@ -269,11 +274,6 @@ html, body, h1, form, fieldset, legend, ol, li {
     justify-content: space-around;
     align-items: center;
   }
-}
-.product_sheet__buy-now {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 /* *** page panier ***/

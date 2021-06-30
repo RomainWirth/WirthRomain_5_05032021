@@ -52,32 +52,36 @@
     <main class="page_container">
         <section class="main_container">
             <h1>Fiche Produit</h1>
-            <div class="product_sheet">
+            <div class="product_sheet" id="itemInfo">
                 <div class="product_sheet__image">
                     <img src="public/images/teddy_1.jpg" class="product_sheet__image--img" alt="image du produit">
                 </div>
-                <div class="product_sheet__description">
-                    <h2 class="product_sheet__description--name">ITEM</h2>
-                    <p class="product_sheet__description--price">Prix : 15 &#8364;</p>    
-                    <p class="product_sheet__description--id ref">REF #1234</p>
-                    <p class="product_sheet__description--description">
+                <div class="product_sheet__details">
+                    <h2 class="product_sheet__details--name">ITEM</h2>
+                    <p class="product_sheet__details--price">Prix : 15 &#8364;</p>    
+                    <p class="product_sheet__details--id ref">REF #1234</p>
+                    <p class="product_sheet__details--description">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> 
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br> 
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br> 
                         It has survived not only five centuries, but also the leap into electronic typesetting,<br> 
-                        remaining essentially unchanged.<br> 
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,<br> 
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        remaining essentially unchanged.
                     </p>
-                    <p class="product_sheet__description--colors">
-
+                    <p class="product_sheet__details--colors">
+                        <h3>Couleurs disponibles</h3>
+                        <ul class="color_choices">
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                            <li>...</li>
+                        </ul>
                     </p>
+                    <div class="product_sheet__details--buy-now">
+                        <a href="panier.html">
+                            <p class="button-buy">BUY NOW</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="product_sheet__buy-now">
-                <a href="panier.html">
-                    <p class="button-buy">BUY NOW</p>
-                </a>
             </div>
         </section>
     </main>
