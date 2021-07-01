@@ -12,7 +12,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         if(res.ok) {
             return res.json()
         } else {
-            console.log("erreur")
+            console.log("erreur") // -> pas d'erreur au console.log
         }
     })
     .then(function(teddiesData) {
@@ -92,7 +92,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
-        for (var i = 0 < options.length; i++;) {
+        for (var i = 0; i < options.length; i++) {
             var opt = options[i];
             var el = document.createElement("option");
             el.value = opt;
@@ -113,9 +113,9 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         newItemInfoBuyButtonContainer.appendChild(newItemInfoBuyButton);
         newItemDetails.appendChild(newItemInfoBuyButtonContainer);
         // créer un adventListener au click et référer à la fonction ci-dessus
-        newItemInfoBuyButton.addEventListener("click", function(){
+       /* newItemInfoBuyButton.addEventListener("click", function(){
             selectProduct(itemName, itemId)
-        }); // fonction à vérifier---------------------------------------------------------------------------------------------------------
+        });*/ // fonction à vérifier---------------------------------------------------------------------------------------------------------
 
 
         // intégration des divs dans l'élément parent
@@ -133,4 +133,5 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 // -------------- End Fonction -------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------------------------
 
+// appel de la fonction pour la tester sur la page test
 createProductSheet("5be9c8541c9d440000665243");
