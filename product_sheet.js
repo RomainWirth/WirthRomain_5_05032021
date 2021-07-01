@@ -16,12 +16,12 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         }
     })
     .then(function(teddiesData) {
-        // console.log(teddiesData);
+        console.log(teddiesData);
 
-        // récupération de l'élément HTML <div id="intemInfo">
+// récupération de l'élément HTML <div id="intemInfo">
         let itemInfoHTML = getElementById("itemInfo");
 
-        // récupération des infos de l'objet teddies et déclaration en variables :
+// récupération des infos de l'objet teddies et déclaration en variables :
 
         let itemImageUrl = teddiesData.imageUrl;
         let itemName = teddiesData.name;
@@ -30,77 +30,99 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let itemTextNodeId = document.createTextNode(itemId);
         let itemTextNodeDescription = document.createTextNode(teddiesData.description); // ajout du texte de description dans la variable
         let itemColors = teddiesData.colors;        
-            // travail sur le prix en centimes
+    // travail sur le prix en centimes
         let x = (teddiesData.price)/100; // on convertis le prix de centimes en euros
         let y = x.toFixed(2); // y = prix fixé sur deux chiffres
         let itemTextNodePrice = document.createTextNode(y + " Euros"); // conversion d'un nombre vers number + string
 
-        // création d'une div contenant l'image
+// création d'une div contenant l'image avec nom de class "product_sheet__image"
         let newItemImage = document.createElement("div");
         newItemImage.className = "product_sheet__image";
 
-            // création et insertion d'une balise image dans la div
+    // création et insertion d'une balise image dans la div
         let newItemImageUrl = document.createElement("img");
         newItemImageUrl.className = "product_sheet__image--img";
         newItemImageUrl.setAttribute("src", itemImageUrl);
-            // intégration de l'élement img dans la div class="product_sheet__image--img"
+        // intégration de l'élement img dans la div class="product_sheet__image--img"
         newItemImage.appendChild(newItemImageUrl);
 
-        // création d'une div contenant les éléments descriptifs de l'item
+// création d'une div contenant les éléments descriptifs de l'item avec nom de class "product_sheet__details"
         let newItemDetails = document.createElement("div");
         newItemDetails.className = "product_sheet__details";
 
-            // création et insertion des éléments enfants de la div 
-                // premier élément : Name
-        let newItemName = document.createElement("h2");
-        newItemName.className = "product_sheet__details--name";
-        newItemName.appendChild(itemTextNodeName);
-        newItemDetails.appendChild(newItemName);
+    // création et insertion des éléments enfants de la div 
+        // premier élément : Name
+        let newItemName = document.createElement("h2"); // variable newItemName = création de l'élément h2
+        newItemName.className = "product_sheet__details--name"; //avec nom de class "product_sheet__details--name"
+        newItemName.appendChild(itemTextNodeName); // intégration du nom en texte à l'intérieur de la balise h2
+        newItemDetails.appendChild(newItemName); // intégration de la balise h2 dans la div class="product_sheet__details"
 
-                // deuxième élément : Price
+        // deuxième élément : Price
         let newItemPrice = document.createElement("p");
         newItemPrice.className = "product_sheet__details--price";
         newItemPrice.appendChild(itemTextNodePrice);
         newItemDetails.appendChild(newItemPrice);
 
-                // troisième élément : Id
+        // troisième élément : Id
         let newItemId = document.createElement("p");
         newItemId.className = "product_sheet__destails--id ref";
         newItemId.appendChild(itemTextNodeId);
         newItemDetails.appendChild(newItemId);
 
-                // quatrième élément : description
+        // quatrième élément : description
         let newItemDescription = document.createElement("p");
         newItemDescription.className = "product_sheet__details--description";
         newItemDescription.appendChild(itemTextNodeDescription);
         newItemDetails.appendChild(newItemDescription);
 
-                // cinquième élément : colors choice
+        // cinquième élément : colors choice
         let newItemColors = document.createElement("p");
         newItemColors.className = "product_sheet__details--colors";
-        let newItemColorsList = document.createElement("ul");
-        newItemColorsList.className = "color_choices";
-
         let itemTextNodeColors = document.createTextNode("Couleurs disponibles");
         let newItemColorsH3 = document.createElement("h3");
         newItemColorsH3.appendChild(itemTextNodeColors);
+        newItemColors.appendChild(newItemColorsH3);
+            // création de la liste déroulante à choix des couleurs
+        let newColorChoicesForm = document.createElement("form");
+        newColorChoicesForm.className = "color_choices_form";
+        let newColorChoicesSelection = document.createElement("select");
+        newColorChoicesSelection.tagName = "color_choices_selection"; // ATTENTION REVOIR CETTE SYNTAXE JE NE SAIS PAS SI C'EST CORRECT---------------
         
-                //créer une fonction pour pouvoir modifier le choix des couleurs selon le tableau
 
+            //créer une fonction pour pouvoir modifier le choix des couleurs selon le tableau
+        var select = document.getElementById("color_choices_selection");
+        var options = itemColors;
+        
+        for (var i = 0 < options.length; i++;) {
+            var opt = options[i];
+            var el = document.createElement("option");
+            el.value = opt;
+            el.textContent = opt; 
+            select.appendChild(el);
+        } // VERIFIER LA SYNTAXE SI CORRECTE -----------------------------------------------------------------------------------------------------------
 
-        // création du bouton d'achat 
-        let newItemInfoButton = document.createElement("div");
-        newItemInfoButton.className = "product_sheet__details--buy-now";
-        let newItemInfoButton = document.createElement("a");
-
-
-
+// création du bouton d'achat 
+        let newItemInfoBuyButtonContainer = document.createElement("div");
+        newItemInfoBuyButtonContainer.className = "product_sheet__details--buy-now";
+        let newItemInfoBuyButton = document.createElement("a");
+        newItemInfoBuyButton.setAttribute("href", "panier.html");
+        let newItemInfoBuyNowButton = document.createElement("p");
+        newItemInfoBuyNowButton.className = "button-buy";
+        let newTextNodeBuyNowButton = document.createTextNode("BUY NOW");
+        newItemInfoBuyNowButton.appendChild(newTextNodeBuyNowButton);
+        newItemInfoBuyButton.appendChild(newItemInfoBuyNowButton);
+        newItemInfoBuyButtonContainer.appendChild(newItemInfoBuyButton);
+        newItemDetails.appendChild(newItemInfoBuyButtonContainer);
+        // créer un adventListener au click et référer à la fonction ci-dessus
+        newItemInfoBuyButton.addEventListener("click", function(){
+            selectProduct(itemName, itemId)
+        }); // fonction à vérifier---------------------------------------------------------------------------------------------------------
 
 
         // intégration des divs dans l'élément parent
-        newItemInfoHTML.appendChild(newItemImage);
+        itemInfoHTML.appendChild(newItemImage);
         
-        newItemInfoHTML.appendChild(newItemDetails);
+        itemInfoHTML.appendChild(newItemDetails);
 
     })
     .catch(function(err) {
