@@ -89,15 +89,14 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         newColorChoicesSelection.id = "color_choices_selection"; // ATTENTION REVOIR CETTE SYNTAXE JE NE SAIS PAS SI C'EST CORRECT---------------
         newItemColors.appendChild(newColorChoicesForm);
         newColorChoicesForm.appendChild(newColorChoicesSelection);
-
-            //créer une fonction pour pouvoir modifier le choix des couleurs selon le tableau
+            //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
         for (var i = 0 < options.length; i++;) {
             var opt = options[i];
             var el = document.createElement("option");
             el.value = opt;
-            el.textContent = opt; 
+            el.textContent = opt;
             newColorChoicesSelection.appendChild(el);
         } // VERIFIER LA SYNTAXE SI CORRECTE -----------------------------------------------------------------------------------------------------------
 
