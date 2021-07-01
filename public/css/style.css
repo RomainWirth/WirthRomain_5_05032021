@@ -146,7 +146,7 @@ html, body, h1, form, fieldset, legend, ol, li {
 
 /* *** page catalogue *** */
 .catalog {
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -196,6 +196,11 @@ html, body, h1, form, fieldset, legend, ol, li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 425px) {
+  .catalog {
+    width: 90%;
+  }
 }
 
 .ref {
