@@ -19,7 +19,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         console.log(teddiesData);
 
 // récupération de l'élément HTML <div id="intemInfo">
-        let itemInfoHTML = getElementById("itemInfo");
+        let itemInfoHTML = document.getElementById("itemInfo");
 
 // récupération des infos de l'objet teddies et déclaration en variables :
 
@@ -86,11 +86,11 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let newColorChoicesForm = document.createElement("form");
         newColorChoicesForm.className = "color_choices_form";
         let newColorChoicesSelection = document.createElement("select");
-        newColorChoicesSelection.tagName = "color_choices_selection"; // ATTENTION REVOIR CETTE SYNTAXE JE NE SAIS PAS SI C'EST CORRECT---------------
-        
+        newColorChoicesSelection.id = "color_choices_selection"; // ATTENTION REVOIR CETTE SYNTAXE JE NE SAIS PAS SI C'EST CORRECT---------------
+        newItemColors.appendChild(newColorChoicesForm);
+        newColorChoicesForm.appendChild(newColorChoicesSelection);
 
             //créer une fonction pour pouvoir modifier le choix des couleurs selon le tableau
-        var select = document.getElementById("color_choices_selection");
         var options = itemColors;
         
         for (var i = 0 < options.length; i++;) {
@@ -98,7 +98,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             var el = document.createElement("option");
             el.value = opt;
             el.textContent = opt; 
-            select.appendChild(el);
+            newColorChoicesSelection.appendChild(el);
         } // VERIFIER LA SYNTAXE SI CORRECTE -----------------------------------------------------------------------------------------------------------
 
 // création du bouton d'achat 
@@ -134,3 +134,4 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 // -------------- End Fonction -------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------------------------
 
+createProductSheet("5be9c8541c9d440000665243");
