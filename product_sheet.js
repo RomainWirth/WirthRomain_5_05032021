@@ -78,6 +78,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         // cinquième élément : colors choice
         let newItemColors = document.createElement("p");
         newItemColors.className = "product_sheet__details--colors";
+        newItemDetails.appendChild(newItemColors);
         let itemTextNodeColors = document.createTextNode("Couleurs disponibles");
         let newItemColorsH3 = document.createElement("h3");
         newItemColorsH3.appendChild(itemTextNodeColors);
