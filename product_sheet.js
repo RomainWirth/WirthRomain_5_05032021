@@ -109,6 +109,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let newItemInfoBuyNowButton = document.createElement("p");
         newItemInfoBuyNowButton.className = "button-buy";
         let newTextNodeBuyNowButton = document.createTextNode("BUY NOW");
+        
         newItemInfoBuyNowButton.appendChild(newTextNodeBuyNowButton);
         newItemInfoBuyButton.appendChild(newItemInfoBuyNowButton);
         newItemInfoBuyButtonContainer.appendChild(newItemInfoBuyButton);
