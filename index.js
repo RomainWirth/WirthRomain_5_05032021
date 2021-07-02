@@ -18,9 +18,11 @@ fetch("http://localhost:3000/api/teddies")
         
         // créer une fonction pour définir [i]
         let i = 0;
+            // fonction : rechercher l'élément i du tableau teddiesArray boucle for 
+        
 
         // récupérer l'élément parent sur HTML
-        let itemCatalogHTML = document.getElementsByClassName("catalog");
+        let itemCatalogHTML = document.getElementById("catal");
 
         // déclarer les variables intégrant les éléments des tableaux
         let tedCataPicture = teddiesArray[i].imageURL; // "i is not defined" =================================================================================
@@ -33,13 +35,13 @@ fetch("http://localhost:3000/api/teddies")
         
         // générer les éléments HTML pour un item[i] : 
             // div principale : <div class="catalog__item">
-        let newCataItem = document.createElement("div");
+        let newCataItem = document.createElement("div"); // ==> intégrer cet élément dans la boucle for ================================================
         newCataItem.className = "catalog__item";
             // photo : <div class="catalog__item--image_dimension", <a href> et <img>
             let newCataItemImgCont = document.createElement("div");
             newCataItemImgCont.className = "catalog__item--image_dimension";
             let newCataItemImgLink = document.createElement("a");
-            newCataItemImgLink.setAttribute("href", "product_sheet.html");
+            newCataItemImgLink.setAttribute("href", "product_sheet.html?itemId=" + itemId); // créer une variable qui contient l'url + itemId
             let newCataItemImgUrl = document.createElement("img");
             newCataItemImgUrl.className = "pitem_image";
             newCataItemImgUrl.setAttribute("src", tedCataPicture);

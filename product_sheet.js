@@ -93,6 +93,8 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
+        console.log(options.length); // vérification de la taille du tableau itemColors -------------------------------------------------------------------
+
         for (var i = 0; i < options.length; i++) {
             var opt = options[i];
             var el = document.createElement("option");
@@ -136,4 +138,5 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 // -----------------------------------------------------------------------------------------------------------------------------------------
 
 // appel de la fonction pour la tester sur la page test
+// id de l'item sera fourni par l'url ================================================================================================================
 createProductSheet("5be9c8541c9d440000665243");
