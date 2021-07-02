@@ -185,7 +185,7 @@ html, body, h1, form, fieldset, legend, ol, li {
 .catalog__item--description p {
   font-size: 1.5em;
 }
-.catalog__item--buy-now {
+.catalog__item--buy_now {
   background-color: #fa9852;
   height: 50px;
   border-radius: 5px;
