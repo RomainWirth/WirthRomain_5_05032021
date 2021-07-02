@@ -8,21 +8,26 @@ fetch("http://localhost:3000/api/teddies")
             console.log("erreur") // -> pas d'erreur au console.log
         }
     })
-    .then (function(teddiesCatalog) {
-        console.log(teddiesCatalog);        
-        // récupérer les éléments de teddiesData dans un tableau
+    .then (function(teddiesCatalogData) {
+        console.log(teddiesCatalogData);
         
-
+        // récupérer les éléments de teddiesCatalogData dans un tableau
+        var teddiesArray = teddiesCatalogData;
+                // teddiesArray contiens les données en tableau
+        console.log(teddiesArray);
+        
+        // créer une fonction pour définir [i]
+        let i = 0;
 
         // récupérer l'élément parent sur HTML
-        let itemCatalogHTML = document.getElementById("catalog");
+        let itemCatalogHTML = document.getElementsByClassName("catalog");
 
         // déclarer les variables intégrant les éléments des tableaux
-        let tedCataPicture = teddiesCatalog[i].imageURL;
-        let tedCataName = teddiesCatalog[i].name;
+        let tedCataPicture = teddiesArray[i].imageURL; // "i is not defined" =================================================================================
+        let tedCataName = teddiesArray[i].name;
         let tedCataTextNodeName = document.createTextNode(tedCataName);
             // travail du le prix
-        let a = (teddiesCatalog[i].price)/100; // on convertis le prix de centimes en euros
+        let a = (teddiesArray[i].price)/100; // on convertis le prix de centimes en euros
         let b = a.toFixed(2); // y = prix fixé sur deux chiffres
         let tedCataTextNodePrice = document.createTextNode(b + " Euros");
         
