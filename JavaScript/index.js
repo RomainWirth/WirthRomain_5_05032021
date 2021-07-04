@@ -1,4 +1,4 @@
-// début capture élément API Teddies page catalogue **************************************************
+// début fonction capture élément API Teddies page catalogue **************************************************
 
 fetch("http://localhost:3000/api/teddies")
     .then (function(res) {
@@ -17,34 +17,42 @@ fetch("http://localhost:3000/api/teddies")
         console.log(teddiesArray);
         
         // créer une fonction pour définir [i]
-        let i = 0;
             // fonction : rechercher l'élément i du tableau teddiesArray boucle for 
-        
+        for (let i = 0; i < teddiesArray.length; i++) {
 
+        var itemId = teddiesArray[i]._id;
+
+        // définition de la page html de lien
+        function goToProductSheet(itemId){
+            var productSheetHTML = "product_sheet.html?itemId=" + itemId;
+            window.location.href = productSheetHTML;
+        }
         // récupérer l'élément parent sur HTML
         let itemCatalogHTML = document.getElementById("catal");
 
         // déclarer les variables intégrant les éléments des tableaux
-        let tedCataPicture = teddiesArray[i].imageURL; // "i is not defined" =================================================================================
+        let tedCataPicture = teddiesArray[i].imageURL; 
         let tedCataName = teddiesArray[i].name;
         let tedCataTextNodeName = document.createTextNode(tedCataName);
             // travail du le prix
         let a = (teddiesArray[i].price)/100; // on convertis le prix de centimes en euros
-        let b = a.toFixed(2); // y = prix fixé sur deux chiffres
+        let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
         let tedCataTextNodePrice = document.createTextNode(b + " Euros");
         
         // générer les éléments HTML pour un item[i] : 
             // div principale : <div class="catalog__item">
-        let newCataItem = document.createElement("div"); // ==> intégrer cet élément dans la boucle for ================================================
+        let newCataItem = document.createElement("div"); 
         newCataItem.className = "catalog__item";
             // photo : <div class="catalog__item--image_dimension", <a href> et <img>
             let newCataItemImgCont = document.createElement("div");
             newCataItemImgCont.className = "catalog__item--image_dimension";
             let newCataItemImgLink = document.createElement("a");
-            newCataItemImgLink.setAttribute("href", "product_sheet.html?itemId=" + itemId); // créer une variable qui contient l'url + itemId
+            newCataItemImgLink.setAttribute("href", productSheetHTML);
+            newCataItemImgLink.addEventListener("click", function(){goToProductSheet(itemId)});
+            
             let newCataItemImgUrl = document.createElement("img");
-            newCataItemImgUrl.className = "pitem_image";
-            newCataItemImgUrl.setAttribute("src", tedCataPicture);
+            newCataItemImgUrl.className = "item_image";
+            newCataItemImgUrl.setAttribute("src", tedCataPicture); // source image non définie ============================================= !!!!!!!!!!!!!
 
             newCataItemImgCont.appendChild(newCataItemImgLink);
             newCataItemImgLink.appendChild(newCataItemImgUrl);
@@ -55,7 +63,8 @@ fetch("http://localhost:3000/api/teddies")
             newCataItemDetails.className = "catalog__item--description";
             
             let newCataItemNameLink = document.createElement("a");
-            newCataItemNameLink.setAttribute("href", "product_sheet.html");
+            newCataItemNameLink.setAttribute("href", productSheetHTML);
+            newCataItemNameLink.addEventListener("click", function(){goToProductSheet(itemId)});
             let newCataItemName = document.createElement("h2");
             
             newCataItemDetails.appendChild(newCataItemNameLink);
@@ -64,7 +73,8 @@ fetch("http://localhost:3000/api/teddies")
 
                 // <a href> et <p>
             let newCataItemPriceLink = document.createElement("a");
-            newCataItemPriceLink.setAttribute("href", "product_sheet.html");
+            newCataItemPriceLink.setAttribute("href", productSheetHTML);
+            newCataItemPriceLink.addEventListener("click", function(){goToProductSheet(itemId)});
             let newCataItemPrice = document.createElement("p");
             newCataItemPrice.appendChild(tedCataTextNodePrice);
                 
@@ -84,6 +94,10 @@ fetch("http://localhost:3000/api/teddies")
             newItemCataBuyButtonLink.appendChild(newItemCataButtonBuyNow);
             newItemCataButtonBuyNow.appendChild(newItemCataTextNodeBuyNow);
 
+            /* newItemCataButtonBuyNow.addEventListener("click", function(){
+            selectProduct(itemName, itemId)
+            });*/
+
         // => intégrer les éléments dans la div principale
             newCataItem.appendChild(newCataItemImgCont);
             newCataItem.appendChild(newCataItemDetails);
@@ -92,12 +106,11 @@ fetch("http://localhost:3000/api/teddies")
             itemCatalogHTML.appendChild(newCataItem);
         // relier les éléments du tableau dans les divs correspondantes pour item[i]
 
-        // dupliquer autant de fois la <div class"catalog__item"> qu'il y a d'élément parent dans le tableau
 
-
+        }
     })
     .catch (function(error) {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });
 
-// fin capture élément API Teddies page catalogue ****************************************************
+// fin fonction capture élément API Teddies page catalogue ****************************************************

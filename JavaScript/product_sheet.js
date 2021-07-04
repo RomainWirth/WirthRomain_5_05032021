@@ -32,7 +32,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let itemColors = teddiesData.colors;        
     // travail sur le prix en centimes
         let x = (teddiesData.price)/100; // on convertis le prix de centimes en euros
-        let y = x.toFixed(2); // y = prix fixé sur deux chiffres
+        let y = x.toFixed(2); // y = prix fixé sur deux chiffres après la virgule
         let itemTextNodePrice = document.createTextNode(y + " Euros"); // conversion d'un nombre vers number + string
 
 // création d'une div contenant l'image avec nom de class "product_sheet__image"
