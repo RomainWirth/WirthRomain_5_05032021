@@ -271,7 +271,6 @@ html, body, h1, form, fieldset, legend, ol, li {
   box-shadow: 0 0 15px #cecece;
 }
 .selection h2 {
-  width: 96%;
   padding: 0 2%;
 }
 .selection__item {
