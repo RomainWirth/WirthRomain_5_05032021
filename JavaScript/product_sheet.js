@@ -126,13 +126,13 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
 // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
         newItemInfoBuyButton.addEventListener("click", function(event){
-            event.preventDefault();
+            event.preventDefault(); // permet d'empêcher la page de se réactualiser au clic
 
-            // Mettre le choix de l'utilisateur dans une variable
+            // Option choisie par l'utilisateur dans une variable
             const formChoice = newColorChoicesSelection.value;
 
             // Récupération des valeurs à envoyer au panier :
-            let optionsItem = {
+            let optionsItem = { // définition de la variable contenant les valeurs qu'on veut intégrer au panier
                 itemImageUrl: teddiesData.imageUrl,
                 itemName: teddiesData.name,
                 itemId: teddiesData._id,
@@ -140,7 +140,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
                 itemPrice: y
             }
 
-            console.log(optionsItem);
+            console.log(optionsItem); // vérification des données dans la console
 
             // test 
             const m = null;
@@ -149,9 +149,10 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
 // local storage -------------------------------------------------------------------------------------------
 // stocker la récupération des données sélectionner dans le local storage ----------------------------------
-
+// un tableau de données sera créé par click ---------------------------------------------------------------
+            // définition de la variable permettant de convertir les données du format JSON au JS
             let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
-            // JSON.parse permet de convertir les données au format JSON dans le local storage en objet JS
+            // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
             console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
 
             // fonction fenêtre pop up de confirmation 
@@ -161,28 +162,28 @@ a bien été ajouté au panier
 Consulter le panier : cliquer sur OK 
 ou 
 continuer ses achats : cliquer sur ANNULER`)) {
-                    window.location.href = "panier.html";
+                    window.location.href = "panier.html"; // lien vers la page panier
                 } else {
-                    window.location.href = "index.html";
+                    window.location.href = "index.html"; // lient vers la page catalogue
                 }
             } 
 
         // s'il y a des produits enregistrés dans le local storage
             if(localStorageRegisteredItem){
-                localStorageRegisteredItem.push(optionsItem);
-                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+                localStorageRegisteredItem.push(optionsItem); // on ajoute les options d'un Item au tableau
+                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // transforme des valeurs JS en chaîne JSON pour le local Storage
                 console.log(localStorageRegisteredItem); // vérification des données dans la console
                 popUpConf();
             } 
         // s'il n'y a pas de produits enregistrés dans le local storage
             else {
-                localStorageRegisteredItem = [];
-                localStorageRegisteredItem.push(optionsItem);
-                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+                localStorageRegisteredItem = []; // création d'un tableau vide pour le remplir avec les données d'achat
+                localStorageRegisteredItem.push(optionsItem); // on intègre les données d'achat
+                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // transforme des valeurs JS en chaîne JSON pour le local Storage
 
                 console.log(localStorageRegisteredItem); // tableau créé dans la console
 
-                opUpConf();
+                popUpConf();
             }
         });
     })
@@ -203,4 +204,4 @@ var urlParams = new URLSearchParams(queryString);
 var itemId = urlParams.get ("itemId");
 console.log(itemId);
 
-createProductSheet(itemId);
+createProductSheet(itemId); 
