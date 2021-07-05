@@ -182,8 +182,8 @@ html, body, h1, form, fieldset, legend, ol, li {
   justify-content: space-around;
   align-items: center;
 }
-.catalog__item--description p {
-  font-size: 1.5em;
+.catalog__item--description h2, .catalog__item p {
+  font-size: 1.2em;
 }
 .catalog__item--buy_now {
   background-color: #fa9852;

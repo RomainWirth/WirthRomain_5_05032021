@@ -139,4 +139,4 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
 // appel de la fonction pour la tester sur la page test
 // id de l'item sera fourni par l'url ================================================================================================================
-createProductSheet("5be9c8541c9d440000665243");
+// createProductSheet("5be9c8541c9d440000665243");

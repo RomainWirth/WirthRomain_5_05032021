@@ -8,19 +8,16 @@ fetch("http://localhost:3000/api/teddies")
             console.log("erreur") // -> pas d'erreur au console.log
         }
     })
-    .then (function(teddiesCatalogData) {
-        console.log(teddiesCatalogData);
-        
+    .then (function(teddiesCatalogData) {       
         // récupérer les éléments de teddiesCatalogData dans un tableau
-        var teddiesArray = teddiesCatalogData;
-                // teddiesArray contiens les données en tableau
-        console.log(teddiesArray);
-        
-        // créer une fonction pour définir [i]
-            // fonction : rechercher l'élément i du tableau teddiesArray boucle for 
-        for (let i = 0; i < teddiesArray.length; i++) {
+                // teddiesCatalogData contiens les données en tableau
+                console.log(teddiesCatalogData);
 
-        var itemId = teddiesArray[i]._id;
+        // créer une fonction pour définir [i]
+            // fonction : rechercher l'élément i du tableau teddiesCatalogData boucle for 
+        for (let i = 0; i < teddiesCatalogData.length; i++) {
+
+        var itemId = teddiesCatalogData[i]._id;
 
         // définition de la page html de lien
         function goToProductSheet(itemId){
@@ -31,11 +28,12 @@ fetch("http://localhost:3000/api/teddies")
         let itemCatalogHTML = document.getElementById("catal");
 
         // déclarer les variables intégrant les éléments des tableaux
-        let tedCataPicture = teddiesArray[i].imageURL; 
-        let tedCataName = teddiesArray[i].name;
+        var itemId = teddiesCatalogData[i]._id;
+        let tedCataPicture = teddiesCatalogData[i].imageUrl; 
+        let tedCataName = teddiesCatalogData[i].name;
         let tedCataTextNodeName = document.createTextNode(tedCataName);
             // travail du le prix
-        let a = (teddiesArray[i].price)/100; // on convertis le prix de centimes en euros
+        let a = (teddiesCatalogData[i].price)/100; // on convertis le prix de centimes en euros
         let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
         let tedCataTextNodePrice = document.createTextNode(b + " Euros");
         
@@ -47,12 +45,12 @@ fetch("http://localhost:3000/api/teddies")
             let newCataItemImgCont = document.createElement("div");
             newCataItemImgCont.className = "catalog__item--image_dimension";
             let newCataItemImgLink = document.createElement("a");
-            newCataItemImgLink.setAttribute("href", productSheetHTML);
+            newCataItemImgLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             newCataItemImgLink.addEventListener("click", function(){goToProductSheet(itemId)});
             
             let newCataItemImgUrl = document.createElement("img");
             newCataItemImgUrl.className = "item_image";
-            newCataItemImgUrl.setAttribute("src", tedCataPicture); // source image non définie ============================================= !!!!!!!!!!!!!
+            newCataItemImgUrl.setAttribute("src", tedCataPicture);
 
             newCataItemImgCont.appendChild(newCataItemImgLink);
             newCataItemImgLink.appendChild(newCataItemImgUrl);
@@ -63,7 +61,7 @@ fetch("http://localhost:3000/api/teddies")
             newCataItemDetails.className = "catalog__item--description";
             
             let newCataItemNameLink = document.createElement("a");
-            newCataItemNameLink.setAttribute("href", productSheetHTML);
+            newCataItemNameLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             newCataItemNameLink.addEventListener("click", function(){goToProductSheet(itemId)});
             let newCataItemName = document.createElement("h2");
             
@@ -73,7 +71,7 @@ fetch("http://localhost:3000/api/teddies")
 
                 // <a href> et <p>
             let newCataItemPriceLink = document.createElement("a");
-            newCataItemPriceLink.setAttribute("href", productSheetHTML);
+            newCataItemPriceLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             newCataItemPriceLink.addEventListener("click", function(){goToProductSheet(itemId)});
             let newCataItemPrice = document.createElement("p");
             newCataItemPrice.appendChild(tedCataTextNodePrice);

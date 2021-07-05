@@ -35,8 +35,8 @@
             justify-content: space-around;
             align-items: center;
         }
-        &--description p {
-            font-size: 1.5em;
+        &--description h2, p {
+            font-size: 1.2em;
         }
         &--buy_now {
             background-color: $colour-secondary-lighter;
