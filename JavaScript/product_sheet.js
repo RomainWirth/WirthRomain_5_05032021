@@ -121,9 +121,70 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         itemInfoHTML.appendChild(newItemImage);        
         itemInfoHTML.appendChild(newItemDetails);
 
+// Gestion du panier --------------------------------------------------------------------------------------
+// récupération des données sélectionnées par l'utilisateur et envoi du panier
 
+// créer un adventListener au click et pour stocker les données et les envoyer à la page panier
+        newItemInfoBuyButton.addEventListener("click", function(event){
+            event.preventDefault();
 
+            // Mettre le choix de l'utilisateur dans une variable
+            const formChoice = newColorChoicesSelection.value;
 
+            // Récupération des valeurs à envoyer au panier :
+            let optionsItem = {
+                itemImageUrl: teddiesData.imageUrl,
+                itemName: teddiesData.name,
+                itemId: teddiesData._id,
+                itemOption: formChoice,
+                itemPrice: y
+            }
+
+            console.log(optionsItem);
+
+            // test 
+            const m = null;
+            console.log(m);
+            console.log(Boolean(m)); // condition false avec m = null, si m = "string" : condition true
+
+// local storage -------------------------------------------------------------------------------------------
+// stocker la récupération des données sélectionner dans le local storage ----------------------------------
+
+            let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
+            // JSON.parse permet de convertir les données au format JSON dans le local storage en objet JS
+            console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
+
+            // fonction fenêtre pop up de confirmation 
+            const popUpConf = function(){ // window.confirm ouvre une fenêtre popup proposant de continuer ses achats ou de se diriger vers le panier
+                if(window.confirm(`${teddiesData.name}, couleur : ${formChoice}
+a bien été ajouté au panier
+Consulter le panier : cliquer sur OK 
+ou 
+continuer ses achats : cliquer sur ANNULER`)) {
+                    window.location.href = "panier.html";
+                } else {
+                    window.location.href = "index.html";
+                }
+            } 
+
+        // s'il y a des produits enregistrés dans le local storage
+            if(localStorageRegisteredItem){
+                localStorageRegisteredItem.push(optionsItem);
+                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+                console.log(localStorageRegisteredItem); // vérification des données dans la console
+                popUpConf();
+            } 
+        // s'il n'y a pas de produits enregistrés dans le local storage
+            else {
+                localStorageRegisteredItem = [];
+                localStorageRegisteredItem.push(optionsItem);
+                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+
+                console.log(localStorageRegisteredItem); // tableau créé dans la console
+
+                opUpConf();
+            }
+        });
     })
     .catch(function(err) {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + err.message)
