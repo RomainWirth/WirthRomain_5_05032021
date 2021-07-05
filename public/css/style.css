@@ -16,7 +16,7 @@ a {
 
 /* *************** WIDTHS *************** */
 .page_container {
-  max-width: 1440px;
+  max-width: 1110px;
   margin: 0 auto 20px;
   font-family: "Hind", sans-serif;
 }
@@ -57,7 +57,7 @@ html, body, h1, form, fieldset, legend, ol, li {
   flex-direction: row;
   justify-content: space-around;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .footer_wrapper__about {
     flex-direction: column;
     padding-left: 2%;
@@ -78,13 +78,13 @@ html, body, h1, form, fieldset, legend, ol, li {
   text-align: center;
   padding: 0 2%;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .footer_wrapper__social--links p {
     width: 100%;
     text-align: left;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .footer_wrapper__social--links {
     flex-direction: column;
   }
@@ -114,7 +114,7 @@ html, body, h1, form, fieldset, legend, ol, li {
 .top__logos--box i {
   font-size: 1.5em;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .top {
     flex-direction: row;
     justify-content: space-around;
@@ -146,7 +146,6 @@ html, body, h1, form, fieldset, legend, ol, li {
 
 /* *** page catalogue *** */
 .catalog {
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -200,6 +199,16 @@ html, body, h1, form, fieldset, legend, ol, li {
 @media (max-width: 425px) {
   .catalog {
     width: 90%;
+  }
+}
+@media (max-width: 769px) {
+  .catalog {
+    width: 92%;
+  }
+}
+@media (max-width: 1025px) {
+  .catalog {
+    width: 69%;
   }
 }
 

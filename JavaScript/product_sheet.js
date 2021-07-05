@@ -87,13 +87,13 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let newColorChoicesForm = document.createElement("form");
         newColorChoicesForm.className = "color_choices_form";
         let newColorChoicesSelection = document.createElement("select");
-        newColorChoicesSelection.id = "color_choices_selection"; // ATTENTION REVOIR CETTE SYNTAXE JE NE SAIS PAS SI C'EST CORRECT---------------
+        newColorChoicesSelection.id = "color_choices_selection"; 
         newItemColors.appendChild(newColorChoicesForm);
         newColorChoicesForm.appendChild(newColorChoicesSelection);
             //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
-        console.log(options.length); // vérification de la taille du tableau itemColors -------------------------------------------------------------------
+        console.log(options.length); // vérification de la taille du tableau itemColors 
 
         for (var i = 0; i < options.length; i++) {
             var opt = options[i];
@@ -101,7 +101,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             el.value = opt;
             el.textContent = opt;
             newColorChoicesSelection.appendChild(el);
-        } // VERIFIER LA SYNTAXE SI CORRECTE -----------------------------------------------------------------------------------------------------------
+        } 
 
 // création du bouton d'achat 
         let newItemInfoBuyButtonContainer = document.createElement("div");
@@ -116,16 +116,13 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         newItemInfoBuyButton.appendChild(newItemInfoBuyNowButton);
         newItemInfoBuyButtonContainer.appendChild(newItemInfoBuyButton);
         newItemDetails.appendChild(newItemInfoBuyButtonContainer);
-        // créer un adventListener au click et référer à la fonction ci-dessus
-       /* newItemInfoBuyButton.addEventListener("click", function(){
-            selectProduct(itemName, itemId)
-        });*/ // fonction à vérifier---------------------------------------------------------------------------------------------------------
-
 
         // intégration des divs dans l'élément parent
-        itemInfoHTML.appendChild(newItemImage);
-        
+        itemInfoHTML.appendChild(newItemImage);        
         itemInfoHTML.appendChild(newItemDetails);
+
+
+
 
     })
     .catch(function(err) {
@@ -137,6 +134,12 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 // -------------- End Fonction -------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------------------------
 
-// appel de la fonction pour la tester sur la page test
-// id de l'item sera fourni par l'url ================================================================================================================
-// createProductSheet("5be9c8541c9d440000665243");
+// appel de la fonction pour l'affichage sur la page HTML en dynamique
+// id de l'item sera fourni par l'url ======================================================================================================
+var queryString = window.location.search;
+// console.log(queryString); // ?itemId=5be9c8541c9d440000665243
+var urlParams = new URLSearchParams(queryString);
+var itemId = urlParams.get ("itemId");
+console.log(itemId);
+
+createProductSheet(itemId);

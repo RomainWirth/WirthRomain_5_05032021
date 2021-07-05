@@ -11,74 +11,123 @@
         Début de page test
     </header>
     <main>
-        <div class="catalog" id="catal">
-            <!--
-            <div class="catalog__item">
-                <div class="catalog__item--image_dimension">
-                    <a href="product_sheet.html">
-                        <img src="./public/images/teddy_1.jpg" alt="image de l'objet" class="item_image"/>
-                    </a>
+        <section class="main_container">
+            <h1>Mon panier</h1>
+            <div class="selection">
+                <h2>Ma Sélection</h2>
+                <div class="selection__item" id="Selection_Item_Container">
+                    <div class="selection__item--image-mini">
+                        <img src="public/images/ComingSoon.png" alt="mignature objet selectionné"/>
+                    </div>
+                    <h3 class="selection__item--title">ITEM</h3>
+                    <p class="selection__item--ref ref">REF #1234</p>
+                    <p class="selection__item--price">15 &#8364;</p>
                 </div>
-                <div class="catalog__item--description">
-                    <a href="product_sheet.html">
-                        <h2>ITEM</h2>
-                    </a>
-                    <a href="product_sheet.html">
-                        <p>15&nbsp;&#8364;</p>
-                    </a>
-                </div>
-                <div class="catalog__item--buy_now">
-                    <a href="panier.html">
-                        <p class="button-buy">&#32;BUY NOW&#32;</p>
-                    </a>
+                <div class="selection__total-price">
+                    <p>15 &#8364;</p>
                 </div>
             </div>
-            <div class="catalog__item">
-                <div class="catalog__item--image_dimension">
-                    <a href="product_sheet.html">
-                        <img src="./public/images/teddy_2.jpg" alt="image de l'objet"/>
-                    </a>
-                </div>
-                <div class="catalog__item--description">
-                    <a href="product_sheet.html">
-                        <h2>ITEM</h2>
-                    </a>
-                    <a href="product_sheet.html">
-                        <p><span id="itemPrice">15</span>&nbsp;&#8364;</p>
-                    </a>
-                </div>
-                <div class="catalog__item--buy_now">
-                    <a href="panier.html">
-                        <p class="button-buy">&#32;BUY NOW&#32;</p>
-                    </a>
-                </div>
-            </div> 
-            <div class="catalog__item">
-                <div class="catalog__item--image_dimension">
-                    <a href="product_sheet.html">
-                        <img src="./public/images/teddy_3.jpg" alt="image de l'objet"/>
-                    </a>
-                </div>
-                <div class="catalog__item--description">
-                    <a href="product_sheet.html">
-                        <h2>ITEM</h2>
-                    </a>
-                    <a href="product_sheet.html">
-                        <p><span id="itemPrice">15</span>&nbsp;&#8364;</p>
-                    </a>
-                </div>
-                <div class="catalog__item--buy_now">
-                    <a href="panier.html">
-                        <p class="button-buy">&#32;BUY NOW&#32;</p>
-                    </a>
+            <div class="payment">
+                <h2>Paiement</h2>
+                <div class="payment__choice">
+                    <div class="payment__choice--button">
+                        <a href="#payment_form">
+                            <p class="payment-button">&#32;Payer&#32;</p>
+                        </a>
+                    </div>
+                    <div class="payment__choice--button">
+                        <a href="index.html">
+                            <p class="payment-button">&#32;Continuer mes achats&#32;</p>
+                        </a>
+                    </div>        
                 </div>
             </div>
-            -->
-        </div>
+            <div class="payment_form">
+                <h2>Mes informations</h2>
+                <form class="payment_form__registration">
+                    <div class="payment_form__registration--container">
+                        <h3>Votre identité</h3>
+                        <ol>
+                            <li>
+                                <label for=nom>Nom</label>
+                                <input id=nom name=nom type=text placeholder="Prénom et NOM" required autofocus>
+                            </li>
+                            <li>
+                                <label for=email>Email</label>
+                                <input id=email name=email type=email placeholder="exemple@domaine.com" required>
+                            </li>
+                            <li>
+                                <label for=telephone>Téléphone</label>
+                                <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000" required>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="payment_form__registration--container">
+                        <h3>Adresse de livraison</h3>
+                        <ol>
+                            <li>
+                                <label for=adresse>Adresse</label>
+                                <input id=adresse name=adresse rows=5 required></textarea>
+                            </li>
+                            <li>
+                                <label for=codepostal>Code postal</label>
+                                <input id=codepostal name=codepostal type=text required>
+                            </li>
+                            <li>
+                                <label for=pays>Pays</label>
+                                <input id=pays name=pays type=text required>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="payment_form__registration--container">
+                        <h3>Informations CB</h3>
+                        <ol>
+                            <li>
+                                <div class="bank-info">
+                                    <h3>Type de carte bancaire</h3>
+                                    <ol>
+                                        <li>
+                                            <input id=visa name=type_de_carte type=radio>
+                                            <label for=visa>VISA</label>
+                                        </li>
+                                        <li>
+                                            <input id=amex name=type_de_carte type=radio>
+                                            <label for=amex>AmEx</label>
+                                        </li>
+                                        <li>
+                                           <input id=mastercard name=type_de_carte type=radio>
+                                            <label for=mastercard>Mastercard</label>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li>
+                                <label for=numero_de_carte>N° de carte</label>
+                                <input id=numero_de_carte name=numero_de_carte type=number required>
+                            </li>
+                            <li>
+                                <label for=securite>Code sécurité</label>
+                                <input id=securite name=securite type=number required>
+                            </li>
+                            <li>
+                                <label for=nom_porteur>Nom du porteur</label>
+                                <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="payment_form__registration--container">
+                        <a href="confirmation.html">
+                            <p class="payment-button">&#32;Payer&#32;</p>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
     </main>
     <footer>
         Fin de page test
     </footer>
-    <script src="./JavaScript/index.js"></script>
+    <script src="./JavaScript/panier.js"></script>
 </body>
 </html>

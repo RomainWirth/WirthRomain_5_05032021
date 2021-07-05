@@ -92,9 +92,10 @@ fetch("http://localhost:3000/api/teddies")
             newItemCataBuyButtonLink.appendChild(newItemCataButtonBuyNow);
             newItemCataButtonBuyNow.appendChild(newItemCataTextNodeBuyNow);
 
+            // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
             /* newItemCataButtonBuyNow.addEventListener("click", function(){
-            selectProduct(itemName, itemId)
-            });*/
+            selectProduct(itemCataPicture, itemCataName, itemId)
+            }); */
 
         // => intégrer les éléments dans la div principale
             newCataItem.appendChild(newCataItemImgCont);
@@ -102,8 +103,6 @@ fetch("http://localhost:3000/api/teddies")
             newCataItem.appendChild(newItemCataBuyButtonCont);
 
             itemCatalogHTML.appendChild(newCataItem);
-        // relier les éléments du tableau dans les divs correspondantes pour item[i]
-
 
         }
     })

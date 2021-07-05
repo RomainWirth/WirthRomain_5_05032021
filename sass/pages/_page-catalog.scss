@@ -1,7 +1,6 @@
 /* *** page catalogue *** */
 
 .catalog {
-    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -53,6 +52,12 @@
     }
     @include media-queries-max($width-smartphone) {
         width: 90%;
+    }
+    @include media-queries-max($width-tablet) {
+        width: 92%;
+    }
+    @include media-queries-max($width-laptop) {
+        width: 69%;
     }
 }
 
