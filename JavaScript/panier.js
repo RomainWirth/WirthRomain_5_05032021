@@ -83,7 +83,22 @@ fetch("http://localhost:3000/api/teddies")
             newSelectedItemContainer.appendChild(newSelectedItemOption);
             newSelectedItemContainer.appendChild(newSelectedItemPrice);
             newSelectedItemContainer.appendChild(newSelectedItemSuppressButton);
+                
+            // fonction de suppression des éléments de la ligne
+            newSelectedItemSuppressButton.addEventListener("click", function(){
+                for (n = 0; n < localStorageRegisteredItem.length; n++) {
+                    var elementSuppress = localStorageRegisteredItem.splice(n, 1);
+                    console.log(elementSuppress);
+                    localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+                    window.location.href = "panier.html";
+                }
+            })
+            
             }
+
+
+
+            /*
             // sélection des ref de tous les boutons de suppression de ligne
             newSelectedItemSuppressButton = document.querySelectorAll(".selection__item--suppress");
             console.log(newSelectedItemSuppressButton); // affichage du bouton dans la console en tant que NodeList
@@ -97,44 +112,49 @@ fetch("http://localhost:3000/api/teddies")
                     let id_select_suppress = localStorageRegisteredItem[n].itemId;
                     console.log(id_select_suppress);
 
-                    id
-                    /*
                     // supprimer l'objet du tableau avec la méthode filter : sélection des élts à conserver et ceux ou le btn suppress a été cliqué
-                    localStorageRegisteredItem = localStorageRegisteredItem.filter( el => el.itemId !== id_select_suppress);
+                    localStorageRegisteredItem = localStorageRegisteredItem.filter((element) => element.itemId !== id_select_suppress);
                     console.log(localStorageRegisteredItem);
 
                     // envoyer la variable dans le local storage
                     localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
-                    */
+
                     // message d'alerte de suppression du produit + rechargement de la page
                     alert(`le produit ${localStorageRegisteredItem[n].itemName} a été supprimé du panier`);
                     window.location.href = "panier.html";
 
                 })
-            }
-        }
-
-
-        // ajout du total du panier 
-        let newSelectedItemTotalPriceCont = document.createElement("div");
-        newSelectedItemTotalPriceCont.className ="selection__total_price";
-        let newSelectedItemTotal = document.createElement("p");
-        let newSelectedItemTotalTextNode = document.createTextNode("Total :");
-        newSelectedItemTotal.appendChild(newSelectedItemTotalTextNode);
-        newSelectedItemTotalPriceCont.appendChild(newSelectedItemTotal);
-        let newSelectedItemTotalPrice = document.createElement("p");
+            } */
+        
+            // ajout du total du panier 
+            let newSelectedItemTotalPriceCont = document.createElement("div");
+            newSelectedItemTotalPriceCont.className ="selection__total_price";
+            let newSelectedItemTotal = document.createElement("p");
+            let newSelectedItemTotalTextNode = document.createTextNode("Total :");
+            newSelectedItemTotal.appendChild(newSelectedItemTotalTextNode);
+            newSelectedItemTotalPriceCont.appendChild(newSelectedItemTotal);
+            let newSelectedItemTotalPrice = document.createElement("p");
             //injecter fonction calculant le prix total du panier
 
 
+            // bouton pour vider entièrement le panier
+            let newSelectedItemTotalPriceSuppressButton = document.createElement("button");
+            newSelectedItemTotalPriceSuppressButton.setAttribute("type", "button");
+            newSelectedItemTotalPriceSuppressButton.className = "selection__total_price--suppress";
+            let newSelectedItemTotalPriceSuppressButtonTextNode = document.createTextNode("Vider Panier");
+            newSelectedItemTotalPriceSuppressButton.appendChild(newSelectedItemTotalPriceSuppressButtonTextNode);
+            newSelectedItemTotalPriceCont.appendChild(newSelectedItemTotalPriceSuppressButton);
+            
+            newSelectedItemTotalPriceSuppressButton.addEventListener("click", function(e){
+                e.preventDefault();
 
-        let newSelectedItemTotalPriceSuppressButton = document.createElement("button");
-        newSelectedItemTotalPriceSuppressButton.setAttribute("type", "button");
-        newSelectedItemTotalPriceSuppressButton.className = "selection__total_price--suppress";
-        let newSelectedItemTotalPriceSuppressButtonTextNode = document.createTextNode("Vider Panier");
-        newSelectedItemTotalPriceSuppressButton.appendChild(newSelectedItemTotalPriceSuppressButtonTextNode);
-        newSelectedItemTotalPriceCont.appendChild(newSelectedItemTotalPriceSuppressButton);
-        
-        newSelectedItemMainContainer.appendChild(newSelectedItemTotalPriceCont);
+                localStorage.removeItem("product");
+                alert("Votre panier a été vidé");
+                window.location.href = "panier.html";
+            })
+
+            newSelectedItemMainContainer.appendChild(newSelectedItemTotalPriceCont);
+        }
     })
     .catch (function(error) {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
