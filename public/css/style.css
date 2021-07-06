@@ -294,6 +294,7 @@ html, body, h1, form, fieldset, legend, ol, li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
 }
 .selection__item {
   width: 96%;
@@ -302,6 +303,10 @@ html, body, h1, form, fieldset, legend, ol, li {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+.selection__item--Empty_Basket {
+  align-self: center;
+  padding: 20px 0;
 }
 .selection__item--image-mini {
   min-width: 100px;
@@ -312,13 +317,16 @@ html, body, h1, form, fieldset, legend, ol, li {
 .selection__item--image-mini img {
   width: 100%;
 }
-.selection__total-price {
+.selection__item--suppress {
+  margin-bottom: 20px;
+}
+.selection__total_price {
   height: 50px;
   width: 96%;
   padding: 0 2%;
   border-top: 1px solid #000;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
 }
 
