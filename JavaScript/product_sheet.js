@@ -157,8 +157,8 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
             // fonction fenêtre pop up de confirmation 
             const popUpConf = function(){ // window.confirm ouvre une fenêtre popup proposant de continuer ses achats ou de se diriger vers le panier
-                if(window.confirm(`${teddiesData.name}, couleur : ${formChoice}
-a bien été ajouté au panier
+                if(window.confirm(`Le produit ${teddiesData.name}, couleur : ${formChoice}
+a bien été ajouté au panier.
 Consulter le panier : cliquer sur OK 
 ou 
 continuer ses achats : cliquer sur ANNULER`)) {
@@ -168,22 +168,26 @@ continuer ses achats : cliquer sur ANNULER`)) {
                 }
             } 
 
+            // fonction d'ajout d'item dans le localStorage
+            const addItemLocalStorage = function() {
+                // ajout dans le tableau de l'objet avec des values choisies par l'utilisateur
+                localStorageRegisteredItem.push(optionsItem); 
+                // transformation des valeurs JS en chaîne JSON pour envoyer dans la key "product" du local Storage
+                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); 
+            }
+
         // s'il y a des produits enregistrés dans le local storage
             if(localStorageRegisteredItem){
-                localStorageRegisteredItem.push(optionsItem); // on ajoute les options d'un Item au tableau
-                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // transforme des valeurs JS en chaîne JSON pour le local Storage
+                addItemLocalStorage(); // appel de la fonction d'ajout d'item dans le local storage
                 console.log(localStorageRegisteredItem); // vérification des données dans la console
-                popUpConf();
+                popUpConf(); // appel de la fonction de fenêtre popup de confirmation
             } 
         // s'il n'y a pas de produits enregistrés dans le local storage
             else {
                 localStorageRegisteredItem = []; // création d'un tableau vide pour le remplir avec les données d'achat
-                localStorageRegisteredItem.push(optionsItem); // on intègre les données d'achat
-                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // transforme des valeurs JS en chaîne JSON pour le local Storage
-
+                addItemLocalStorage(); // appel de la fonction d'ajout d'item dans le local storage
                 console.log(localStorageRegisteredItem); // tableau créé dans la console
-
-                popUpConf();
+                popUpConf(); // appel de la fonction de fenêtre popup de confirmation
             }
         });
     })

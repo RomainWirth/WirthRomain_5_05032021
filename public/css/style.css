@@ -133,10 +133,17 @@ html, body, h1, form, fieldset, legend, ol, li {
 .navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
   padding-bottom: 20px;
 }
 @media (max-width: 425px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media (max-width: 769px) {
   .navbar {
     flex-direction: column;
     justify-content: space-around;
@@ -270,17 +277,23 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 
 /* *** page panier ***/
-.selection {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.selection_container {
   width: 90%;
   border: 2px solid #000;
   border-radius: 15px;
   box-shadow: 0 0 15px #cecece;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.selection h2 {
+.selection_container h2 {
   padding: 0 2%;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .selection__item {
   width: 96%;

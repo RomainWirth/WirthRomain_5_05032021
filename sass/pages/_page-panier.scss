@@ -1,16 +1,22 @@
 /* *** page panier ***/
 
-.selection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.selection_container {
     width: 90%;
     border: 2px solid $colour-text;
     border-radius: 15px;
     box-shadow: 0 0 15px $colour-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     & h2 {
         padding: 0 2%;
     }
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     &__item {
         width: 96%;
         padding: 2%;
