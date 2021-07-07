@@ -132,7 +132,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             const formChoice = newColorChoicesSelection.value;
 
             // Récupération des valeurs à envoyer au panier :
-            let optionsItem = { // définition de la variable contenant les valeurs qu'on veut intégrer au panier
+            let optionsItem = { // définition de la variable contenant un objet avec les valeurs qu'on veut intégrer au panier
                 itemImageUrl: teddiesData.imageUrl,
                 itemName: teddiesData.name,
                 itemId: teddiesData._id,
@@ -150,7 +150,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 // local storage -------------------------------------------------------------------------------------------
 // stocker la récupération des données sélectionner dans le local storage ----------------------------------
 // un tableau de données sera créé par click ---------------------------------------------------------------
-            // définition de la variable permettant de convertir les données du format JSON au JS
+            // définition de la variable permettant de convertir les données du format JSON au format JS
             let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
             // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
             console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
@@ -172,7 +172,7 @@ continuer ses achats : cliquer sur ANNULER`)) {
             const addItemLocalStorage = function() {
                 // ajout dans le tableau de l'objet avec des values choisies par l'utilisateur
                 localStorageRegisteredItem.push(optionsItem); 
-                // transformation des valeurs JS en chaîne JSON pour envoyer dans la key "product" du local Storage
+                // transformation des valeurs JS en chaîne JSON pour envoyer dans le local Storage avec la key "product"
                 localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); 
             }
 
