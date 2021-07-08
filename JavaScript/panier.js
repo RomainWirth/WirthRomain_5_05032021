@@ -2,17 +2,6 @@
 // ------------ Start Fonction -------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------------------------
 
-fetch("http://localhost:3000/api/teddies")
-    .then(function(res) {
-        if(res.ok) {
-            return res.json()
-        } else {
-            console.log("erreur") // -> pas d'erreur au console.log
-        }
-    })
-    .then(function(selectedItemData){
-        console.log(selectedItemData);
-
         // récupération des données du local storage à destination du panier
         // définition de la variable permettant de convertir les données du format JSON au JS
         let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
@@ -116,7 +105,7 @@ fetch("http://localhost:3000/api/teddies")
                             console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
                             localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
                             window.location.href = "panier.html"; // rechargement de la page
-                        }                        
+                        }
                     })
                 }
             }
@@ -170,10 +159,6 @@ fetch("http://localhost:3000/api/teddies")
 
             newSelectedItemMainContainer.appendChild(newSelectedItemTotalPriceCont);
         }
-    })
-    .catch (function(error) {
-        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
-    });
 
 // -----------------------------------------------------------------------------------------------------------------------------------------
 // -------------- End Fonction -------------------------------------------------------------------------------------------------------------
