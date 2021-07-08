@@ -93,12 +93,14 @@ fetch("http://localhost:3000/api/teddies")
                 // retourne un tableau avec n élements : [0:{object dont itemId}, 1:{object dont itemId}, n:{object dont itemId}]
                 
                 // sélection de tous les boutons supprimer
+                // déclaration de variable récupérant les données du localStorage key "product"
                 // récupérer itemId de l'élément n du tableau localStorageRegisteredItem : localStorageRegisteredItem[n].itemId
                 // pour cela : créer une boucle for qui identifie n selon la position n du bouton supprimer du tableau
+                // déclaration de la variable correspondante à l'id de l'item à supprimer depuis le tableau contenant les items
                 // utiliser splice pour supprimer l'élément n du tableau localStorageRegisteredItem
+                // faire des contrôles console.log
                 // retourner le tableau dans le localStorage
                 // recharger automatiquement la page
-                // terminer la boucle avec break
                 
                 let btnSupprimer = document.querySelectorAll(".selection__item--suppress");
                 console.log(btnSupprimer); // NodeList créé dans la console
@@ -109,68 +111,15 @@ fetch("http://localhost:3000/api/teddies")
                         event.preventDefault();
                         let itemToDelete = localStorageRegisteredItem[n].itemId; // déclaration de la variable correspondante à l'id de l'item à supprimer
                         console.log(itemToDelete); // retourne l'Id de l'item à supprimer
-                        if(currentOrder){
-                            if(currentOrder[n].itemId == itemToDelete){
-                                currentOrder = localStorageRegisteredItem.splice([n], 1);
-                                console.log(currentOrder); // retourne un tableau contenant l'élément à supprimer
-                                console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
-                                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
-                                window.location.href = "panier.html"; // rechargement de la page
-                            }
-                        }
+                        if(currentOrder[n].itemId == itemToDelete){
+                            currentOrder = localStorageRegisteredItem.splice([n], 1);
+                            console.log(currentOrder); // retourne un tableau contenant l'élément à supprimer
+                            console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
+                            localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
+                            window.location.href = "panier.html"; // rechargement de la page
+                        }                        
                     })
                 }
-            
-                /*    newSelectedItemSuppressButton.addEventListener("click", function(event){
-                    event.preventDefault();
-                    for(n = 0; n < btnSupprimerArray.length; n++){
-                        var itemToDelete = localStorageRegisteredItem[n].itemId;
-                        if(btnSupprimerArray[n] == itemToDelete){
-                            var elementSuppress = localStorageRegisteredItem.splice(n, 1);
-                            console.log(elementSuppress);
-                            console.log(localStorageRegisteredItem);
-                            localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // suppression de l'item du local storage
-                            window.location.href = "panier.html"; // rechargement de la page
-                            break;
-                        }
-                    }
-                }) */
-
-
-
-                /*
-                newSelectedItemSuppressButton.addEventListener("click", function(event){
-                    event.preventDefault();
-                    var itemToDelete = localStorageRegisteredItem.itemId; // il manque la position de l'élément parent de l'itemId
-                    var currentOrder = JSON.parse(localStorage.getItem("product"));
-                    console.log(currentOrder);
-                    if(currentOrder){
-                        for(n = 0; n < currentOrder.length; n++){
-                            if(currentOrder[n].itemId == itemToDelete){
-                                delete currentOrder[n];
-                                var removalSuccess = true;
-                                console.log(removalSuccess);
-                                localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
-                                break;
-                            }
-                        }
-                    }
-                }) 
-                */
-                /*
-                // problème : cette fonction enlève uniquement le premier de la liste
-                newSelectedItemSuppressButton.addEventListener("click", function(event){
-                    event.preventDefault();
-                    for (n = 0; n < localStorageRegisteredItem.length; n++) {
-                        var elementSuppress = localStorageRegisteredItem.splice(n, 1);
-                        console.log(elementSuppress);
-                        console.log(localStorageRegisteredItem);
-                        // localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // suppression de l'item du local storage
-                        // window.location.href = "panier.html"; // rechargement de la page
-                        break;
-                    }
-                })
-                */
             }
         
             // ajout du total du panier 
