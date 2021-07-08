@@ -87,7 +87,6 @@ fetch("http://localhost:3000/api/teddies")
                 newSelectedItemContainer.appendChild(newSelectedItemPrice);
                 newSelectedItemContainer.appendChild(newSelectedItemSuppressButton);
 
-                // cette fonction ne fonctionne pas correctement : à retravailler ======================================================================================           
                 // fonction de suppression des éléments de la ligne
                 console.log(localStorageRegisteredItem);
                 // retourne un tableau avec n élements : [0:{object dont itemId}, 1:{object dont itemId}, n:{object dont itemId}]

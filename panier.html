@@ -59,88 +59,56 @@
                 <div class="payment__choice">
                     <div class="payment__choice--button">
                         <a href="#payment_form">
-                            <p class="payment-button">&#32;Payer&#32;</p>
+                            <p class="payment-button">&#32;Passer Commande&#32;</p>
                         </a>
                     </div>
                     <div class="payment__choice--button">
                         <a href="index.html">
-                            <p class="payment-button">&#32;Continuer mes achats&#32;</p>
+                            <p class="payment-button" id="">&#32;Continuer mes achats&#32;</p>
                         </a>
                     </div>        
                 </div>
             </div>
-            <div class="payment_form">
+            <div class="payment_form" id="payment_form_container">
+                <!-- HTML Généré par Javascript -->
+                <!--
                 <h2>Mes informations</h2>
                 <form class="payment_form__registration">
                     <div class="payment_form__registration--container">
                         <h3>Votre identité</h3>
-                        <ol>
-                            <li>
-                                <label for=nom>Nom</label>
-                                <input id=nom name=nom type=text placeholder="Prénom et NOM" required autofocus>
-                            </li>
-                            <li>
-                                <label for=email>Email</label>
-                                <input id=email name=email type=email placeholder="exemple@domaine.com" required>
-                            </li>
-                            <li>
-                                <label for=telephone>Téléphone</label>
-                                <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000" required>
-                            </li>
-                        </ol>
+                        <label for=nom>Nom</label>
+                        <input id=nom name=nom type=text placeholder="Prénom et NOM" required autofocus>
+                        <label for=email>Email</label>
+                        <input id=email name=email type=email placeholder="exemple@domaine.com" required>
+                        <label for=telephone>Téléphone</label>
+                        <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000" required>
                     </div>
                     <div class="payment_form__registration--container">
                         <h3>Adresse de livraison</h3>
-                        <ol>
-                            <li>
-                                <label for=adresse>Adresse</label>
-                                <input id=adresse name=adresse rows=5 required></textarea>
-                            </li>
-                            <li>
-                                <label for=codepostal>Code postal</label>
-                                <input id=codepostal name=codepostal type=text required>
-                            </li>
-                            <li>
-                                <label for=pays>Pays</label>
-                                <input id=pays name=pays type=text required>
-                            </li>
-                        </ol>
+                        <label for=adresse>Adresse</label>
+                        <input id=adresse name=adresse rows=5 required></textarea>
+                        <label for=codepostal>Code postal</label>
+                        <input id=codepostal name=codepostal type=text required>
+                        <label for=pays>Pays</label>
+                        <input id=pays name=pays type=text required>
                     </div>
                     <div class="payment_form__registration--container">
                         <h3>Informations CB</h3>
-                        <ol>
-                            <li>
-                                <div class="bank-info">
-                                    <h3>Type de carte bancaire</h3>
-                                    <ol>
-                                        <li>
-                                            <input id=visa name=type_de_carte type=radio>
-                                            <label for=visa>VISA</label>
-                                        </li>
-                                        <li>
-                                            <input id=amex name=type_de_carte type=radio>
-                                            <label for=amex>AmEx</label>
-                                        </li>
-                                        <li>
-                                           <input id=mastercard name=type_de_carte type=radio>
-                                            <label for=mastercard>Mastercard</label>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </li>
-                            <li>
-                                <label for=numero_de_carte>N° de carte</label>
-                                <input id=numero_de_carte name=numero_de_carte type=number required>
-                            </li>
-                            <li>
-                                <label for=securite>Code sécurité</label>
-                                <input id=securite name=securite type=number required>
-                            </li>
-                            <li>
-                                <label for=nom_porteur>Nom du porteur</label>
-                                <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
-                            </li>
-                        </ol>
+                        <h4>Type de carte bancaire</h4>
+                        <div class="bank-info">
+                            <input id=visa name=type_de_carte type=radio>
+                            <label for=visa>VISA</label>
+                            <input id=amex name=type_de_carte type=radio>
+                            <label for=amex>AmEx</label>
+                            <input id=mastercard name=type_de_carte type=radio>
+                            <label for=mastercard>Mastercard</label>
+                        </div>
+                        <label for=numero_de_carte>N° de carte</label>
+                        <input id=numero_de_carte name=numero_de_carte type=number required>
+                        <label for=securite>Code sécurité</label>
+                        <input id=securite name=securite type=number required>
+                        <label for=nom_porteur>Nom du porteur</label>
+                        <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
                     </div>
                     <div class="payment_form__registration--container">
                         <a href="confirmation.html">
@@ -148,6 +116,7 @@
                         </a>
                     </div>
                 </form>
+                -->
             </div>
         </section>
     </main>
@@ -191,5 +160,7 @@
             </div>
         </div>
     </footer>
-    <script src="JavaScript/panier.js"></script>
+    <script src="./JavaScript/panier.js"></script>
+    <script src="./JavaScript/payment_form.js"></script>
+
 </body>

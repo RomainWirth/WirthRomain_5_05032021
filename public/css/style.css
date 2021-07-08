@@ -380,9 +380,16 @@ html, body, h1, form, fieldset, legend, ol, li {
 }
 .payment_form__registration--container {
   padding: 0 4%;
+  display: flex;
+  flex-direction: column;
+}
+.payment_form__registration--container h4 {
+  margin: 0;
 }
 .payment_form__registration--container .bank-info {
-  padding: 0 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .payment_form__registration--container input {
   display: block;
