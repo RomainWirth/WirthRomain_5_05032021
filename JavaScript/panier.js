@@ -102,23 +102,20 @@ fetch("http://localhost:3000/api/teddies")
                 
                 let btnSupprimer = document.querySelectorAll(".selection__item--suppress");
                 console.log(btnSupprimer); // NodeList créé dans la console
+                let currentOrder = JSON.parse(localStorage.getItem("product")); // déclaration de variable récupérant les données du localStorage key "product"
+                console.log(currentOrder); // retourne un array issu du localStorage
                 for (let n = 0; n < btnSupprimer.length; n++){
                     btnSupprimer[n].addEventListener("click", function(event){
                         event.preventDefault();
                         let itemToDelete = localStorageRegisteredItem[n].itemId; // déclaration de la variable correspondante à l'id de l'item à supprimer
                         console.log(itemToDelete); // retourne l'Id de l'item à supprimer
-                        let currentOrder = JSON.parse(localStorage.getItem("product"));
-                        console.log(currentOrder); // retourne un array issu du localStorage
                         if(currentOrder){
                             if(currentOrder[n].itemId == itemToDelete){
                                 currentOrder = localStorageRegisteredItem.splice([n], 1);
                                 console.log(currentOrder); // retourne un tableau contenant l'élément à supprimer
                                 console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
-                                // var removalSuccess = true;
-                                // console.log(removalSuccess);
                                 localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem));
                                 window.location.href = "panier.html"; // rechargement de la page
-                                // break;
                             }
                         }
                     })
