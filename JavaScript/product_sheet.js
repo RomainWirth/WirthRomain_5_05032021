@@ -18,11 +18,10 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
     .then(function(teddiesData) {
         console.log(teddiesData);
 
-// récupération de l'élément HTML <div id="intemInfo">
+        // récupération de l'élément HTML <div id="intemInfo">
         let itemInfoHTML = document.getElementById("itemInfo");
 
-// récupération des infos de l'objet teddies et déclaration en variables :
-
+        // récupération des infos de l'objet teddies et déclaration en variables :
         let itemImageUrl = teddiesData.imageUrl;
         let itemName = teddiesData.name;
         let itemTextNodeName = document.createTextNode(itemName);
@@ -30,27 +29,27 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let itemTextNodeId = document.createTextNode(itemId);
         let itemTextNodeDescription = document.createTextNode(teddiesData.description); // ajout du texte de description dans la variable
         let itemColors = teddiesData.colors;        
-    // travail sur le prix en centimes
+        // travail sur le prix en centimes
         let x = (teddiesData.price)/100; // on convertis le prix de centimes en euros
         let y = x.toFixed(2); // y = prix fixé sur deux chiffres après la virgule
         let itemTextNodePrice = document.createTextNode(y + " Euros"); // conversion d'un nombre vers number + string
 
-// création d'une div contenant l'image avec nom de class "product_sheet__image"
+        // création d'une div contenant l'image avec nom de class "product_sheet__image"
         let newItemImage = document.createElement("div");
         newItemImage.className = "product_sheet__image";
 
-    // création et insertion d'une balise image dans la div
+        // création et insertion d'une balise image dans la div
         let newItemImageUrl = document.createElement("img");
         newItemImageUrl.className = "product_sheet__image--img";
         newItemImageUrl.setAttribute("src", itemImageUrl);
         // intégration de l'élement img dans la div class="product_sheet__image--img"
         newItemImage.appendChild(newItemImageUrl);
 
-// création d'une div contenant les éléments descriptifs de l'item avec nom de class "product_sheet__details"
+        // création d'une div contenant les éléments descriptifs de l'item avec nom de class "product_sheet__details"
         let newItemDetails = document.createElement("div");
         newItemDetails.className = "product_sheet__details";
 
-    // création et insertion des éléments enfants de la div 
+        // création et insertion des éléments enfants de la div 
         // premier élément : Name
         let newItemName = document.createElement("h2"); // variable newItemName = création de l'élément h2
         newItemName.className = "product_sheet__details--name"; //avec nom de class "product_sheet__details--name"
@@ -103,7 +102,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             newColorChoicesSelection.appendChild(el);
         } 
 
-// création du bouton d'achat 
+        // création du bouton d'achat 
         let newItemInfoBuyButtonContainer = document.createElement("div");
         newItemInfoBuyButtonContainer.className = "product_sheet__details--buy-now";
         let newItemInfoBuyButton = document.createElement("a");

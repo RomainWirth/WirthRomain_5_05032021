@@ -14,33 +14,33 @@ fetch("http://localhost:3000/api/teddies")
                 console.log(teddiesCatalogData);
 
         // créer une fonction pour définir [i]
-            // fonction : rechercher l'élément i du tableau teddiesCatalogData boucle for 
-        for (let i = 0; i < teddiesCatalogData.length; i++) {
+        // DEBUT BOUCLE FOR : rechercher l'élément i du tableau teddiesCatalogData boucle for 
+        for (let i = 0; i < teddiesCatalogData.length; i++) { 
 
-        var itemId = teddiesCatalogData[i]._id;
+            var itemId = teddiesCatalogData[i]._id;
 
-        // définition de la page html de lien
-        function goToProductSheet(itemId){
-            var productSheetHTML = "product_sheet.html?itemId=" + itemId;
-            window.location.href = productSheetHTML;
-        }
-        // récupérer l'élément parent sur HTML
-        let itemCatalogHTML = document.getElementById("catal");
+            // définition de la page html de lien
+            function goToProductSheet(itemId){
+                var productSheetHTML = "product_sheet.html?itemId=" + itemId;
+                window.location.href = productSheetHTML;
+            }
+            // récupérer l'élément parent sur HTML
+            let itemCatalogHTML = document.getElementById("catal");
 
-        // déclarer les variables intégrant les éléments des tableaux
-        var itemId = teddiesCatalogData[i]._id;
-        let tedCataPicture = teddiesCatalogData[i].imageUrl; 
-        let tedCataName = teddiesCatalogData[i].name;
-        let tedCataTextNodeName = document.createTextNode(tedCataName);
+            // déclarer les variables intégrant les éléments des tableaux
+            var itemId = teddiesCatalogData[i]._id;
+            let tedCataPicture = teddiesCatalogData[i].imageUrl; 
+            let tedCataName = teddiesCatalogData[i].name;
+            let tedCataTextNodeName = document.createTextNode(tedCataName);
             // travail du le prix
-        let a = (teddiesCatalogData[i].price)/100; // on convertis le prix de centimes en euros
-        let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
-        let tedCataTextNodePrice = document.createTextNode(b + " Euros");
+            let a = (teddiesCatalogData[i].price)/100; // on convertis le prix de centimes en euros
+            let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
+            let tedCataTextNodePrice = document.createTextNode(b + " Euros");
         
-        // générer les éléments HTML pour un item[i] : 
+            // générer les éléments HTML pour un item[i] : 
             // div principale : <div class="catalog__item">
-        let newCataItem = document.createElement("div"); 
-        newCataItem.className = "catalog__item";
+            let newCataItem = document.createElement("div"); 
+            newCataItem.className = "catalog__item";
             // photo : <div class="catalog__item--image_dimension", <a href> et <img>
             let newCataItemImgCont = document.createElement("div");
             newCataItemImgCont.className = "catalog__item--image_dimension";
@@ -97,15 +97,14 @@ fetch("http://localhost:3000/api/teddies")
             selectProduct(itemCataPicture, itemCataName, itemId)
             }); */
 
-        // => intégrer les éléments dans la div principale
+            // => intégrer les éléments dans la div principale
             newCataItem.appendChild(newCataItemImgCont);
             newCataItem.appendChild(newCataItemDetails);
             newCataItem.appendChild(newItemCataBuyButtonCont);
 
             itemCatalogHTML.appendChild(newCataItem);
-
-        }
-    })
+        } // -------------------------------------------------------------------------- FIN DE BOUCLE FOR -----
+    }) 
     .catch (function(error) {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });

@@ -19,38 +19,41 @@ console.log(paymentFormButton); // vérification de la sélection du bouton dans
 // eventListener sur le bouton de confirmation de paiement
 paymentFormButton.addEventListener("click", function(event) {
     event.preventDefault();
+
     // récupération des valeurs du formulaire pour les mettre dans le local storage
-    localStorage.setItem("nom", document.querySelector("#nom").value);
-    localStorage.setItem("prenom", document.querySelector("#prenom").value);
-    localStorage.setItem("email", document.querySelector("#email").value);
-    localStorage.setItem("telephone", document.querySelector("#telephone").value);
-    localStorage.setItem("adresse", document.querySelector("#adresse").value);
-    localStorage.setItem("codePostal", document.querySelector("#codePostal").value);
-    localStorage.setItem("ville", document.querySelector("#ville").value);
-    localStorage.setItem("pays", document.querySelector("#pays").value);
-
+    // récupérer des valeurs du formulaire pour les mettre dans une varibale "contact" sous forme d'objet
     const contact = {
-        nom: localStorage.getItem("nom"),
-        prenom: localStorage.getItem("prenom"),
-        email: localStorage.getItem("email"),
-        telephone: localStorage.getItem("telephone"),
-        adresse: localStorage.getItem("adresse"),
-        codePostal: localStorage.getItem("codePostal"),
-        ville: localStorage.getItem("ville"),
-        pays: localStorage.getItem("pays")
+        firstName: document.querySelector("#firstName").value,
+        lastName: document.querySelector("#lastName").value,
+        adress: document.querySelector("#adress").value,
+        city: document.querySelector("#city").value,
+        email: document.querySelector("#email").value
     }
-    console.log(array.isArray(contact));
     console.log("test n°x : page panier.html - contenu du tableau contact");
-    console.log(contact); // console log du formulaire
+    console.log(contact); // console log du formulaire avant envoi au serveur
 
-    // ajout des values du formulaire et les produits sélectionnés dans un objet à envoyer au serveur
-    
-    let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
-    const toSend = {
-        localStorageRegisteredItem,
-        form
+    // formulaire complet non requis dans les livrables
+    /* let contactFull = {
+        firstName: document.querySelector("#firstName").value,
+        lastName: document.querySelector("#lastName").value,
+        adress: document.querySelector("#adress").value,
+        city: document.querySelector("#city").value,
+        email: document.querySelector("#email").value
+        postalCode: document.querySelector("#postalCode").value,
+        country: ldocument.querySelector("#country").value,
+        telephone: document.querySelector("#telephone").value
     }
-    console.log(toSend);
+    console.log(contactFull); // console log du formulaire complet (non requis dans les livrables) */
+
+    // ajout des values des produits sélectionnés pour récupérer l'id de chaque item et les mettre dans un objet
+    
+    let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product")); // récupération des données du local storage
+    console.log(localStorageRegisteredItem); // retourne un tableau avec les éléments du panier du local storage
+    // création d'un tableau vide pour y insérer les itemId
+    // récupérer chaque itemId dans localStorageRegisteredItem
+    
+
+
 
 })
 
