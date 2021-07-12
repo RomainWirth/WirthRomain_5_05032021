@@ -7,7 +7,7 @@ var firstNameField = document.getElementById("firstName");
 var missFirstNameField = document.getElementById("missingFirstName");
 var validFirstNameField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
 // fonction de validation du premier champ
-function validate(event){
+function validateLastName(event){
     // si le champ est vide
     if (validFirstNameField.validity.ValueMissing) {
         event.preventDefault();
@@ -27,22 +27,33 @@ function validate(event){
 var lastNameField = document.getElementById("lastName");
 var missLastNameField = document.getElementById("missingLastName");
 var validLastNameField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
-// identification du deuxième champ requis : adresse
+// fonction de validation du deuxième champ
+
+
+
+// identification du troisième champ requis : adresse
 var addressField = document.getElementById("lastName");
 var missAddressField = document.getElementById("missingAddress");
 var validAddressField = new RegExp("^[0-9]+[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
-// identification du deuxième champ requis : ville
+// fonction de validation du troisième champ
+
+
+// identification du quatrième champ requis : ville
 var cityField = document.getElementById("city");
 var missCityField = document.getElementById("missingCity");
 var validCityField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
-// identification du deuxième champ requis : email
+// fonction de validation du quatrième champ
+
+
+// identification du cinquème champ requis : email
 var emailField = document.getElementById("email");
 var missEmailField = document.getElementById("missingEmail");
 var validEmailField = new RegExp("^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$");
+// fonction de validation du cinquième champ
 
 
-
-formValid.addEventListener("submit", validate);
+// appel des fonctions
+formValid.addEventListener("submit", validateLastName);
 
 // récupération des informations à envoyer au serveur -------------------------------------------------------------------
 
