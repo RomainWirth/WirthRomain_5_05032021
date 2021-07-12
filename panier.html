@@ -71,26 +71,31 @@
             </div>
             <div class="payment_form" id="payment_form_container">             
                 <h2>Mes informations</h2>
-                <form class="payment_form__registration">
+                <form class="payment_form__registration" name="paymentForm" action="" method="GET">
                     <div class="payment_form__registration--container">
                         <h3>Votre identité</h3>
                         <label for=firstName>Prénom</label>
-                        <input id=firstName name=firstName type=text placeholder="Prénom" required>
+                        <input id=firstName name=firstName type=text placeholder="Prénom" required autofocus>
+                        <span class="missing" id="missingFirstName"></span>
                         <label for=lastName>Nom</label>
-                        <input id=lastName name=lastName type=text placeholder="NOM" required autofocus>
+                        <input id=lastName name=lastName type=text placeholder="NOM" required>
+                        <span class="missing" id="missingLastName"></span>
                         <label for=email>Email</label>
                         <input id=email name=email type=email placeholder="exemple@domaine.com" required>
+                        <span class="missing" id="missingEmail"></span>
                         <label for=telephone>Téléphone</label>
-                        <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000" required>
+                        <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000">
                     </div>
                     <div class="payment_form__registration--container">
                         <h3>Adresse de livraison</h3>
-                        <label for=adress>Adresse</label>
-                        <input id=adress name=adress rows=5 required></textarea>
+                        <label for=address>Adresse</label>
+                        <input id=address name=address rows=5 required></textarea>
+                        <span class="missing" id="missingAddress"></span>
                         <label for=postalCode>Code postal</label>
                         <input id=postalCode name=postalCode type=text required>
                         <label for=city>VILLE</label>
                         <input id=city name=city type=text required>
+                        <span class="missing" id="missingCity"></span>
                         <label for=country>PAYS</label>
                         <input id=country name=country type=text required>
                     </div>
@@ -113,7 +118,7 @@
                         <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
                     </div>
                     <div class="payment_form__registration--container">
-                        <a href="confirmation.html" id="payment_form_button">
+                        <a href="#" id="payment_form_button" type="submit">
                             <p class="payment-button">&#32;Payer&#32;</p>
                         </a>
                     </div>
