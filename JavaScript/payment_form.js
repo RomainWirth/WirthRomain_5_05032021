@@ -1,27 +1,12 @@
 // début validation du formulaire de paiement -------------------------------------------------------------------------
 // selection du bouton d'envoi
 var formValid = document.getElementById("payment_form_button");
+
 // identification du premier champ requis : prénom
 var firstNameField = document.getElementById("firstName");
 var missFirstNameField = document.getElementById("missingFirstName");
-var validFirstNameField = new RegExp("[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
-// identification du deuxième champ requis : nom
-var lastNameField = document.getElementById("lastName");
-var missLastNameField = document.getElementById("missingLastName");
-var validLastNameField = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-// identification du deuxième champ requis : adresse
-var addressField = document.getElementById("lastName");
-var missAddressField = document.getElementById("missingAddress");
-var validAddressField = /^[0-9]+[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-// identification du deuxième champ requis : ville
-var cityField = document.getElementById("city");
-var missCityField = document.getElementById("missingCity");
-var validCityField = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-// identification du deuxième champ requis : email
-var emailField = document.getElementById("email");
-var missEmailField = document.getElementById("missingEmail");
-var validEmailField = /^[0-9]+[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-
+var validFirstNameField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
+// fonction de validation du premier champ
 function validate(event){
     // si le champ est vide
     if (validFirstNameField.validity.ValueMissing) {
@@ -37,6 +22,25 @@ function validate(event){
 
     }
 }
+
+// identification du deuxième champ requis : nom
+var lastNameField = document.getElementById("lastName");
+var missLastNameField = document.getElementById("missingLastName");
+var validLastNameField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
+// identification du deuxième champ requis : adresse
+var addressField = document.getElementById("lastName");
+var missAddressField = document.getElementById("missingAddress");
+var validAddressField = new RegExp("^[0-9]+[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
+// identification du deuxième champ requis : ville
+var cityField = document.getElementById("city");
+var missCityField = document.getElementById("missingCity");
+var validCityField = new RegExp("^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$");
+// identification du deuxième champ requis : email
+var emailField = document.getElementById("email");
+var missEmailField = document.getElementById("missingEmail");
+var validEmailField = new RegExp("^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$");
+
+
 
 formValid.addEventListener("submit", validate);
 
