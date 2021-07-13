@@ -29,4 +29,11 @@
     font-size: 1.2em;
     font-style: $colour-secondary;
     text-align: center;
+    background-color: $colour-base;
+    &:hover {
+        box-shadow: 0 0 15px $colour-shadow;
+    }
+    &:active{
+        background-color: $colour-secondary-lighter;
+    }
 }

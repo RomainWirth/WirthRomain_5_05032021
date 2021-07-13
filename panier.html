@@ -74,53 +74,51 @@
                 <form class="payment_form__registration" name="paymentForm" action="" method="GET">
                     <div class="payment_form__registration--container">
                         <h3>Votre identité</h3>
-                        <label for=firstName>Prénom</label>
-                        <input id=firstName name=firstName type=text placeholder="Prénom" required autofocus>
+                        <label for="firstName">Prénom</label>
+                        <input id="firstName" name="firstName" type="text" placeholder="Prénom" required autofocus>
                         <span class="missing" id="missingFirstName"></span>
-                        <label for=lastName>Nom</label>
-                        <input id=lastName name=lastName type=text placeholder="NOM" required>
+                        <label for="lastName">Nom</label>
+                        <input id="lastName" name="lastName" type="text" placeholder="NOM" required>
                         <span class="missing" id="missingLastName"></span>
-                        <label for=email>Email</label>
-                        <input id=email name=email type=email placeholder="exemple@domaine.com" required>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="exemple@domaine.com" required>
                         <span class="missing" id="missingEmail"></span>
-                        <label for=telephone>Téléphone</label>
-                        <input id=telephone name=telephone type=tel placeholder="par ex&nbsp;: +3375500000000">
+                        <label for="telephone">Téléphone</label>
+                        <input id="telephone" name="telephone" type="tel" placeholder="par ex&nbsp;: +3375500000000">
                     </div>
                     <div class="payment_form__registration--container">
                         <h3>Adresse de livraison</h3>
-                        <label for=address>Adresse</label>
-                        <input id=address name=address rows=5 required></textarea>
+                        <label for="address">Adresse</label>
+                        <input id="address" name="address" rows=5 required></textarea>
                         <span class="missing" id="missingAddress"></span>
-                        <label for=postalCode>Code postal</label>
-                        <input id=postalCode name=postalCode type=text required>
-                        <label for=city>VILLE</label>
-                        <input id=city name=city type=text required>
+                        <label for="postalCode">Code postal</label>
+                        <input id="postalCode" name="postalCode" type="text">
+                        <label for="city">VILLE</label>
+                        <input id="city" name="city" type="text" required>
                         <span class="missing" id="missingCity"></span>
-                        <label for=country>PAYS</label>
-                        <input id=country name=country type=text required>
+                        <label for="country">PAYS</label>
+                        <input id="country" name="country" type=text>
                     </div>
                     <div class="payment_form__registration--container">
                         <h3>Informations CB</h3>
                         <h4>Type de carte bancaire</h4>
                         <div class="bank-info">
-                            <input id=visa name=type_de_carte type=radio>
-                            <label for=visa>VISA</label>
-                            <input id=amex name=type_de_carte type=radio>
-                            <label for=amex>AmEx</label>
-                            <input id=mastercard name=type_de_carte type=radio>
-                            <label for=mastercard>Mastercard</label>
+                            <input id="visa" name="type_de_carte" type="radio">
+                            <label for="visa">VISA</label>
+                            <input id="amex" name="type_de_carte" type="radio">
+                            <label for="amex">AmEx</label>
+                            <input id="mastercard" name="type_de_carte" type="radio">
+                            <label for="mastercard">Mastercard</label>
                         </div>
-                        <label for=numero_de_carte>N° de carte</label>
-                        <input id=numero_de_carte name=numero_de_carte type=number required>
-                        <label for=securite>Code sécurité</label>
-                        <input id=securite name=securite type=number required>
-                        <label for=nom_porteur>Nom du porteur</label>
-                        <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
+                        <label for="numero_de_carte">N° de carte</label>
+                        <input id="numero_de_carte" name="numero_de_carte" type="number">
+                        <label for="securite">Code sécurité</label>
+                        <input id="securite" name="securite" type="number">
+                        <label for="nom_porteur">Nom du porteur</label>
+                        <input id="nom_porteur" name="nom_porteur" type="text" placeholder="Même nom que sur la carte">
                     </div>
                     <div class="payment_form__registration--container">
-                        <a href="#" id="payment_form_button" type="submit">
-                            <p class="payment-button">&#32;Payer&#32;</p>
-                        </a>
+                        <input class="payment-button" id="payment_form_button" type="submit" value="Payer">
                     </div>
                 </form>
             </div>
