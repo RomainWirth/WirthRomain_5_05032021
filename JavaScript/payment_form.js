@@ -15,10 +15,14 @@
  *
  */
 
+// =============================================================================================
+// début contrôle du formulaire et envoi des données au localStorage : eventListener sur le bouton de confirmation de paiement
+// =============================================================================================
+
 // sélection du bouton de paiement du formulaire pour un eventListener ---------------------------------
 const paymentFormButton = document.getElementById("payment_form_button");
 console.log(paymentFormButton); // vérification de la sélection du bouton dans la console
-// eventListener sur le bouton de confirmation de paiement
+// eventListener sur le bouton d'achat
 paymentFormButton.addEventListener ("click", function(event) { 
     event.preventDefault();
     // récupération des valeurs du formulaire pour les mettre dans le local storage
@@ -91,7 +95,7 @@ paymentFormButton.addEventListener ("click", function(event) {
             alert(textAlert("Champ Prénom"));
             return false;
         }
-    }
+    } // fin contrôle validité prénom
     function lastNameControl() {
         // contrôle validité nom
         const lastNameField = contact.lastName;
@@ -105,7 +109,7 @@ paymentFormButton.addEventListener ("click", function(event) {
             alert(textAlert("Champ NOM"));
             return false;
         }
-    }
+    } // fin contrôle validité nom
     function addressControl() {
         // contrôle validité adresse
         const addressField = contact.address;
@@ -119,7 +123,7 @@ paymentFormButton.addEventListener ("click", function(event) {
             alert("L'addresse renseignée ne doit contenir que des chiffres et des lettres");
             return false;
         }
-    }
+    } // fin contrôle validité adresse
     function cityControl() {
         // contrôle validité ville
         const cityField = contact.city;
@@ -133,7 +137,7 @@ paymentFormButton.addEventListener ("click", function(event) {
             alert("le Champ ville ne doit contenir que des lettres");
             return false;
         }
-    }
+    } // fin contrôle validité ville
     function emailControl() {
         // contrôle validité ville
         const emailField = contact.email;
@@ -147,15 +151,14 @@ paymentFormButton.addEventListener ("click", function(event) {
             alert("l'adresse email n'est pas valide");
             return false;
         }
-    }
+    } // fin contrôle validité ville
 
+    // si les champs contrôlés sont corrects : envoi des données contact dans le localStorage
     if(firstNameControl() && lastNameControl() && cityControl() && addressControl() && emailControl()){
         localStorage.setItem("contact", JSON.stringify(contact));
     } else {
         alert("Veuillez remplir le formulaire correctement")
     }
-
-
     // FIN - GESTION DE VALIDATION DU FORMULAIRE ----------------------------------------------------------------------------------------
 
     // ajout des values des produits sélectionnés pour récupérer l'id de chaque item et les mettre dans un tableau
@@ -179,7 +182,10 @@ paymentFormButton.addEventListener ("click", function(event) {
     }
     console.log("à envoyer au serveur");
     console.log(toSend);
-});
+}); 
+// =============================================================================================
+// FIN contrôle du formulaire et envoi des données au localStorage
+// =============================================================================================
 
 // remplir automatiquement les valeurs du formulaire depuis le localStorage
 // récupération de la key du localStorage dans une variable
