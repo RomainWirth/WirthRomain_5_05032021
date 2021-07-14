@@ -1,0 +1,18 @@
+.confirmation_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__order_recap {
+        width: 100%;
+        &--item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        &--total_price {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+}

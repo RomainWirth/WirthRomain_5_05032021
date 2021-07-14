@@ -157,75 +157,79 @@ paymentFormButton.addEventListener ("click", function(event) {
     // si les champs contrôlés sont corrects : envoi des données contact dans le localStorage
     if(firstNameControl() && lastNameControl() && cityControl() && addressControl() && emailControl()){
         localStorage.setItem("contact", JSON.stringify(contact));
+
+        // ajout des values des produits sélectionnés pour récupérer l'id de chaque item et les mettre dans un tableau
+        let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product")); // récupération des données du local storage
+        console.log(localStorageRegisteredItem); // retourne un tableau avec les éléments du panier du local storage
+        console.log(localStorageRegisteredItem.length);
+        let products = []; // tableau vide rempli par la boucle ci-dessous
+        // création d'une boucle pour récupérer les itemId de chaque item puis les insérer dans un tableau
+        for (let k = 0; k < localStorageRegisteredItem.length; k++) {
+            products.push(localStorageRegisteredItem[k].itemId);
+        }
+        console.log("test n°x : page panier.html - contenu du tableau products et type de valeurs")
+        console.log(products); // vérification des info contenues dans le tableau : string de itemId
+        console.log(typeof products[0]); // retourne string = le tableau est bien composé de strings
+
+        localStorage.setItem("products", JSON.stringify(products));
+
+        // stockage de contact et products dans une constante pour envoyer au serveur
+        const toSend= {
+            contact,
+            products
+        }
+
+        console.log("text n°x : vérification des données à envoyer au serveur");
+        console.log(toSend);
+
+        // DEBUT de communication avec le serveur ======
+        // Envoi de l'objet "toSend" vers le serveur
+        const promiseSend = fetch("http://localhost:3000/api/teddies/order", {
+            method: "POST",
+            body: JSON.stringify(toSend),
+            headers: {
+                "Content-Type" : "application/json",
+            },
+        });
+        console.log("text n°x : contrôle de promiseSend envoyé au serveur");
+        console.log(promiseSend); // promise à l'état pending (ni remplie, ni rompue)
+
+        promiseSend.then(async function(response){
+            try {
+                console.log("test n°x : vérification de la réponse du serveur");
+                console.log(response); // status 201 : created = une ressource à été créée + preflight
+
+                const content = await response.json();
+                console.log("test n°x : vérification du contenu de la réponse du serveur");
+                console.log(content); // réponse serveur objets contact, products et orderId
+
+                if (response.ok){
+                    console.log(`résultat de response.ok : ${response.ok}`); // réponse true
+                    
+                    // récupération de l'id de la réponse du serveur
+                    console.log("id de response");
+                    console.log(content.orderId);
+
+                    // envoi de l'ID dans le local storage
+                    localStorage.setItem("responseId", content.orderId);
+
+                } else {
+                    console.log(`réponse du serveur : ${response.status}`); // renvoie le code d'erreur du serveur 
+                    alert(`Problème avec le serveur : erreur ${response.status}`) // message d'alerte en cas d'erreur
+                }
+            } catch(error) {
+                console.log("Erreur au niveau du catch")
+                console.log(error);
+                alert("une erreur s'est produite :" + error);
+            }
+        }); // fin envoi données au serveur
+
+        window.location.href = "confirmation.html"; // lien vers la page de confirmation
+
     } else {
         alert("Veuillez remplir le formulaire correctement")
     }
     // FIN - GESTION DE VALIDATION DU FORMULAIRE ----------------------------------------------------------------------------------------
-
-    // ajout des values des produits sélectionnés pour récupérer l'id de chaque item et les mettre dans un tableau
-    let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product")); // récupération des données du local storage
-    console.log(localStorageRegisteredItem); // retourne un tableau avec les éléments du panier du local storage
-    console.log(localStorageRegisteredItem.length);
-    let products = []; // tableau vide rempli par la boucle ci-dessous
-    // création d'une boucle pour récupérer les itemId de chaque item puis les insérer dans un tableau
-    for (let k = 0; k < localStorageRegisteredItem.length; k++) {
-        products.push(localStorageRegisteredItem[k].itemId);
-    }
-    console.log("test n°x : page panier.html - contenu du tableau products et type de valeurs")
-    console.log(products); // vérification des info contenues dans le tableau : string de itemId
-    console.log(typeof products[0]); // retourne string = le tableau est bien composé de strings
-
-    localStorage.setItem("products", JSON.stringify(products));
-
-    // stockage de contact et products dans une constante pour envoyer au serveur
-    const toSend= {
-        contact,
-        products
-    }
-    console.log("text n°x : vérification des données à envoyer au serveur");
-    console.log(toSend);
-
-    // DEBUT de communication avec le serveur ======
-    // Envoi de l'objet "toSend" vers le serveur
-    const promiseSend = fetch("http://localhost:3000/api/teddies/order", {
-        method: "POST",
-        body: JSON.stringify(toSend),
-        headers: {
-            "Content-Type" : "application/json",
-        },
-    });
-    console.log("text n°x : contrôle de promiseSend envoyé au serveur");
-    console.log(promiseSend); // promise à l'état pending (ni remplie, ni rompue)
-
-    promiseSend.then(async function(response){
-        try {
-            console.log("test n°x : vérification de la réponse du serveur");
-            console.log(response); // status 201 : created = une ressource à été créée + preflight
-
-            const content = await response.json();
-            console.log("test n°x : vérification du contenu de la réponse du serveur");
-            console.log(content); // réponse serveur objets contact, products et orderId
-
-        } catch(error) {
-            console.log(error);
-        }
-    }); // fin envoi données au serveur
-    
-    // Récupération des données du serveur
-    /* const promiseGet = fetch("http://localhost:3000/api/teddies/order"); // méthode GET : error 404
-    promiseGet.then(async function(response){
-        try {
-            console.log("test n°x : vérification de la réponse du serveur");
-            console.log(promiseGet);
-            
-            const serverData = await response.json();
-            console.log("test n°x : vérification du contenu de la réponse du serveur");
-            console.log(serverData);
-
-        } catch (error) {
-            console.log(error);
-        }
-    }); */ 
 
 }); // === FIN eventListener sur le bouton d'achat =======================================================
 
