@@ -92,6 +92,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
+        console.log("test n°x : vérification de la taille du tableau")
         console.log(options.length); // vérification de la taille du tableau itemColors 
 
         for (var i = 0; i < options.length; i++) {
@@ -143,6 +144,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
             // test 
             const m = null;
+            console.log("test n°x : ")
             console.log(m);
             console.log(Boolean(m)); // condition false avec m = null, si m = "string" : condition true
 

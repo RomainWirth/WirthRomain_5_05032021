@@ -22,7 +22,7 @@
 // sélection du bouton de paiement du formulaire pour un eventListener ---------------------------------
 const paymentFormButton = document.getElementById("payment_form_button");
 console.log(paymentFormButton); // vérification de la sélection du bouton dans la console
-// eventListener sur le bouton d'achat
+// === début eventListener sur le bouton d'achat =======================================================
 paymentFormButton.addEventListener ("click", function(event) { 
     event.preventDefault();
     // récupération des valeurs du formulaire pour les mettre dans le local storage
@@ -35,7 +35,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         email: document.querySelector("#email").value
     }
     console.log("test n°x : page panier.html - contenu du tableau contact");
-    console.log(contact); // console log du formulaire avant envoi au serveur */
+    console.log(contact); // console log du formulaire avant envoi au serveur
 
     // formulaire complet non requis dans les livrables
     /* let contactFull = {
@@ -82,11 +82,12 @@ paymentFormButton.addEventListener ("click", function(event) {
 
 
     // fonctions de contrôle
+    console.log("série de tests n°x : vérification de la validité des données du formulaire");
     function firstNameControl() {
         // contrôle validité prénom
         const firstNameField = contact.firstName;
         if(regExTextArea(firstNameField)){
-            console.log("prénom OK");
+            console.log("prénom OK"); // retourne OK si remplissage valide
             textMissingValueInvisible(missFirstNameField);
             return true;
         } else {
@@ -100,7 +101,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         // contrôle validité nom
         const lastNameField = contact.lastName;
         if(regExTextArea(lastNameField)){
-            console.log("nom OK");
+            console.log("nom OK"); // retourne OK si remplissage valide
             textMissingValueInvisible(missLastNameField);
             return true;
         } else {
@@ -114,7 +115,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         // contrôle validité adresse
         const addressField = contact.address;
         if(regExAddress(addressField)){
-            console.log("adresse OK");
+            console.log("adresse OK"); // retourne OK si remplissage valide
             textMissingValueInvisible(missAddressField);
             return true;
         } else {
@@ -128,7 +129,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         // contrôle validité ville
         const cityField = contact.city;
         if(regExTextArea(cityField)){
-            console.log("ville OK");
+            console.log("ville OK"); // retourne OK si remplissage valide
             textMissingValueInvisible(missCityField);
             return true;
         } else {
@@ -142,7 +143,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         // contrôle validité ville
         const emailField = contact.email;
         if(regExEmail(emailField)){
-            console.log("email OK");
+            console.log("email OK"); // retourne OK si remplissage valide
             textMissingValueInvisible(missEmailField);
             return true;
         } else {
@@ -170,24 +171,69 @@ paymentFormButton.addEventListener ("click", function(event) {
     for (let k = 0; k < localStorageRegisteredItem.length; k++) {
         products.push(localStorageRegisteredItem[k].itemId);
     }
-    console.log("test n°x : page panier.html - contenu du tableau products")
+    console.log("test n°x : page panier.html - contenu du tableau products et type de valeurs")
     console.log(products); // vérification des info contenues dans le tableau : string de itemId
+    console.log(typeof products[0]); // retourne string = le tableau est bien composé de strings
 
     localStorage.setItem("products", JSON.stringify(products));
 
-    // envoie de contact et products au serveur
+    // stockage de contact et products dans une constante pour envoyer au serveur
     const toSend= {
         contact,
         products
     }
-    console.log("à envoyer au serveur");
+    console.log("text n°x : vérification des données à envoyer au serveur");
     console.log(toSend);
-}); 
+
+    // DEBUT de communication avec le serveur ======
+    // Envoi de l'objet "toSend" vers le serveur
+    const promiseSend = fetch("http://localhost:3000/api/teddies/order", {
+        method: "POST",
+        body: JSON.stringify(toSend),
+        headers: {
+            "Content-Type" : "application/json",
+        },
+    });
+    console.log("text n°x : contrôle de promiseSend envoyé au serveur");
+    console.log(promiseSend); // promise à l'état pending (ni remplie, ni rompue)
+
+    promiseSend.then(async function(response){
+        try {
+            console.log("test n°x : vérification de la réponse du serveur");
+            console.log(response); // status 201 : created = une ressource à été créée + preflight
+
+            const content = await response.json();
+            console.log("test n°x : vérification du contenu de la réponse du serveur");
+            console.log(content); // réponse serveur objets contact, products et orderId
+
+        } catch(error) {
+            console.log(error);
+        }
+    }); // fin envoi données au serveur
+    
+    // Récupération des données du serveur
+    /* const promiseGet = fetch("http://localhost:3000/api/teddies/order"); // méthode GET : error 404
+    promiseGet.then(async function(response){
+        try {
+            console.log("test n°x : vérification de la réponse du serveur");
+            console.log(promiseGet);
+            
+            const serverData = await response.json();
+            console.log("test n°x : vérification du contenu de la réponse du serveur");
+            console.log(serverData);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }); */ 
+
+}); // === FIN eventListener sur le bouton d'achat =======================================================
+
 // =============================================================================================
 // FIN contrôle du formulaire et envoi des données au localStorage
 // =============================================================================================
 
-// remplir automatiquement les valeurs du formulaire depuis le localStorage
+// remplissage automatique des valeurs du formulaire stockées depuis le localStorage
 // récupération de la key du localStorage dans une variable
 const contactLocalStorage = localStorage.getItem("contact");
 // conversion de la variable en objet JS
@@ -201,3 +247,5 @@ document.querySelector("#lastName").value = contactData.lastName;
 document.querySelector("#address").value = contactData.address;
 document.querySelector("#city").value = contactData.city;
 document.querySelector("#email").value = contactData.email;
+// fin remplissage automatique des valeurs du formulaire stockées depuis le localStorage
+

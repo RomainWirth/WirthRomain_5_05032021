@@ -1,20 +1,23 @@
-// début fonction capture élément API Teddies page catalogue **************************************************
-
+// début fetch : capture élément API Teddies page catalogue **************************************************
 fetch("http://localhost:3000/api/teddies")
     .then (function(res) {
         if(res.ok) {
             return res.json()
         } else {
-            console.log("erreur") // -> pas d'erreur au console.log
+            console.log("test n°1 : vérification si une erreur à lieu")
+            console.log("erreur") // -> pas d'affichage de "erreur" au console.log = promesse OK
         }
     })
     .then (function(teddiesCatalogData) {       
         // récupérer les éléments de teddiesCatalogData dans un tableau
-                // teddiesCatalogData contiens les données en tableau
-                console.log(teddiesCatalogData);
+        
 
+        console.log("test n°2 : vérification des données de teddiesCatalogData");
+        console.log(teddiesCatalogData); // teddiesCatalogData contiens les données en tableau
+
+        
         // créer une fonction pour définir [i]
-        // DEBUT BOUCLE FOR : rechercher l'élément i du tableau teddiesCatalogData boucle for 
+        // ---- DEBUT BOUCLE FOR : rechercher l'élément i du tableau teddiesCatalogData boucle for 
         for (let i = 0; i < teddiesCatalogData.length; i++) { 
 
             var itemId = teddiesCatalogData[i]._id;
@@ -24,10 +27,12 @@ fetch("http://localhost:3000/api/teddies")
                 var productSheetHTML = "product_sheet.html?itemId=" + itemId;
                 window.location.href = productSheetHTML;
             }
-            // récupérer l'élément parent sur HTML
+
+            // DEBUT intégration des éléments dans le DOM ========================================
+            // récupération de l'élément parent sur HTML
             let itemCatalogHTML = document.getElementById("catal");
 
-            // déclarer les variables intégrant les éléments des tableaux
+            // déclaration des variables intégrant les éléments de tableaux
             var itemId = teddiesCatalogData[i]._id;
             let tedCataPicture = teddiesCatalogData[i].imageUrl; 
             let tedCataName = teddiesCatalogData[i].name;
@@ -36,7 +41,12 @@ fetch("http://localhost:3000/api/teddies")
             let a = (teddiesCatalogData[i].price)/100; // on convertis le prix de centimes en euros
             let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
             let tedCataTextNodePrice = document.createTextNode(b + " Euros");
+
+
+            console.log("test n°3 : vérification de la variable des données de prix avant intégration")
+            console.log(tedCataTextNodePrice);
         
+
             // générer les éléments HTML pour un item[i] : 
             // div principale : <div class="catalog__item">
             let newCataItem = document.createElement("div"); 
@@ -103,10 +113,12 @@ fetch("http://localhost:3000/api/teddies")
             newCataItem.appendChild(newItemCataBuyButtonCont);
 
             itemCatalogHTML.appendChild(newCataItem);
-        } // -------------------------------------------------------------------------- FIN DE BOUCLE FOR -----
-    }) 
+            // FIN intégration des éléments dans le DOM ============================================
+
+        } // ------------ FIN DE BOUCLE FOR --------------------------------------------------------
+    }) // =============== FIN DE .then =============================================================
     .catch (function(error) {
         console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
     });
 
-// fin fonction capture élément API Teddies page catalogue ****************************************************
+// fin fetch : capture élément API Teddies page catalogue *****************************************
