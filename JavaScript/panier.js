@@ -43,7 +43,7 @@ else {
     
         let newSelectedItemTitle = document.createElement("h3");
         newSelectedItemTitle.className = "selection__item--title";
-        newSelectedItemTitleTextNode = document.createTextNode(localStorageRegisteredItem[m].itemName);
+        let newSelectedItemTitleTextNode = document.createTextNode(localStorageRegisteredItem[m].itemName);
         newSelectedItemTitle.appendChild(newSelectedItemTitleTextNode);
     
         let newSelectedItemRef = document.createElement("p");
