@@ -50,7 +50,7 @@ fetch("http://localhost:3000/api/teddies")
 
             // ====== TEST ==================================================================================
             console.log("test n°3 : affichage des noms des items");
-            console.log(tedCataName); // le nom des articles doivent apparaître dans lea console
+            console.log(tedCataName); // le nom des articles doivent apparaître dans la console
             // == FIN TEST ==================================================================================
 
             // travail du le prix
