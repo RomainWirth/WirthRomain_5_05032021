@@ -93,7 +93,7 @@ fetch("http://localhost:3000/api/teddies")
             let newItemCataBuyButtonCont = document.createElement("div");
             newItemCataBuyButtonCont.className = "catalog__item--buy_now";
             let newItemCataBuyButtonLink = document.createElement("a");
-            newItemCataBuyButtonLink.setAttribute("href", "panier.html");
+            newItemCataBuyButtonLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             let newItemCataButtonBuyNow = document.createElement("p");
             newItemCataButtonBuyNow.className = "button-buy";
             let newItemCataTextNodeBuyNow = document.createTextNode("BUY NOW");
@@ -101,7 +101,7 @@ fetch("http://localhost:3000/api/teddies")
             newItemCataBuyButtonCont.appendChild(newItemCataBuyButtonLink);
             newItemCataBuyButtonLink.appendChild(newItemCataButtonBuyNow);
             newItemCataButtonBuyNow.appendChild(newItemCataTextNodeBuyNow);
-
+            
             // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
             /* newItemCataButtonBuyNow.addEventListener("click", function(){
             selectProduct(itemCataPicture, itemCataName, itemId)
