@@ -213,6 +213,8 @@ paymentFormButton.addEventListener ("click", function(event) {
                     // envoi de l'ID dans le local storage
                     localStorage.setItem("responseId", content.orderId);
 
+                    window.location.href = "confirmation.html"; // lien vers la page de confirmation
+
                 } else {
                     console.log(`réponse du serveur : ${response.status}`); // renvoie le code d'erreur du serveur 
                     alert(`Problème avec le serveur : erreur ${response.status}`) // message d'alerte en cas d'erreur
@@ -223,8 +225,6 @@ paymentFormButton.addEventListener ("click", function(event) {
                 alert("une erreur s'est produite :" + error);
             }
         }); // fin envoi données au serveur
-
-        window.location.href = "confirmation.html"; // lien vers la page de confirmation
 
     } else {
         alert("Veuillez remplir le formulaire correctement")
