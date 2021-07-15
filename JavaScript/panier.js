@@ -8,7 +8,7 @@ let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
 // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
 
 // ====== TEST ==================================================================================
-console.log("test n°9 : affichage des items récupérés du local storage");
+console.log("test n°13 : affichage des items récupérés du local storage");
 console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
 // == FIN TEST ==================================================================================
 
@@ -17,11 +17,17 @@ console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de c
 // récupération de l'élément parent du panier
 let newSelectedItemMainContainer = document.getElementById("Selection_Item_Container");
 
+// ====== TEST ==================================================================================
+console.log("test n°14 : affichage des éléments du DOM");
+console.log(newSelectedItemMainContainer); // affiche la div id="Selection_Item_Container" et les éléments enfants injectés dans le DOM
+// == FIN TEST ==================================================================================
+
+
 // si le panier est vide 
 if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
 
     // ====== TEST ==================================================================================
-    console.log("test n°10.1 : affiche l'état du panier");
+    console.log("test n°15.1 : affiche l'état du panier");
     console.log("panier vide");
     // == FIN TEST ==================================================================================
 
@@ -35,7 +41,7 @@ if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
 else {
 
     // ====== TEST ==================================================================================
-    console.log("test n°10.2 : affiche l'état du panier"); // 10.2 remplace 10.1 selon l'état du panier
+    console.log("test n°15.2 : affiche l'état du panier"); // 10.2 remplace 10.1 selon l'état du panier
     console.log("panier rempli");
     // == FIN TEST ==================================================================================
 
@@ -43,7 +49,7 @@ else {
     for (m = 0; m < localStorageRegisteredItem.length; m++) {
 
         // ====== TEST ==================================================================================
-        console.log("test n°11 : affichage du nombre d'items dans le tableau")
+        console.log("test n°16 : affichage du nombre d'items dans le tableau")
         console.log(localStorageRegisteredItem.length);
         // == FIN TEST ==================================================================================
 
@@ -144,14 +150,14 @@ else {
         let itemPriceInBasketNumber = parseFloat(itemPriceInBasket); // conversion string en number
 
         // ====== TEST ==================================================================================
-        console.log("test n°12 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
+        console.log("test n°17 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
         console.log(itemPriceInBasket); // contrôle des prix des items dans la console
         // == FIN TEST ==================================================================================
 
         totalPriceArray.push(itemPriceInBasketNumber);
         
         // ====== TEST ==================================================================================
-        console.log("test n°13 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
+        console.log("test n°18 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
         console.log(totalPriceArray); // contrôle des informations du tableau
         // == FIN TEST ==================================================================================
 
@@ -163,7 +169,7 @@ else {
 
 
     // ====== TEST ==================================================================================
-    console.log("test n°14 : contrôle du calcul du montant total du panier")
+    console.log("test n°19 : contrôle du calcul du montant total du panier")
     console.log(totalPrice); // contrôle du calcul
     // == FIN TEST ==================================================================================
 

@@ -19,12 +19,9 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
     .then(function(teddiesData) {
 
         // ====== TEST ==================================================================================
-        console.log("test n°4 : vérification des données de l'API teddies pour le produit affiché")
+        console.log("test n°5 : vérification des données de l'API teddies pour le produit affiché")
         console.log(teddiesData);
         // == FIN TEST ==================================================================================
-
-        // récupération de l'élément HTML <div id="intemInfo">
-        let itemInfoHTML = document.getElementById("itemInfo");
 
         // récupération des infos de l'objet teddies et déclaration en variables :
         let itemImageUrl = teddiesData.imageUrl;
@@ -39,11 +36,19 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         let y = x.toFixed(2); // y = prix fixé sur deux chiffres après la virgule
 
         // ====== TEST ==================================================================================
-        console.log("test n°5 : vérification de la manipulation du prix de l'item");
-        console.log(y);
+        console.log("test n°6 : vérification de la manipulation du prix de l'item");
+        console.log("prix = " + y);
         // == FIN TEST ==================================================================================
 
         let itemTextNodePrice = document.createTextNode(y + " Euros"); // conversion d'un nombre vers number + string
+
+        // récupération de l'élément HTML <div id="intemInfo">
+        let itemInfoHTML = document.getElementById("itemInfo");
+
+        // ====== TEST ==================================================================================
+        console.log("test n°7 : vérification des élément sélectionnés du DOM");
+        console.log(itemInfoHTML); // élément <DIV id="itemInfo"> et éléments enfants doivent apparaître dans la console
+        // == FIN TEST ==================================================================================
 
         // création d'une div contenant l'image avec nom de class "product_sheet__image"
         let newItemImage = document.createElement("div");
@@ -55,7 +60,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         newItemImageUrl.setAttribute("src", itemImageUrl);
         // intégration de l'élement img dans la div class="product_sheet__image--img"
         newItemImage.appendChild(newItemImageUrl);
-
+        
         // création d'une div contenant les éléments descriptifs de l'item avec nom de class "product_sheet__details"
         let newItemDetails = document.createElement("div");
         newItemDetails.className = "product_sheet__details";
@@ -105,11 +110,9 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         
 
         // ====== TEST ==================================================================================
-        console.log("test n°6 : vérification des informations \"options\" dispo")
-        console.log(options); // affichage des informations du tableau options      
-        
-        console.log("test n°7 : vérification de la taille du tableau des options dispo")
-        console.log(options.length); // vérification de la taille du tableau itemColors 
+        console.log("test n°8 : vérification des informations \"options\" dispo et taille du tableau")
+        console.log(options); // affichage des informations du tableau options
+        console.log("length = " + options.length); // vérification de la taille du tableau itemColors 
         // == FIN TEST ==================================================================================
 
 
@@ -142,6 +145,11 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         // Gestion du panier --------------------------------------------------------------------------------------
         // récupération des données sélectionnées par l'utilisateur et envoi du panier
 
+        // ====== TEST ==================================================================================
+        console.log("test n°9 : vérification de la sélection du bon élément du DOM")
+        console.log(newItemInfoBuyButton); // doit afficher <a href=panier.html> dans la console
+        // == FIN TEST ==================================================================================
+
         // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
         newItemInfoBuyButton.addEventListener("click", function(event){
             event.preventDefault(); // permet d'empêcher la page de se réactualiser au clic
@@ -157,14 +165,11 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
                 itemOption: formChoice,
                 itemPrice: y
             }
-
-            console.log(optionsItem); // vérification des données dans la console
-
+           
             // ====== TEST ==================================================================================
-            const m = null;
-            console.log("test d'erreur : ") // si affiché dans la console : erreur présente
-            console.log(m);
-            console.log(Boolean(m)); // condition false avec m = null, si m = "string" : condition true
+            console.log("les tests suivants n'apparaîssent à la console que lorsque la fenêtre de conf apparaît ou si on neutralise les lignes 182 à 193")
+            console.log("test n°10 : vérification des données introduite dans la page HTML");
+            console.log(optionsItem); // vérification des données dans la console
             // == FIN TEST ==================================================================================
 
             // local storage -------------------------------------------------------------------------------------------
@@ -173,7 +178,6 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             // définition de la variable permettant de convertir les données du format JSON au format JS
             let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
             // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
-            console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
 
             // fonction fenêtre pop up de confirmation 
             const popUpConf = function(){ // window.confirm ouvre une fenêtre popup proposant de continuer ses achats ou de se diriger vers le panier
@@ -199,20 +203,24 @@ continuer ses achats : cliquer sur ANNULER`)) {
         // s'il y a des produits enregistrés dans le local storage
             if(localStorageRegisteredItem){
                 addItemLocalStorage(); // appel de la fonction d'ajout d'item dans le local storage
+
+                // ====== TEST ==================================================================================            
+                console.log("test n°11 : vérification des données présentes dans le local storage")
                 console.log(localStorageRegisteredItem); // vérification des données dans la console
+                // == FIN TEST ==================================================================================
+
                 popUpConf(); // appel de la fonction de fenêtre popup de confirmation
             } 
         // s'il n'y a pas de produits enregistrés dans le local storage
             else {
                 localStorageRegisteredItem = []; // création d'un tableau vide pour le remplir avec les données d'achat
                 addItemLocalStorage(); // appel de la fonction d'ajout d'item dans le local storage
-                console.log(localStorageRegisteredItem); // tableau créé dans la console
                 popUpConf(); // appel de la fonction de fenêtre popup de confirmation
             }
         });
     })
     .catch(function(err) {
-        
+
         // ====== TEST ==================================================================================
         console.log("test d'erreur :")
         console.log('Il y a eu un problème avec l\'opération fetch : ' + err.message) // si affiché dans la console : erreur présente
@@ -233,8 +241,8 @@ var urlParams = new URLSearchParams(queryString);
 var itemId = urlParams.get ("itemId");
 
 // ====== TEST ==================================================================================
-console.log("test n°8 : affichage de l'itemId")
-console.log(itemId); // affichage console doit correspondre à l'affichage sur la fiche produit
+console.log("test n°12 : affichage de l'itemId")
+console.log("itemId = " + itemId); // affichage console doit correspondre à l'affichage sur la fiche produit
 // == FIN TEST ==================================================================================
 
 

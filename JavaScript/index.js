@@ -22,6 +22,7 @@ fetch("http://localhost:3000/api/teddies")
         
         // créer une fonction pour définir [i]
         // ---- DEBUT BOUCLE FOR : rechercher l'élément i du tableau teddiesCatalogData boucle for 
+        console.log("les tests suivants intégrés dans la boucle vont se répéter autant de fois qu'il y a d'items dans l'API à afficher")
         for (let i = 0; i < teddiesCatalogData.length; i++) { 
 
             var itemId = teddiesCatalogData[i]._id;
@@ -36,6 +37,11 @@ fetch("http://localhost:3000/api/teddies")
             // récupération de l'élément parent sur HTML
             let itemCatalogHTML = document.getElementById("catal");
 
+            // ====== TEST ==================================================================================
+            console.log("test n°2 : vérification de l'élément du DOM sélectionné = div id=\"catal\"");
+            console.log(itemCatalogHTML); // balise <div id="catal"> et les éléments enfants du DOM doivent apparaître dans la console
+            // == FIN TEST ==================================================================================
+            
             // déclaration des variables intégrant les éléments de tableaux
             var itemId = teddiesCatalogData[i]._id;
             let tedCataPicture = teddiesCatalogData[i].imageUrl; 
@@ -43,8 +49,8 @@ fetch("http://localhost:3000/api/teddies")
             let tedCataTextNodeName = document.createTextNode(tedCataName);
 
             // ====== TEST ==================================================================================
-            console.log("test n°2 : affichage des id des items");
-            console.log(tedCataName);
+            console.log("test n°3 : affichage des noms des items");
+            console.log(tedCataName); // le nom des articles doivent apparaître dans lea console
             // == FIN TEST ==================================================================================
 
             // travail du le prix
@@ -53,8 +59,8 @@ fetch("http://localhost:3000/api/teddies")
             let tedCataTextNodePrice = document.createTextNode(b + " Euros");
 
             // ====== TEST ==================================================================================
-            console.log("test n°3 : vérification de la variable des données de prix avant intégration")
-            console.log(tedCataTextNodePrice);
+            console.log("test n°4 : vérification de la variable des données de prix avant intégration")
+            console.log(tedCataTextNodePrice); // le prix à afficher doit apparaître dans la console
             // == FIN TEST ==================================================================================
 
             // générer les éléments HTML pour un item[i] : 
@@ -67,7 +73,7 @@ fetch("http://localhost:3000/api/teddies")
             let newCataItemImgLink = document.createElement("a");
             newCataItemImgLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             newCataItemImgLink.addEventListener("click", function(){goToProductSheet(itemId)});
-            
+
             let newCataItemImgUrl = document.createElement("img");
             newCataItemImgUrl.className = "item_image";
             newCataItemImgUrl.setAttribute("src", tedCataPicture);
@@ -113,9 +119,9 @@ fetch("http://localhost:3000/api/teddies")
             newItemCataButtonBuyNow.appendChild(newItemCataTextNodeBuyNow);
             
             // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
-            /* newItemCataButtonBuyNow.addEventListener("click", function(){
-            selectProduct(itemCataPicture, itemCataName, itemId)
-            }); */
+            // newItemCataButtonBuyNow.addEventListener("click", function(){
+                // selectProduct(itemCataPicture, itemCataName, itemId)
+            // });
 
             // => intégrer les éléments dans la div principale
             newCataItem.appendChild(newCataItemImgCont);
@@ -132,7 +138,7 @@ fetch("http://localhost:3000/api/teddies")
         // ====== TEST ==================================================================================
         // si affiché dans la console : erreur présente
         console.log("test d'erreur :")
-        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message) 
+        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message) // le message d'erreur n'apparaît pas = pas d'erreur
         // == FIN TEST ==================================================================================
 
     });
