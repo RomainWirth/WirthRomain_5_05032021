@@ -6,7 +6,12 @@
 // définition de la variable permettant de convertir les données du format JSON au JS
 let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
 // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
+
+// ====== TEST ==================================================================================
+console.log("test n°9 : affichage des items récupérés du local storage");
 console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
+// == FIN TEST ==================================================================================
+
 
 //  Affichage des produits du panier
 // récupération de l'élément parent du panier
@@ -14,7 +19,12 @@ let newSelectedItemMainContainer = document.getElementById("Selection_Item_Conta
 
 // si le panier est vide 
 if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
+
+    // ====== TEST ==================================================================================
+    console.log("test n°10.1 : affiche l'état du panier");
     console.log("panier vide");
+    // == FIN TEST ==================================================================================
+
     let newEmptyBasket = document.createElement("div");
     newEmptyBasket.className = "selection__item--Empty_Basket";
     let newEmptyBasketTextNode = document.createTextNode("Votre panier est vide");
@@ -23,11 +33,19 @@ if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
 } 
 // si le panier est rempli : afficher les produits dans le local storage
 else {
+
+    // ====== TEST ==================================================================================
+    console.log("test n°10.2 : affiche l'état du panier"); // 10.2 remplace 10.1 selon l'état du panier
     console.log("panier rempli");
+    // == FIN TEST ==================================================================================
 
     // boucle for pour ajouter les éléments enregistrés dans le localStorage : variable récupérée de la page product_sheet
     for (m = 0; m < localStorageRegisteredItem.length; m++) {
+
+        // ====== TEST ==================================================================================
+        console.log("test n°11 : affichage du nombre d'items dans le tableau")
         console.log(localStorageRegisteredItem.length);
+        // == FIN TEST ==================================================================================
 
         // création des éléments enfants et insertion des données stockées dans le localStorage
         let newSelectedItemContainer = document.createElement("div");
@@ -76,9 +94,7 @@ else {
         newSelectedItemContainer.appendChild(newSelectedItemPrice);
         newSelectedItemContainer.appendChild(newSelectedItemSuppressButton);
 
-        // fonction de suppression des éléments de la ligne
-        console.log(localStorageRegisteredItem);
-        // retourne un tableau avec n élements : [0:{object dont itemId}, 1:{object dont itemId}, n:{object dont itemId}]
+        // fonction de suppression des éléments de la ligne ============================================================================================
         
         // sélection de tous les boutons supprimer
         // déclaration de variable récupérant les données du localStorage key "product"
@@ -107,10 +123,10 @@ else {
                     window.location.href = "panier.html"; // rechargement de la page
                 }
             })
-        }
+        } // fin fonction de suppression des éléments de la ligne ============================================================================================
     }
         
-    // ajout du total du panier 
+    // début calcul et affichage montant total du panier =====================================================================================================
     let newSelectedItemTotalPriceCont = document.createElement("div");
     newSelectedItemTotalPriceCont.className ="selection__total_price";
     let newSelectedItemTotal = document.createElement("p");
@@ -126,19 +142,36 @@ else {
     for (let k = 0; k < localStorageRegisteredItem.length; k++) {
         let itemPriceInBasket = localStorageRegisteredItem[k].itemPrice;
         let itemPriceInBasketNumber = parseFloat(itemPriceInBasket); // conversion string en number
+
+        // ====== TEST ==================================================================================
+        console.log("test n°12 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
         console.log(itemPriceInBasket); // contrôle des prix des items dans la console
+        // == FIN TEST ==================================================================================
 
         totalPriceArray.push(itemPriceInBasketNumber);
+        
+        // ====== TEST ==================================================================================
+        console.log("test n°13 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
         console.log(totalPriceArray); // contrôle des informations du tableau
+        // == FIN TEST ==================================================================================
+
     }
 
     let reducer = (accumulator, currentValue) => accumulator + currentValue;
     let totalPrice = totalPriceArray.reduce(reducer, 0);
     let totalPriceShown = totalPrice.toFixed(2);
+
+
+    // ====== TEST ==================================================================================
+    console.log("test n°14 : contrôle du calcul du montant total du panier")
     console.log(totalPrice); // contrôle du calcul
+    // == FIN TEST ==================================================================================
 
     let newSelectedItemTotalPriceTextNode = document.createTextNode(totalPriceShown + " Euros");
     newSelectedItemTotalPrice.appendChild(newSelectedItemTotalPriceTextNode);
+
+    // fin calcul et affichage montant total du panier =====================================================================================================
+
 
     // bouton pour vider entièrement le panier
     let newSelectedItemTotalPriceSuppressButton = document.createElement("button");
@@ -156,6 +189,7 @@ else {
         window.location.href = "panier.html";
     })
 
+    // ajout de l'élément au DOM
     newSelectedItemMainContainer.appendChild(newSelectedItemTotalPriceCont);
 }
 

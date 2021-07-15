@@ -4,17 +4,21 @@ fetch("http://localhost:3000/api/teddies")
         if(res.ok) {
             return res.json()
         } else {
-            console.log("test n°1 : vérification si une erreur à lieu")
+
+            // ====== TEST ==================================================================================
+            console.log("test d'erreur : vérification si une erreur à lieu") // si affiché dans la console : erreur présente
             console.log("erreur") // -> pas d'affichage de "erreur" au console.log = promesse OK
+            // == FIN TEST ==================================================================================
+
         }
     })
     .then (function(teddiesCatalogData) {       
         // récupérer les éléments de teddiesCatalogData dans un tableau
         
-
-        console.log("test n°2 : vérification des données de teddiesCatalogData");
+        // ====== TEST ==================================================================================
+        console.log("test n°1 : vérification des données de teddiesCatalogData");
         console.log(teddiesCatalogData); // teddiesCatalogData contiens les données en tableau
-
+        // == FIN TEST ==================================================================================
         
         // créer une fonction pour définir [i]
         // ---- DEBUT BOUCLE FOR : rechercher l'élément i du tableau teddiesCatalogData boucle for 
@@ -37,15 +41,21 @@ fetch("http://localhost:3000/api/teddies")
             let tedCataPicture = teddiesCatalogData[i].imageUrl; 
             let tedCataName = teddiesCatalogData[i].name;
             let tedCataTextNodeName = document.createTextNode(tedCataName);
+
+            // ====== TEST ==================================================================================
+            console.log("test n°2 : affichage des id des items");
+            console.log(tedCataName);
+            // == FIN TEST ==================================================================================
+
             // travail du le prix
             let a = (teddiesCatalogData[i].price)/100; // on convertis le prix de centimes en euros
             let b = a.toFixed(2); // b = prix fixé sur deux chiffres après la virgule
             let tedCataTextNodePrice = document.createTextNode(b + " Euros");
 
-
+            // ====== TEST ==================================================================================
             console.log("test n°3 : vérification de la variable des données de prix avant intégration")
             console.log(tedCataTextNodePrice);
-        
+            // == FIN TEST ==================================================================================
 
             // générer les éléments HTML pour un item[i] : 
             // div principale : <div class="catalog__item">
@@ -118,7 +128,13 @@ fetch("http://localhost:3000/api/teddies")
         } // ------------ FIN DE BOUCLE FOR --------------------------------------------------------
     }) // =============== FIN DE .then =============================================================
     .catch (function(error) {
-        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message)
+
+        // ====== TEST ==================================================================================
+        // si affiché dans la console : erreur présente
+        console.log("test d'erreur :")
+        console.log('Il y a eu un problème avec l\'opération fetch : ' + error.message) 
+        // == FIN TEST ==================================================================================
+
     });
 
 // fin fetch : capture élément API Teddies page catalogue *****************************************

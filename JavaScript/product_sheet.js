@@ -12,11 +12,16 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         if(res.ok) {
             return res.json()
         } else {
-            console.log("erreur") // -> pas d'erreur au console.log
+            console.log("test d'erreur :")
+            console.log("erreur") // si affiché dans la console : erreur présente
         }
     })
     .then(function(teddiesData) {
+
+        // ====== TEST ==================================================================================
+        console.log("test n°4 : vérification des données de l'API teddies pour le produit affiché")
         console.log(teddiesData);
+        // == FIN TEST ==================================================================================
 
         // récupération de l'élément HTML <div id="intemInfo">
         let itemInfoHTML = document.getElementById("itemInfo");
@@ -32,6 +37,12 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         // travail sur le prix en centimes
         let x = (teddiesData.price)/100; // on convertis le prix de centimes en euros
         let y = x.toFixed(2); // y = prix fixé sur deux chiffres après la virgule
+
+        // ====== TEST ==================================================================================
+        console.log("test n°5 : vérification de la manipulation du prix de l'item");
+        console.log(y);
+        // == FIN TEST ==================================================================================
+
         let itemTextNodePrice = document.createTextNode(y + " Euros"); // conversion d'un nombre vers number + string
 
         // création d'une div contenant l'image avec nom de class "product_sheet__image"
@@ -92,8 +103,15 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             //création d'une fonction pour pouvoir modifier le choix des couleurs selon le tableau
         var options = itemColors;
         
-        console.log("test n°x : vérification de la taille du tableau")
+
+        // ====== TEST ==================================================================================
+        console.log("test n°6 : vérification des informations \"options\" dispo")
+        console.log(options); // affichage des informations du tableau options      
+        
+        console.log("test n°7 : vérification de la taille du tableau des options dispo")
         console.log(options.length); // vérification de la taille du tableau itemColors 
+        // == FIN TEST ==================================================================================
+
 
         for (var i = 0; i < options.length; i++) {
             var opt = options[i];
@@ -121,10 +139,10 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         itemInfoHTML.appendChild(newItemImage);        
         itemInfoHTML.appendChild(newItemDetails);
 
-// Gestion du panier --------------------------------------------------------------------------------------
-// récupération des données sélectionnées par l'utilisateur et envoi du panier
+        // Gestion du panier --------------------------------------------------------------------------------------
+        // récupération des données sélectionnées par l'utilisateur et envoi du panier
 
-// créer un adventListener au click et pour stocker les données et les envoyer à la page panier
+        // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
         newItemInfoBuyButton.addEventListener("click", function(event){
             event.preventDefault(); // permet d'empêcher la page de se réactualiser au clic
 
@@ -142,15 +160,16 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
             console.log(optionsItem); // vérification des données dans la console
 
-            // test 
+            // ====== TEST ==================================================================================
             const m = null;
-            console.log("test n°x : ")
+            console.log("test d'erreur : ") // si affiché dans la console : erreur présente
             console.log(m);
             console.log(Boolean(m)); // condition false avec m = null, si m = "string" : condition true
+            // == FIN TEST ==================================================================================
 
-// local storage -------------------------------------------------------------------------------------------
-// stocker la récupération des données sélectionner dans le local storage ----------------------------------
-// un tableau de données sera créé par click ---------------------------------------------------------------
+            // local storage -------------------------------------------------------------------------------------------
+            // stocker la récupération des données sélectionner dans le local storage ----------------------------------
+            // un tableau de données sera créé par click ---------------------------------------------------------------
             // définition de la variable permettant de convertir les données du format JSON au format JS
             let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
             // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
@@ -193,7 +212,12 @@ continuer ses achats : cliquer sur ANNULER`)) {
         });
     })
     .catch(function(err) {
-        console.log('Il y a eu un problème avec l\'opération fetch : ' + err.message)
+        
+        // ====== TEST ==================================================================================
+        console.log("test d'erreur :")
+        console.log('Il y a eu un problème avec l\'opération fetch : ' + err.message) // si affiché dans la console : erreur présente
+        // == FIN TEST ==================================================================================
+
     });
 }
 
@@ -207,6 +231,11 @@ var queryString = window.location.search;
 // console.log(queryString); // ?itemId=5be9c8541c9d440000665243
 var urlParams = new URLSearchParams(queryString);
 var itemId = urlParams.get ("itemId");
-console.log(itemId);
+
+// ====== TEST ==================================================================================
+console.log("test n°8 : affichage de l'itemId")
+console.log(itemId); // affichage console doit correspondre à l'affichage sur la fiche produit
+// == FIN TEST ==================================================================================
+
 
 createProductSheet(itemId); 

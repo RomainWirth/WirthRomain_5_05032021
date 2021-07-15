@@ -1,17 +1,33 @@
-// récupération des informations du localSotrage
+// début récupération des informations du localSotrage ===============================================================================
 // infos contact
 const contactInfos = JSON.parse(localStorage.getItem("contact"));
-console.log("récap identité acheteur :")
+
+// ====== TEST ==================================================================================
+console.log("test N°27 : affichage du récap identité acheteur")
 console.log(contactInfos);
+// == FIN TEST ==================================================================================
+
 // infos produit
 const productsPurchased = JSON.parse(localStorage.getItem("product"));
-console.log("array des produits achetés :")
-console.log(productsPurchased);
+
+// ====== TEST ==================================================================================
+console.log("test n°28 : affichage du array des produits achetés")
+console.log(productsPurchased); // si renvoie null : tableau vide => on ne peut pas afficher cette page
+console.log(productsPurchased.length); // doit être >0 
+// == FIN TEST ==================================================================================
+
 // responseId
 const confirmationNumber = localStorage.getItem("responseId");
-console.log(confirmationNumber);
 
-// récupération de l'élément parent
+// ====== TEST ==================================================================================
+console.log("test n°29 : affichage de l'id de confirmation du serveur")
+console.log(confirmationNumber);
+// == FIN TEST ==================================================================================
+
+// fin récupération des informations du localSotrage ===============================================================================
+
+// début manipulation du DOM =======================================================================================================
+// récupération de l'élément parent 
 let confirmationContainer = document.getElementById("confirmation");
 
 // création du premier élément enfant : titre
@@ -49,7 +65,11 @@ newItemPurchasedContainer.className = "confirmation_container__order_recap";
 confirmationContainer.appendChild(newItemPurchasedContainer);
 
 for (d = 0; d < productsPurchased.length; d++) {
+
+    // ====== TEST ==================================================================================
+    console.log("test n°30 : vérification de la taille du tableau contenant les items achetés");
     console.log(productsPurchased.length);
+    // == FIN TEST ==================================================================================
 
     let newItemPurchasedContainerItem = document.createElement("div");
     newItemPurchasedContainerItem.className = "confirmation_container__order_recap--item";
@@ -96,21 +116,47 @@ let amountPaidArray = [];
 
 for (let g = 0; g < productsPurchased.length; g++) {
     let itemPriceInConf = productsPurchased[g].itemPrice;
-    let itemPriceInConfNumber = parseFloat(itemPriceInConf); // conversion string en number
-    console.log(itemPriceInConf); // contrôle des prix des items dans la console
 
+    // ====== TEST ==================================================================================
+    console.log("test n°31 : vérification du type de donnée")
+    console.log(typeof itemPriceInConf[0]); // doit retourner number
+    // == FIN TEST ==================================================================================
+
+
+    let itemPriceInConfNumber = parseFloat(itemPriceInConf); // conversion string en number
+
+    // ====== TEST ==================================================================================
+    console.log("test n°32 : vérification des données du panier d'achat")
+    console.log(itemPriceInConf); // contrôle des prix des items dans la console
+    // == FIN TEST ==================================================================================
+
+    // ajout des données dans le tableau
     amountPaidArray.push(itemPriceInConfNumber);
+
+    // ====== TEST ==================================================================================
+    console.log("test n°33 : vérification du tableau contenant les prix des items payés")
     console.log(amountPaidArray); // contrôle des informations du tableau
+    console.log(typeof amountPaidArray);
+    // == FIN TEST ==================================================================================
+
 }
 
 let reducer = (accumulator, currentValue) => accumulator + currentValue;
 let totalAmountPaid = amountPaidArray.reduce(reducer, 0);
 let totalAmountPaidShown = totalAmountPaid.toFixed(2);
-console.log("montant total de l'achat :")
+
+// ====== TEST ==================================================================================
+console.log("test n°34 : vérification du montant total de l'achat")
 console.log(totalAmountPaidShown); // contrôle du calcul
+// == FIN TEST ==================================================================================
 
 let newItemPurchasedTotalPriceAmountTextNode = document.createTextNode(totalAmountPaidShown + " Euros");
+
+// ====== TEST ==================================================================================
+console.log("test n°35 : vérification de la donnée qui sera affichée sur la confirmation")
 console.log(newItemPurchasedTotalPriceAmountTextNode);
+// == FIN TEST ==================================================================================
+
 newItemPurchasedContainerTotalPriceAmount.appendChild(newItemPurchasedTotalPriceAmountTextNode);
 
 // création du cinquième élément enfant : message d'envoi d'email
@@ -125,6 +171,9 @@ let newItemPurchasedContainerConfEmail = document.createElement("p");
 newItemPurchasedContainerConfMessageCont.appendChild(newItemPurchasedContainerConfEmail);
 let newItemPurchasedContainerConfEmailTextNode = document.createTextNode(contactInfos.email);
 newItemPurchasedContainerConfEmail.appendChild(newItemPurchasedContainerConfEmailTextNode);
+
+// FIN manipulation du DOM =======================================================================================================
+
 
 // DEBUT FONCTION REMOVE KEY FROM LOCAL STORAGE ================================================
 function removeLocalStorageKey(key){
