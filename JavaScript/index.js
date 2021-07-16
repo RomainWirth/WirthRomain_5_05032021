@@ -112,7 +112,7 @@ fetch("http://localhost:3000/api/teddies")
             newItemCataBuyButtonLink.setAttribute("href", "product_sheet.html?itemId=" + itemId);
             let newItemCataButtonBuyNow = document.createElement("p");
             newItemCataButtonBuyNow.className = "button-buy";
-            let newItemCataTextNodeBuyNow = document.createTextNode("BUY NOW");
+            let newItemCataTextNodeBuyNow = document.createTextNode("PLUS D'INFO");
 
             newItemCataBuyButtonCont.appendChild(newItemCataBuyButtonLink);
             newItemCataBuyButtonLink.appendChild(newItemCataButtonBuyNow);

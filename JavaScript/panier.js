@@ -138,8 +138,6 @@ else {
                 console.log(itemToDelete); // retourne l'Id de l'item à supprimer
                 if(currentOrder[n].uniqueId == itemToDelete) {
                     currentOrder = localStorageRegisteredItem.splice([n], 1);
-                    // delete currentOrder[n];
-                    // break;
                     console.log(currentOrder); // retourne un tableau contenant l'élément à supprimer
                     console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
                     
@@ -147,12 +145,7 @@ else {
                     window.location.href = "panier.html"; // rechargement de la page
                 }
             })
-        }
-
-        for (n in currentOrder) {
-
-        }
-         // fin fonction de suppression des éléments de la ligne ============================================================================================
+        } // fin fonction de suppression des éléments de la ligne ============================================================================================
     }
         
     // début calcul et affichage montant total du panier =====================================================================================================
