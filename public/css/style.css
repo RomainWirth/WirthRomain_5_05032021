@@ -472,6 +472,15 @@ input:invalid {
   text-align: center;
 }
 
+#logo_to_print {
+  display: none;
+}
+@media print {
+  #logo_to_print {
+    display: block;
+  }
+}
+
 #to_print {
   display: flex;
   flex-direction: column;
