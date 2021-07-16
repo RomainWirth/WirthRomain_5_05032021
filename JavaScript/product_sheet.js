@@ -156,6 +156,13 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
             // Option choisie par l'utilisateur dans une variable
             const formChoice = newColorChoicesSelection.value;
+            
+            // création d'un ID unique par item sélectionné
+            function getUniqueID () { 
+                var uniqueID = new Date();
+                return uniqueID.getTime();
+            };
+            const uniqueID = getUniqueID ();
 
             // Récupération des valeurs à envoyer au panier :
             let optionsItem = { // définition de la variable contenant un objet avec les valeurs qu'on veut intégrer au panier
@@ -163,9 +170,10 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
                 itemName: teddiesData.name,
                 itemId: teddiesData._id,
                 itemOption: formChoice,
-                itemPrice: y
+                itemPrice: y,
+                uniqueId: uniqueID
             }
-           
+            
             // ====== TEST ==================================================================================
             console.log("les tests suivants n'apparaîssent à la console que lorsque la fenêtre de conf apparaît ou si on neutralise les lignes 182 à 193")
             console.log("test n°10 : vérification des données introduite dans la page HTML");
@@ -190,7 +198,7 @@ continuer ses achats : cliquer sur ANNULER`)) {
                 } else {
                     window.location.href = "index.html"; // lient vers la page catalogue
                 }
-            } 
+            }
 
             // fonction d'ajout d'item dans le localStorage
             const addItemLocalStorage = function() {

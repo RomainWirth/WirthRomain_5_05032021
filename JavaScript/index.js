@@ -38,7 +38,7 @@ fetch("http://localhost:3000/api/teddies")
             let itemCatalogHTML = document.getElementById("catal");
 
             // ====== TEST ==================================================================================
-            console.log("test n°2 : vérification de l'élément du DOM sélectionné = div id=\"catal\"");
+            console.log("test n°2 - " + i + " : vérification de l'élément du DOM sélectionné = div id=\"catal\"");
             console.log(itemCatalogHTML); // balise <div id="catal"> et les éléments enfants du DOM doivent apparaître dans la console
             // == FIN TEST ==================================================================================
             
@@ -49,7 +49,7 @@ fetch("http://localhost:3000/api/teddies")
             let tedCataTextNodeName = document.createTextNode(tedCataName);
 
             // ====== TEST ==================================================================================
-            console.log("test n°3 : affichage des noms des items");
+            console.log("test n°3 - " + i + " : affichage des noms des items");
             console.log(tedCataName); // le nom des articles doivent apparaître dans la console
             // == FIN TEST ==================================================================================
 
@@ -59,7 +59,7 @@ fetch("http://localhost:3000/api/teddies")
             let tedCataTextNodePrice = document.createTextNode(b + " Euros");
 
             // ====== TEST ==================================================================================
-            console.log("test n°4 : vérification de la variable des données de prix avant intégration")
+            console.log("test n°4 - " + i + " : vérification de la variable des données de prix avant intégration")
             console.log(tedCataTextNodePrice); // le prix à afficher doit apparaître dans la console
             // == FIN TEST ==================================================================================
 

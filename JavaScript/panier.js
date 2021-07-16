@@ -125,7 +125,7 @@ else {
         // == FIN TEST ==================================================================================
 
         let currentOrder = JSON.parse(localStorage.getItem("product")); // déclaration de variable récupérant les données du localStorage key "product"
-                    
+                
         // ====== TEST ==================================================================================
         console.log("test n° 18 : affiche le tableau des éléments du localStorage avec la clé \"product\"");
         console.log(currentOrder); // retourne un array issu du localStorage
@@ -134,17 +134,25 @@ else {
         for (let n = 0; n < btnSupprimer.length; n++){
             btnSupprimer[n].addEventListener("click", function(event){
                 event.preventDefault();
-                let itemToDelete = localStorageRegisteredItem[n].itemId; // déclaration de la variable correspondante à l'id de l'item à supprimer
+                let itemToDelete = localStorageRegisteredItem[n].uniqueId; // déclaration de la variable correspondante à l'id de l'item à supprimer
                 console.log(itemToDelete); // retourne l'Id de l'item à supprimer
-                if(currentOrder[n].itemId == itemToDelete){
+                if(currentOrder[n].uniqueId == itemToDelete) {
                     currentOrder = localStorageRegisteredItem.splice([n], 1);
+                    // delete currentOrder[n];
+                    // break;
                     console.log(currentOrder); // retourne un tableau contenant l'élément à supprimer
                     console.log(localStorageRegisteredItem); // retourne un array avec l'élément en moins
+                    
                     localStorage.setItem("product", JSON.stringify(localStorageRegisteredItem)); // renvoie 
                     window.location.href = "panier.html"; // rechargement de la page
                 }
             })
-        } // fin fonction de suppression des éléments de la ligne ============================================================================================
+        }
+
+        for (n in currentOrder) {
+
+        }
+         // fin fonction de suppression des éléments de la ligne ============================================================================================
     }
         
     // début calcul et affichage montant total du panier =====================================================================================================
