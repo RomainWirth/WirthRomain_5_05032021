@@ -424,6 +424,9 @@ input:invalid {
   flex-direction: column;
   align-items: center;
 }
+.confirmation_container__conf_number {
+  text-align: center;
+}
 .confirmation_container__order_recap {
   width: 100%;
 }
@@ -431,6 +434,24 @@ input:invalid {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+@media (max-width: 425px) {
+  .confirmation_container__order_recap--item {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 769px) {
+  .confirmation_container__order_recap--item {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 1025px) {
+  .confirmation_container__order_recap--item {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .confirmation_container__order_recap--total_price {
   display: flex;
@@ -441,6 +462,9 @@ input:invalid {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.confirmation_container__email_message p {
+  text-align: center;
 }
 
 #to_print {
