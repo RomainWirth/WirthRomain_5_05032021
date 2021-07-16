@@ -453,6 +453,11 @@ input:invalid {
     align-items: center;
   }
 }
+@media print {
+  .confirmation_container__order_recap--item {
+    flex-direction: row;
+  }
+}
 .confirmation_container__order_recap--total_price {
   display: flex;
   flex-direction: row;
@@ -471,6 +476,12 @@ input:invalid {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media print {
+  .not_to_print {
+    display: none;
+  }
 }
 
 /* *************** BUTTONS ************** */
