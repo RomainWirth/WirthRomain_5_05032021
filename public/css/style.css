@@ -443,6 +443,12 @@ input:invalid {
   align-items: center;
 }
 
+#to_print {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* *************** BUTTONS ************** */
 .nav-button {
   height: 50px;

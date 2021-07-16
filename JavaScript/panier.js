@@ -37,9 +37,10 @@ if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
     newEmptyBasket.appendChild(newEmptyBasketTextNode);
     newSelectedItemMainContainer.appendChild(newEmptyBasket);
 
+    // affichage de la div contenant les boutons pour accéder au formulaire de paiement et pour continuer les chats
     let elementDivPayment = document.getElementById("payment_continue");
     elementDivPayment.style.display = "none";
-    
+
 } 
 // si le panier est rempli : afficher les produits dans le local storage
 else {
@@ -49,13 +50,13 @@ else {
     console.log("panier rempli");
     // == FIN TEST ==================================================================================
 
+    // ====== TEST ==================================================================================
+    console.log("test n°16 : affichage du nombre d'items dans le tableau")
+    console.log(localStorageRegisteredItem.length);
+    // == FIN TEST ==================================================================================
+
     // boucle for pour ajouter les éléments enregistrés dans le localStorage : variable récupérée de la page product_sheet
     for (m = 0; m < localStorageRegisteredItem.length; m++) {
-
-        // ====== TEST ==================================================================================
-        console.log("test n°16 : affichage du nombre d'items dans le tableau")
-        console.log(localStorageRegisteredItem.length);
-        // == FIN TEST ==================================================================================
 
         // création des éléments enfants et insertion des données stockées dans le localStorage
         let newSelectedItemContainer = document.createElement("div");
@@ -117,9 +118,19 @@ else {
         // recharger automatiquement la page
                 
         let btnSupprimer = document.querySelectorAll(".selection__item--suppress");
+
+        // ====== TEST ==================================================================================
+        console.log("test n° 17 : affiche tous les boutons \"supprimer\"");
         console.log(btnSupprimer); // NodeList créé dans la console
+        // == FIN TEST ==================================================================================
+
         let currentOrder = JSON.parse(localStorage.getItem("product")); // déclaration de variable récupérant les données du localStorage key "product"
+                    
+        // ====== TEST ==================================================================================
+        console.log("test n° 18 : affiche le tableau des éléments du localStorage avec la clé \"product\"");
         console.log(currentOrder); // retourne un array issu du localStorage
+        // == FIN TEST ==================================================================================
+
         for (let n = 0; n < btnSupprimer.length; n++){
             btnSupprimer[n].addEventListener("click", function(event){
                 event.preventDefault();
@@ -149,34 +160,35 @@ else {
     // création d'une variable avec un array vide 
     let totalPriceArray = [];
 
+    console.log("test n°19 : contrôle du prix de chaque item"); // intitulé du test dans la boucle for
+
     for (let k = 0; k < localStorageRegisteredItem.length; k++) {
         let itemPriceInBasket = localStorageRegisteredItem[k].itemPrice;
         let itemPriceInBasketNumber = parseFloat(itemPriceInBasket); // conversion string en number
 
         // ====== TEST ==================================================================================
-        console.log("test n°17 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
         console.log(itemPriceInBasket); // contrôle des prix des items dans la console
         // == FIN TEST ==================================================================================
 
         totalPriceArray.push(itemPriceInBasketNumber);
         
-        // ====== TEST ==================================================================================
-        console.log("test n°18 : contrôle du prix de chaque item") // affiche autant de test qu'il y a d'items dans le panier
-        console.log(totalPriceArray); // contrôle des informations du tableau
-        // == FIN TEST ==================================================================================
-
     }
 
+    // ====== TEST ==================================================================================
+    console.log("test n°20 : contrôle du prix de chaque item");
+    console.log(totalPriceArray); // contrôle des informations du tableau qui regroupe les valeurs de chaque item
+    // == FIN TEST ==================================================================================
+
+    // méthode reduce : applique une fct accumulatrice qui traite chaque valeur d'une liste pour la réduire à une seule valeur
     let reducer = (accumulator, currentValue) => accumulator + currentValue;
     let totalPrice = totalPriceArray.reduce(reducer, 0);
-    let totalPriceShown = totalPrice.toFixed(2);
-
 
     // ====== TEST ==================================================================================
-    console.log("test n°19 : contrôle du calcul du montant total du panier")
+    console.log("test n°21 : contrôle du calcul du montant total du panier");
     console.log(totalPrice); // contrôle du calcul
     // == FIN TEST ==================================================================================
 
+    let totalPriceShown = totalPrice.toFixed(2);
     let newSelectedItemTotalPriceTextNode = document.createTextNode(totalPriceShown + " Euros");
     newSelectedItemTotalPrice.appendChild(newSelectedItemTotalPriceTextNode);
 
@@ -197,7 +209,7 @@ else {
         localStorage.removeItem("product");
         alert("Votre panier a été vidé");
         window.location.href = "panier.html";
-    })
+    });
 
     // ajout de l'élément au DOM
     newSelectedItemMainContainer.appendChild(newSelectedItemTotalPriceCont);

@@ -3,7 +3,7 @@
 const contactInfos = JSON.parse(localStorage.getItem("contact"));
 
 // ====== TEST ==================================================================================
-console.log("test N°32 : affichage du récap identité acheteur")
+console.log("test N°33 : affichage du récap identité acheteur")
 console.log(contactInfos);
 // == FIN TEST ==================================================================================
 
@@ -11,7 +11,7 @@ console.log(contactInfos);
 const productsPurchased = JSON.parse(localStorage.getItem("product"));
 
 // ====== TEST ==================================================================================
-console.log("test n°33 : affichage du array des produits achetés")
+console.log("test n°34 : affichage du array des produits achetés")
 console.log(productsPurchased); // si renvoie null : tableau vide => on ne peut pas afficher cette page
 console.log(productsPurchased.length); // doit être >0 
 // == FIN TEST ==================================================================================
@@ -20,7 +20,7 @@ console.log(productsPurchased.length); // doit être >0
 const confirmationNumber = localStorage.getItem("responseId");
 
 // ====== TEST ==================================================================================
-console.log("test n°34 : affichage de l'id de confirmation du serveur")
+console.log("test n°35 : affichage de l'id de confirmation du serveur")
 console.log("conf number = " + confirmationNumber);
 // == FIN TEST ==================================================================================
 
@@ -31,7 +31,7 @@ console.log("conf number = " + confirmationNumber);
 let confirmationContainer = document.getElementById("confirmation");
 
 // ====== TEST ==================================================================================
-console.log("test n°35 : vérification du DOM");
+console.log("test n°36 : vérification du DOM");
 console.log(confirmationContainer); // doit afficher les éléments du DOM contenus dans la balise div id="confirmation"
 // NB = m'a permis de voir qu'il manquait un élément : nom et prénom d'étaient pas affichés sur la page
 // == FIN TEST ==================================================================================
@@ -74,11 +74,6 @@ newItemPurchasedContainer.className = "confirmation_container__order_recap";
 confirmationContainer.appendChild(newItemPurchasedContainer);
 
 for (d = 0; d < productsPurchased.length; d++) {
-
-    // ====== TEST ==================================================================================
-    console.log("test n°36 : vérification de la taille du tableau contenant les items achetés");
-    console.log(productsPurchased.length);
-    // == FIN TEST ==================================================================================
 
     let newItemPurchasedContainerItem = document.createElement("div");
     newItemPurchasedContainerItem.className = "confirmation_container__order_recap--item";
@@ -130,7 +125,8 @@ for (let g = 0; g < productsPurchased.length; g++) {
 
     // ====== TEST ==================================================================================
     console.log("test n°37 : vérification des données du panier d'achat")
-    console.log(itemPriceInConf); // contrôle des prix des items dans la console
+    console.log(itemPriceInConfNumber); // contrôle des prix des items dans la console
+    console.log(typeof itemPriceInConfNumber); // doit afficher number
     // == FIN TEST ==================================================================================
 
     // ajout des données dans le tableau
@@ -139,7 +135,6 @@ for (let g = 0; g < productsPurchased.length; g++) {
     // ====== TEST ==================================================================================
     console.log("test n°38 : vérification du tableau contenant les prix des items payés")
     console.log(amountPaidArray); // contrôle des informations du tableau : données = numbers
-    console.log(typeof amountPaidArray); // retourne un objet = array
     // == FIN TEST ==================================================================================
 
 }
@@ -174,6 +169,11 @@ let newItemPurchasedContainerConfEmail = document.createElement("p");
 newItemPurchasedContainerConfMessageCont.appendChild(newItemPurchasedContainerConfEmail);
 let newItemPurchasedContainerConfEmailTextNode = document.createTextNode(contactInfos.email);
 newItemPurchasedContainerConfEmail.appendChild(newItemPurchasedContainerConfEmailTextNode);
+
+// imprimer page
+function imprimer_page() {
+    window.print();
+}
 
 // FIN manipulation du DOM =======================================================================================================
 
