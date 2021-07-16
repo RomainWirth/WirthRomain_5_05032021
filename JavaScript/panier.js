@@ -36,6 +36,10 @@ if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
     let newEmptyBasketTextNode = document.createTextNode("Votre panier est vide");
     newEmptyBasket.appendChild(newEmptyBasketTextNode);
     newSelectedItemMainContainer.appendChild(newEmptyBasket);
+
+    let elementDivPayment = document.getElementById("payment_continue");
+    elementDivPayment.style.display = "none";
+    
 } 
 // si le panier est rempli : afficher les produits dans le local storage
 else {

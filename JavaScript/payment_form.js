@@ -1,3 +1,18 @@
+// Affichage du formulaire de paiement au clic 
+
+let displayFormButton = document.getElementById("togg1");
+let formContainer = document.getElementById("payment_form_container");
+formContainer.style.display = "none";
+
+displayFormButton.addEventListener("click", function(event){
+    event.preventDefault();
+    if (getComputedStyle(formContainer).display != "none") {
+        formContainer.style.display = "none";
+    } else {
+        formContainer.style.display = "block";
+    }
+})
+
 // récupération des informations à envoyer au serveur -------------------------------------------------------------------
 
 // données requises selon les livrables :
