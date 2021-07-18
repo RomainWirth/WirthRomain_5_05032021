@@ -3,15 +3,15 @@
 const contactInfos = JSON.parse(localStorage.getItem("contact"));
 
 // ====== TEST ==================================================================================
-console.log("test N°33 : affichage du récap identité acheteur")
-console.log(contactInfos);
+console.log("test N°35 : affichage du récap identité acheteur")
+console.log(contactInfos); // vérification des données récupérées du localStorage
 // == FIN TEST ==================================================================================
 
 // infos produit
 const productsPurchased = JSON.parse(localStorage.getItem("product"));
 
 // ====== TEST ==================================================================================
-console.log("test n°34 : affichage du array des produits achetés")
+console.log("test n°36 : affichage du array des produits achetés")
 console.log(productsPurchased); // si renvoie null : tableau vide => on ne peut pas afficher cette page
 console.log(productsPurchased.length); // doit être >0 
 // == FIN TEST ==================================================================================
@@ -20,7 +20,7 @@ console.log(productsPurchased.length); // doit être >0
 const confirmationNumber = localStorage.getItem("responseId");
 
 // ====== TEST ==================================================================================
-console.log("test n°35 : affichage de l'id de confirmation du serveur")
+console.log("test n°37 : affichage de l'id de confirmation du serveur")
 console.log("conf number = " + confirmationNumber);
 // == FIN TEST ==================================================================================
 
@@ -31,9 +31,8 @@ console.log("conf number = " + confirmationNumber);
 let confirmationContainer = document.getElementById("confirmation");
 
 // ====== TEST ==================================================================================
-console.log("test n°36 : vérification du DOM");
+console.log("test n°38 : vérification du DOM");
 console.log(confirmationContainer); // doit afficher les éléments du DOM contenus dans la balise div id="confirmation"
-// NB = m'a permis de voir qu'il manquait un élément : nom et prénom d'étaient pas affichés sur la page
 // == FIN TEST ==================================================================================
 
 // création du premier élément enfant : titre
@@ -124,7 +123,7 @@ for (let g = 0; g < productsPurchased.length; g++) {
     let itemPriceInConfNumber = parseFloat(itemPriceInConf); // conversion string en number
 
     // ====== TEST ==================================================================================
-    console.log("test n°37 : vérification des données du panier d'achat")
+    console.log("test n°39 : vérification des données du panier d'achat")
     console.log(itemPriceInConfNumber); // contrôle des prix des items dans la console
     console.log(typeof itemPriceInConfNumber); // doit afficher number
     // == FIN TEST ==================================================================================
@@ -133,7 +132,7 @@ for (let g = 0; g < productsPurchased.length; g++) {
     amountPaidArray.push(itemPriceInConfNumber);
 
     // ====== TEST ==================================================================================
-    console.log("test n°38 : vérification du tableau contenant les prix des items payés")
+    console.log("test n°40 : vérification du tableau contenant les prix des items payés")
     console.log(amountPaidArray); // contrôle des informations du tableau : données = numbers
     // == FIN TEST ==================================================================================
 
@@ -144,14 +143,14 @@ let totalAmountPaid = amountPaidArray.reduce(reducer, 0);
 let totalAmountPaidShown = totalAmountPaid.toFixed(2);
 
 // ====== TEST ==================================================================================
-console.log("test n°39 : vérification du montant total de l'achat")
+console.log("test n°41 : vérification du montant total de l'achat")
 console.log("prix total à afficher : " + totalAmountPaidShown); // contrôle du calcul
 // == FIN TEST ==================================================================================
 
 let newItemPurchasedTotalPriceAmountTextNode = document.createTextNode(totalAmountPaidShown + " Euros");
 
 // ====== TEST ==================================================================================
-console.log("test n°40 : vérification de la donnée qui sera affichée sur la confirmation")
+console.log("test n°42 : vérification de la donnée qui sera affichée sur la confirmation")
 console.log(newItemPurchasedTotalPriceAmountTextNode);
 // == FIN TEST ==================================================================================
 

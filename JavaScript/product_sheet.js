@@ -20,7 +20,7 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
 
         // ====== TEST ==================================================================================
         console.log("test n°5 : vérification des données de l'API teddies pour le produit affiché")
-        console.log(teddiesData);
+        console.log(teddiesData); // retourne un tableau d'objets avec les détails des produits
         // == FIN TEST ==================================================================================
 
         // récupération des infos de l'objet teddies et déclaration en variables :
@@ -150,6 +150,8 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
         console.log(newItemInfoBuyButton); // doit afficher <a href=panier.html> dans la console
         // == FIN TEST ==================================================================================
 
+        console.log("les tests suivants n'apparaissent qu'après avoir cliqué sur le bouton \"buy now\" et affichage de la fenêtre de validation");
+
         // créer un adventListener au click et pour stocker les données et les envoyer à la page panier
         newItemInfoBuyButton.addEventListener("click", function(event){
             event.preventDefault(); // permet d'empêcher la page de se réactualiser au clic
@@ -164,6 +166,11 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             };
             const uniqueID = getUniqueID ();
 
+            // ====== TEST ==================================================================================
+            console.log("test n°10 : contrôle de l'ID unique");
+            console.log(uniqueID); // retourne dans la console l'ID au stamp de la date en ms
+            // == FIN TEST ==================================================================================
+
             // Récupération des valeurs à envoyer au panier :
             let optionsItem = { // définition de la variable contenant un objet avec les valeurs qu'on veut intégrer au panier
                 itemImageUrl: teddiesData.imageUrl,
@@ -175,9 +182,8 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             }
             
             // ====== TEST ==================================================================================
-            console.log("les tests suivants n'apparaîssent à la console que lorsque la fenêtre de conf apparaît ou si on neutralise les lignes 182 à 193")
-            console.log("test n°10 : vérification des données introduite dans la page HTML");
-            console.log(optionsItem); // vérification des données dans la console
+            console.log("test n°11 : vérification des données introduite dans la page HTML");
+            console.log(optionsItem); // affiche l'objet à destination du panier
             // == FIN TEST ==================================================================================
 
             // local storage -------------------------------------------------------------------------------------------
@@ -213,8 +219,8 @@ continuer ses achats : cliquer sur ANNULER`)) {
                 addItemLocalStorage(); // appel de la fonction d'ajout d'item dans le local storage
 
                 // ====== TEST ==================================================================================            
-                console.log("test n°11 : vérification des données présentes dans le local storage")
-                console.log(localStorageRegisteredItem); // vérification des données dans la console
+                console.log("test n°12 : vérification des données présentes dans le local storage")
+                console.log(localStorageRegisteredItem); // vérification des données dans la console et ne s'affiche que se des produits sont déjà présents dans le panier
                 // == FIN TEST ==================================================================================
 
                 popUpConf(); // appel de la fonction de fenêtre popup de confirmation
@@ -249,7 +255,7 @@ var urlParams = new URLSearchParams(queryString);
 var itemId = urlParams.get ("itemId");
 
 // ====== TEST ==================================================================================
-console.log("test n°12 : affichage de l'itemId")
+console.log("test n°13 : affichage de l'itemId")
 console.log("itemId = " + itemId); // affichage console doit correspondre à l'affichage sur la fiche produit
 // == FIN TEST ==================================================================================
 

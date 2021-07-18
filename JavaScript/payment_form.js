@@ -40,12 +40,12 @@ displayFormButton.addEventListener("click", function(event){
 const paymentFormButton = document.getElementById("payment_form_button");
 
 // ====== TEST ==================================================================================
-console.log("test n°22 : vérification de la sélection du bon élément du DOM");
+console.log("test n°23 : vérification de la sélection du bon élément du DOM");
 console.log(paymentFormButton); // vérification de la sélection du bouton dans la console
 // == FIN TEST ==================================================================================
 
 // infos sur les tests : 
-console.log("tests de 23 à 32 : s'affichent et restent dans la console quand on désactive le lien vers la page confirmation de paiement (ligne 271) + clieck du bouton \"payer\"");
+console.log("tests de 24 à 33 : s'affichent et restent dans la console quand on désactive le lien vers la page confirmation de paiement (ligne 271) + clieck du bouton \"payer\"");
 
 // === début eventListener sur le bouton d'achat =======================================================
 paymentFormButton.addEventListener ("click", function(event) { 
@@ -60,9 +60,8 @@ paymentFormButton.addEventListener ("click", function(event) {
         email: document.querySelector("#email").value
     }
 
-
     // ====== TEST ==================================================================================
-    console.log("test n°23 : page panier.html - affichage du contenu du tableau contact"); 
+    console.log("test n°24 : page panier.html - affichage du contenu du tableau contact"); 
     console.log(contact); // console log du formulaire avant envoi au serveur
     // == FIN TEST ==================================================================================
 
@@ -111,7 +110,7 @@ paymentFormButton.addEventListener ("click", function(event) {
 
 
     // fonctions de contrôle de validité des champs de saisie du formulaire ======================================================================
-    console.log("série de tests n°24 : vérification de la validité des données du formulaire");
+    console.log("série de tests n°25 : vérification de la validité des données du formulaire");
     function firstNameControl() {
         // contrôle validité prénom
         const firstNameField = contact.firstName;
@@ -191,11 +190,10 @@ paymentFormButton.addEventListener ("click", function(event) {
         let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product")); // récupération des données du local storage
 
         // ====== TEST ==================================================================================
-        console.log("test n°25 : vérification des infos du localStorage")
+        console.log("test n°26 : vérification des infos du localStorage")
         console.log(localStorageRegisteredItem); // retourne un tableau avec les éléments du panier du local storage
-        console.log(localStorageRegisteredItem.length);
+        console.log(localStorageRegisteredItem.length); // vérification de la taille du tableau avant la boucle for
         // == FIN TEST ==================================================================================
-
 
         let products = []; // tableau vide rempli par la boucle ci-dessous
         // création d'une boucle pour récupérer les itemId de chaque item puis les insérer dans un tableau
@@ -204,7 +202,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         }
 
         // ====== TEST ==================================================================================
-        console.log("test n°26 : page panier.html - contenu du tableau products (items Ids) et type de valeurs")
+        console.log("test n°27 : page panier.html - contenu du tableau products (items Ids) et type de valeurs")
         console.log(products); // vérification des info contenues dans le tableau : string de itemId
         console.log(typeof products[0]); // retourne string = le tableau est bien composé de strings
         // == FIN TEST ==================================================================================
@@ -218,7 +216,7 @@ paymentFormButton.addEventListener ("click", function(event) {
         }
 
         // ====== TEST ==================================================================================
-        console.log("text n°27 : vérification des données à envoyer au serveur");
+        console.log("text n°28 : vérification des données à envoyer au serveur");
         console.log(toSend);
         // == FIN TEST ==================================================================================
 
@@ -233,34 +231,34 @@ paymentFormButton.addEventListener ("click", function(event) {
         });
 
         // ====== TEST ==================================================================================
-        console.log("text n°28 : contrôle de promiseSend envoyé au serveur");
+        console.log("text n°29 : contrôle de promiseSend envoyé au serveur");
         console.log(promiseSend); // promise à l'état pending (ni remplie, ni rompue)
         // == FIN TEST ==================================================================================
 
         promiseSend.then(async function(response){
             try {
                 // ====== TEST ==================================================================================
-                console.log("test n°29 : vérification de la réponse du serveur");
+                console.log("test n°30 : vérification de la réponse du serveur");
                 console.log(response); // status 201 : created = une ressource à été créée + preflight
                 // == FIN TEST ==================================================================================
 
                 const content = await response.json();
 
                 // ====== TEST ==================================================================================
-                console.log("test n°30 : vérification du contenu de la réponse du serveur");
+                console.log("test n°31 : vérification du contenu de la réponse du serveur");
                 console.log(content); // réponse serveur objets contact, products et orderId
                 // == FIN TEST ==================================================================================
 
                 if (response.ok){
                     // ====== TEST ==================================================================================
-                    console.log("test n°31 : vérification de l'état de la réponse du serveur (true ou fasle)")
-                    console.log(`résultat de response.ok : ${response.ok}`); // réponse true : 
+                    console.log("test n°32 : vérification de l'état de la réponse du serveur (true ou fasle)")
+                    console.log(`résultat de response.ok : ${response.ok}`); // réponse true : ok
                     // == FIN TEST ==================================================================================
                     
                     // récupération de l'id de la réponse du serveur
                     // ====== TEST ==================================================================================
-                    console.log("test n°32 : affichage de l'id de response = utilisé pour la confirmation de commande");
-                    console.log("id de confirmation = " + content.orderId);
+                    console.log("test n°33 : affichage de l'id de response = utilisé pour la confirmation de commande");
+                    console.log("id de confirmation = " + content.orderId); // ID de confirmation de la commande
                     // == FIN TEST ==================================================================================
 
 
@@ -308,7 +306,7 @@ const contactLocalStorage = localStorage.getItem("contact");
 const contactData = JSON.parse(contactLocalStorage);
 
 // ====== TEST ==================================================================================
-console.log("test n°33 : affichage des infos \"contact\" dans la variable contactData");
+console.log("test n°34 : affichage des infos \"contact\" dans la variable contactData");
 console.log(contactData); // vérification de la const contactData
 // == FIN TEST ==================================================================================
 
@@ -319,4 +317,3 @@ document.querySelector("#address").value = contactData.address;
 document.querySelector("#city").value = contactData.city;
 document.querySelector("#email").value = contactData.email;
 // fin remplissage automatique des valeurs du formulaire stockées depuis le localStorage =========
-

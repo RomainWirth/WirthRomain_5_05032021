@@ -8,8 +8,8 @@ let localStorageRegisteredItem = JSON.parse(localStorage.getItem("product"));
 // JSON.parse permet de convertir les données du format JSON dans le local storage en objet JavaScript
 
 // ====== TEST ==================================================================================
-console.log("test n°13 : affichage des items récupérés du local storage");
-console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null
+console.log("test n°14 : affichage des items récupérés du local storage");
+console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de clé dans le local storage : null / sinon retourne le tableau avec les données du local storage
 // == FIN TEST ==================================================================================
 
 
@@ -18,7 +18,7 @@ console.log(localStorageRegisteredItem); // vérification qu'il n'y ait pas de c
 let newSelectedItemMainContainer = document.getElementById("Selection_Item_Container");
 
 // ====== TEST ==================================================================================
-console.log("test n°14 : affichage des éléments du DOM");
+console.log("test n°15 : affichage des éléments du DOM");
 console.log(newSelectedItemMainContainer); // affiche la div id="Selection_Item_Container" et les éléments enfants injectés dans le DOM
 // == FIN TEST ==================================================================================
 
@@ -27,7 +27,7 @@ console.log(newSelectedItemMainContainer); // affiche la div id="Selection_Item_
 if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
 
     // ====== TEST ==================================================================================
-    console.log("test n°15.1 : affiche l'état du panier");
+    console.log("test n°16.1 : affiche l'état du panier");
     console.log("panier vide");
     // == FIN TEST ==================================================================================
 
@@ -46,13 +46,13 @@ if (localStorageRegisteredItem === null || localStorageRegisteredItem == 0) {
 else {
 
     // ====== TEST ==================================================================================
-    console.log("test n°15.2 : affiche l'état du panier"); // 10.2 remplace 10.1 selon l'état du panier
+    console.log("test n°16.2 : affiche l'état du panier"); // 10.2 remplace 10.1 selon l'état du panier
     console.log("panier rempli");
     // == FIN TEST ==================================================================================
 
     // ====== TEST ==================================================================================
-    console.log("test n°16 : affichage du nombre d'items dans le tableau")
-    console.log(localStorageRegisteredItem.length);
+    console.log("test n°17 : affichage du nombre d'items dans le tableau")
+    console.log(localStorageRegisteredItem.length); // contrôle de la taille du tableau pour l'exécution de la boucle for
     // == FIN TEST ==================================================================================
 
     // boucle for pour ajouter les éléments enregistrés dans le localStorage : variable récupérée de la page product_sheet
@@ -120,14 +120,14 @@ else {
         let btnSupprimer = document.querySelectorAll(".selection__item--suppress");
 
         // ====== TEST ==================================================================================
-        console.log("test n° 17 : affiche tous les boutons \"supprimer\"");
+        console.log("test n° 18 : affiche tous les boutons \"supprimer\"");
         console.log(btnSupprimer); // NodeList créé dans la console
         // == FIN TEST ==================================================================================
 
         let currentOrder = JSON.parse(localStorage.getItem("product")); // déclaration de variable récupérant les données du localStorage key "product"
                 
         // ====== TEST ==================================================================================
-        console.log("test n° 18 : affiche le tableau des éléments du localStorage avec la clé \"product\"");
+        console.log("test n° 19 : affiche le tableau des éléments du localStorage avec la clé \"product\"");
         console.log(currentOrder); // retourne un array issu du localStorage
         // == FIN TEST ==================================================================================
 
@@ -161,7 +161,7 @@ else {
     // création d'une variable avec un array vide 
     let totalPriceArray = [];
 
-    console.log("test n°19 : contrôle du prix de chaque item"); // intitulé du test dans la boucle for
+    console.log("test n°20 : contrôle du prix de chaque item"); // intitulé du test dans la boucle for
 
     for (let k = 0; k < localStorageRegisteredItem.length; k++) {
         let itemPriceInBasket = localStorageRegisteredItem[k].itemPrice;
@@ -176,7 +176,7 @@ else {
     }
 
     // ====== TEST ==================================================================================
-    console.log("test n°20 : contrôle du prix de chaque item");
+    console.log("test n°21 : contrôle du prix de chaque item");
     console.log(totalPriceArray); // contrôle des informations du tableau qui regroupe les valeurs de chaque item
     // == FIN TEST ==================================================================================
 
@@ -185,7 +185,7 @@ else {
     let totalPrice = totalPriceArray.reduce(reducer, 0);
 
     // ====== TEST ==================================================================================
-    console.log("test n°21 : contrôle du calcul du montant total du panier");
+    console.log("test n°22 : contrôle du calcul du montant total du panier");
     console.log(totalPrice); // contrôle du calcul
     // == FIN TEST ==================================================================================
 
