@@ -45,7 +45,7 @@ console.log(paymentFormButton); // vérification de la sélection du bouton dans
 // == FIN TEST ==================================================================================
 
 // infos sur les tests : 
-console.log("tests de 24 à 33 : s'affichent et restent dans la console quand on désactive le lien vers la page confirmation de paiement (ligne 271) + clieck du bouton \"payer\"");
+console.log("tests de 24 à 33 : s'affichent et restent dans la console quand on désactive le lien vers la page confirmation de paiement (ligne 269) + clieck du bouton \"payer\"");
 
 // === début eventListener sur le bouton d'achat =======================================================
 paymentFormButton.addEventListener ("click", function(event) { 

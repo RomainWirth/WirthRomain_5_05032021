@@ -124,9 +124,36 @@ fetch(createProductSheetUrl) // fetch sur tous les éléments de l'objet : teddi
             newColorChoicesSelection.appendChild(el);
         } 
 
-        // création du bouton d'achat 
+
+
+        // création conteneur du bouton d'achat 
         let newItemInfoBuyButtonContainer = document.createElement("div");
         newItemInfoBuyButtonContainer.className = "product_sheet__details--buy-now";
+
+        // sélection de la quantité
+        // création d'une case pour sélectionner la quantié
+        // let newQuantitySelectCont = document.createElement("div");
+        // newQuantitySelectCont.className = "quantity_select_cont";
+        // let newQuantitySelectForm = document.createElement("form");
+        // newQuantitySelectForm.className = "quantity_select_form";
+        // let newQuantitySelectLabel = document.createElement("label");
+        // newQuantitySelectLabel.setAttribute("for", "quantity_select_choice");
+        // let newQuantitySelectLabelTextNode = document.createTextNode("Quantité");
+        // let newQuantitySelectChoice = document.createElement("input");
+        // newQuantitySelectChoice.id = "quantity_select_choice";
+        // newQuantitySelectChoice.setAttribute("type", "number");
+        // newQuantitySelectChoice.setAttribute("value", "1");
+        // newQuantitySelectChoice.min = "1";
+        // newItemInfoBuyButtonContainer.appendChild(newQuantitySelectCont);
+        // newQuantitySelectCont.appendChild(newQuantitySelectLabel);
+        // newQuantitySelectLabel.appendChild(newQuantitySelectLabelTextNode);
+        // newQuantitySelectCont.appendChild(newQuantitySelectForm);
+        // newQuantitySelectForm.appendChild(newQuantitySelectChoice);
+
+        // const QuantitySelected = newQuantitySelectChoice.value;
+        // console.log(QuantitySelected);
+
+        // création du bouton d'achat 
         let newItemInfoBuyButton = document.createElement("a");
         newItemInfoBuyButton.setAttribute("href", "panier.html");
         let newItemInfoBuyNowButton = document.createElement("p");
